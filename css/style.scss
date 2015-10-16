@@ -1,0 +1,148 @@
+/* Общие настройки */
+body{
+  a{
+    color: #337AB7;
+    &:hover{
+      text-decoration: none;
+      color: #245681;
+    }
+  }
+}
+header {
+  .navbar-inverse{
+    background-image: linear-gradient(to top, #13243b 0px, #000 100%);
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    .navbar-nav{
+      margin: 0;
+      text-align: center;
+      li{
+        a{
+          color: #337AB7;
+          font-size: 22px;
+        }
+      }
+    }
+    #authorization-form{
+      margin-right: 0;
+      margin-left: 0;
+      text-align: center;
+      input{
+        text-align: center;
+      }
+    }
+  }
+}
+#sidebar {
+  background-image: linear-gradient(to top, #13243b 0px, #000 100%);
+  overflow: hidden;
+  color: #fff;
+  ul {
+    list-style: none;
+    li {
+      border-top: solid 1px #787878;
+      padding: 10px 0 10px 0;
+      &:first-of-type{
+        padding-top: 0;
+        border-top: 0;
+      }
+    }
+  }
+}
+#content {
+  overflow: hidden;
+}
+#page .section-list {
+  padding-left: 0;
+  list-style: none;
+  li {
+    padding: 25px 0 25px 0;
+    clear: both;
+  }
+}
+.box{
+  img {
+    margin: 0 20px 0 0;
+    border: solid 1px #e3e3e3;
+  }
+  table {
+    border-collapse:collapse;
+  }
+  table, th, td {
+    border: 1px solid #787878;
+    padding: 5px;
+  }
+}
+footer {
+  color: #fff;
+  background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
+  #copyright{
+    text-align: center;
+  }
+}
+
+/* Главная */
+.main-content{
+  background: url("../images/bg_main_content.jpg") no-repeat center center / cover;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  h1{
+    text-align: center;
+  }
+  p{
+    font-size: 16px;
+  }
+}
+
+/* Новости */
+.news-content, .news_item-content{
+  .news-box{
+    padding: 0 15px 15px 15px;
+    margin-bottom: 25px;
+    border: 1px solid #000;
+    box-shadow: 0 0 1px #000;
+    .news-title{
+      text-align: center;
+      box-shadow: 0 0 1px #000;
+      text-shadow: 1px 1px 1px #000;
+      margin: 0 0 15px 0;
+      padding: 5px;
+    }
+    a{
+      text-shadow: 1px 1px 1px #000;
+    }
+  }
+}
+
+/* Услуги */
+.service-content{}
+
+/* Портфолио */
+.portfolio-content{
+  table, tr, td{
+    border: 1px double #000;
+    padding: 5px;
+  }
+  table{
+    tr{
+      &:first-of-type{
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* Контакты */
+.contacts-content{
+  #contact-box{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+/* Общие настройки для страниц */
+.main-content, .news-content, .news_item-content, .service-content, .portfolio-content, .contacts-content{
+  padding: 15px;
+}
