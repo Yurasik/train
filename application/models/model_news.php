@@ -11,13 +11,16 @@ class Model_News extends Model
 
     public function getData()
     {
-        $data = $this->select('news');
+        $columns = 'id, title, description';
+        $data = $this->select($this->table, $columns);
         return $data;
     }
 
     public function getDataById($id)
     {
-        $data = $this->selectById($this->table, $id);
+        $columns = 'id, title, full_text';
+        $where = $id;
+        $data = $this->selectById($this->table, $columns, $where);
         return $data;
     }
 }

@@ -2,6 +2,15 @@
 
 class Model
 {
+	/*
+		Модель обычно включает методы выборки данных, это могут быть:
+			> методы нативных библиотек pgsql или mysql;
+			> методы библиотек, реализующих абстракицю данных. Например, методы библиотеки PEAR MDB2;
+			> методы ORM;
+			> методы для работы с NoSQL;
+			> и др.
+	*/
+
 	// метод выборки данных
 	public function get_data()
 	{
@@ -29,16 +38,16 @@ class Model
 		return $result;
 	}
 
-	public function select($table)
+	public function select($table, $columns)
 	{
-		$sql = "SELECT * FROM $table";
+		$sql = "SELECT $columns FROM $table";
 		$result = $this->connect()->query($sql);
 		return $this->getAssoc($result);
 	}
 
-	public function selectById($table, $id)
+	public function selectById($table, $columns, $where)
 	{
-		$sql = "SELECT * FROM $table WHERE id='$id'";
+		$sql = "SELECT $columns FROM $table WHERE id='$where'";
 		$result = $this->connect()->query($sql);
 		return $this->getAssoc($result);
 	}
