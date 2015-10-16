@@ -103,11 +103,13 @@ footer {
     border: 1px solid #000;
     box-shadow: 0 0 1px #000;
     .news-title{
+      background-image: linear-gradient(to top, #13243b 0px, #000 100%);
       text-align: center;
       box-shadow: 0 0 1px #000;
       text-shadow: 1px 1px 1px #000;
       margin: 0 0 15px 0;
       padding: 5px;
+      color: #E38D13;;
     }
     a{
       text-shadow: 1px 1px 1px #000;

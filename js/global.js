@@ -4,12 +4,16 @@ $(document).ready(function() {
     var sidebar = $('#sidebar'),
         content = $('#content'),
         pageHeight = $(window).height() - $('header').outerHeight() - $('footer').outerHeight(),
-        contentHeight = content.outerHeight();
+        contentHeight = content.outerHeight(),
+        bodyWidth = $('body').outerWidth();
         content.css("min-height", pageHeight);
         if(contentHeight > pageHeight){
             sidebar.css("min-height", contentHeight);
         } else {
             sidebar.css("min-height", pageHeight);
+        }
+        if(bodyWidth < 767){
+            sidebar.css("min-height", 0);
         }
 
     $(window).resize(function(){
