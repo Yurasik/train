@@ -2,16 +2,11 @@
 
 class Model
 {
-	/*
-		Модель обычно включает методы выборки данных, это могут быть:
-			> методы нативных библиотек pgsql или mysql;
-			> методы библиотек, реализующих абстракицю данных. Например, методы библиотеки PEAR MDB2;
-			> методы ORM;
-			> методы для работы с NoSQL;
-			> и др.
-	*/
+	public function redirect($link)
+	{
+		header('Location: '.$link);
+	}
 
-	// метод выборки данных
 	public function get_data()
 	{
 		// todo
@@ -50,5 +45,31 @@ class Model
 		$sql = "SELECT $columns FROM $table WHERE id='$where'";
 		$result = $this->connect()->query($sql);
 		return $this->getAssoc($result);
+	}
+
+	public function insert($table, $values, $newValues)
+	{
+		$sql = "INSERT INTO $table (";
+		$countValues = count($values);
+		for($i = 0; $i < $countValues; $i++){
+			if(isset($values[$i+1])){
+				$sql .= $values[$i].',';
+			} else {
+				$sql .= $values[$i];
+			}
+
+		}
+		$sql .= ") VALUES (";
+		$countNewValues = count($newValues);
+		for($i = 0; $i < $countNewValues;$i++){
+			if(isset($newValues[$i+1])){
+				$sql .= "'$newValues[$i]'".',';
+			} else {
+				$sql .= "'$newValues[$i]'";
+			}
+		}
+		$sql .= ");";
+		$result = $this->connect()->query($sql);
+		return $result;
 	}
 }

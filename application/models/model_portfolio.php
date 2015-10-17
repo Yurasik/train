@@ -11,7 +11,8 @@ class Model_Portfolio extends Model
 
 	public function getData()
 	{
-		$data = $this->select($this->table);
+		$columns = 'year, url, description';
+		$data = $this->select($this->table, $columns);
 		return $data;
 	}
 

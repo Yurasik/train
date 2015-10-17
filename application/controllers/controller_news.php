@@ -1,6 +1,6 @@
 <?php
 
-class Controller_news extends Controller
+class Controller_News extends Controller
 {
     function __construct()
     {

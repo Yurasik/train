@@ -37,19 +37,8 @@
                     <li><a href="/contacts">Контакты</a></li>
                 </ul>
                 <!-- Форма авторизации пользователей -->
-                <form id="authorization-form" action="" class="navbar-form navbar-right" method="post">
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email" value=""/>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" value=""/>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fa fa-sign-in"></i> Войти
-                    </button>
-                    <button formaction="" class="btn btn-warning">
-                        <i class="fa fa-user"></i> Регистрация
-                    </button>
-                </form>
+                <div id="users-box" class="navbar-form navbar-right">
+                    <a href="/users" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход </a>
+                </div>
             </div>
         </header>

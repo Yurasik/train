@@ -9,6 +9,7 @@ class Route
 {
 	static function start()
 	{
+		session_start();
 		// контроллер и действие по умолчанию
 		$controllerName = 'Main';
 		$actionName = 'index';
@@ -76,7 +77,7 @@ class Route
 		if(method_exists($controller, $action))
 		{
 			// вызываем действие контроллера
-			if(isset($id)){
+			if(isset($id) && $id != ''){
 				$controller->$action($id);
 			} else {
 				$controller->$action();
