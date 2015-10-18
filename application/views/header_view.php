@@ -6,24 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content='' />
         <meta name="keywords" content='' />
-        <!-- Styles -->
+
         <link rel='stylesheet' type='text/css' href='/css/style.css' />
         <link rel='stylesheet' type='text/css' href='/fonts/fonts.css' />
         <link rel='stylesheet' type='text/css' href='/css/font-awesome.css' />
-        <!-- End Styles -->
+        <link rel='stylesheet' href='/css/bootstrap.css'>
+        <link rel='stylesheet' href='/css/bootstrap-theme.css'>
 
-        <!-- Scripts -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="/js/jquery-2.1.3.min.js"></script>
+        <script src='/js/bootstrap.min.js'></script>
         <script src='/js/global.js' type='text/javascript'></script>
-        <!-- Bootstrap -->
-            <!-- Latest compiled and minified CSS -->
-            <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-            <!-- Optional theme -->
-            <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'>
-            <!-- Latest compiled and minified JavaScript -->
-            <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-        <!-- End Bootstrap -->
-        <!-- End Scripts -->
+
         <title>Web-Dealer</title>
     </head>
     <body>
@@ -36,9 +29,15 @@
                     <li><a href="/portfolio">Портфолио</a></li>
                     <li><a href="/contacts">Контакты</a></li>
                 </ul>
-                <!-- Форма авторизации пользователей -->
                 <div id="users-box" class="navbar-form navbar-right">
-                    <a href="/users" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход </a>
+                    <?php if(isset($_SESSION['login'])){ ?>
+                        <p id="wellcome-text">
+                            Приветствуем, <b><?php echo $_SESSION['login'] ?></b>
+                            <a href="/users/logout"><i class="fa fa-sign-out"></i> Выйти </a>
+                        </p>
+                    <?php } else {?>
+                        <a href="/users/login" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход </a>
+                    <?php } ?>
                 </div>
             </div>
         </header>

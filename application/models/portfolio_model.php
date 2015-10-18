@@ -1,6 +1,6 @@
 <?php
 
-class Model_Portfolio extends Model
+class Portfolio_Model extends Model
 {
 	protected $table;
 

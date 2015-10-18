@@ -1,15 +1,15 @@
 <?php
 
-class Controller_Portfolio extends Controller
+class Portfolio_Controller extends Controller
 {
 	function __construct()
 	{
-		$this->model = new Model_Portfolio();
+		$this->model = new Portfolio_Model();
 		$this->content_view = 'portfolio_view.php';
 		parent::__construct();
 	}
 	
-	public function action_index()
+	public function index_action()
 	{
 		$data = $this->model->getData();
 		$this->view->generate($this->content_view, $data);

@@ -28,6 +28,8 @@ header .navbar-inverse {
     text-align: center; }
     header .navbar-inverse #users-box a {
       outline: none; }
+    header .navbar-inverse #users-box #wellcome-text {
+      color: #fff; }
 
 #sidebar {
   background-image: linear-gradient(to top, #13243b 0px, #000 100%);
@@ -68,6 +70,14 @@ footer {
     text-align: center; }
     footer #copyright a {
       outline: none; }
+
+/* 404 */
+.page404-page {
+  background: url("../images/bg_main_content.jpg") no-repeat center center/cover;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000; }
 
 /* Главная */
 .main-content {
@@ -114,19 +124,28 @@ footer {
   padding-top: 15px;
   padding-bottom: 15px; }
 
-/* Персональная страница */
-.personal-page .personal-content .users-form-box form {
+/* Авторизация */
+.users-page .users-content .users-form-box form {
   background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 3px #000; }
-  .personal-page .personal-content .users-form-box form h4 {
+  .users-page .users-content .users-form-box form h3 {
     color: #fff;
     text-align: center; }
-  .personal-page .personal-content .users-form-box form input {
+  .users-page .users-content .users-form-box form label {
+    color: #fff;
+    font-size: 10px; }
+  .users-page .users-content .users-form-box form input {
     width: 100%; }
-  .personal-page .personal-content .users-form-box form button {
+  .users-page .users-content .users-form-box form button {
+    outline: none;
+    min-width: 50%; }
+  .users-page .users-content .users-form-box form a {
+    margin-top: 10px;
     outline: none; }
+.users-page .users-content .users-form-box #authorization_info {
+  color: #fff; }
 
 /* Общие настройки для страниц */
 .main-content, .news-content, .news_item-content, .service-content, .portfolio-content, .contacts-content {

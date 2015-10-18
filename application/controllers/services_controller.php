@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Services extends Controller
+class Services_Controller extends Controller
 {
 	function __construct()
 	{
@@ -8,7 +8,7 @@ class Controller_Services extends Controller
 		parent::__construct();
 	}
 
-	function action_index()
+	function index_action()
 	{
 		$this->view->generate($this->content_view);
 	}

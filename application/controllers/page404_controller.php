@@ -1,16 +1,17 @@
 <?php
 
-class Controller_Contacts extends Controller
+class page404_Controller extends Controller
 {
 	function __construct()
 	{
-		$this->content_view = 'contacts_view.php';
+		$this->content_view = 'page404_view.php';
 		parent::__construct();
 	}
 
-	function action_index()
+	function index_action()
 	{
 		$this->view->sidebar = false;
 		$this->view->generate($this->content_view);
 	}
+
 }

@@ -36,6 +36,9 @@ header {
       a{
         outline: none;
       }
+      #wellcome-text{
+        color: #fff;
+      }
     }
   }
 }
@@ -88,6 +91,15 @@ footer {
       outline: none;
     }
   }
+}
+
+/* 404 */
+.page404-page{
+  background: url("../images/bg_main_content.jpg") no-repeat center center / cover;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
 }
 
 /* Главная */
@@ -159,25 +171,37 @@ footer {
   }
 }
 
-/* Персональная страница */
-.personal-page{
-  .personal-content{
+/* Авторизация */
+.users-page{
+  .users-content{
     .users-form-box{
       form{
         background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 0 3px #000;
-        h4{
+        h3{
           color: #fff;
           text-align: center;
+        }
+        label{
+          color: #fff;
+          font-size: 10px;
         }
         input{
           width: 100%;
         }
         button{
           outline: none;
+          min-width: 50%;
         }
+        a{
+          margin-top: 10px;
+          outline: none;
+        }
+      }
+      #authorization_info{
+        color: #fff;
       }
     }
   }

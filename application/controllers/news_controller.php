@@ -1,24 +1,24 @@
 <?php
 
-class Controller_News extends Controller
+class News_Controller extends Controller
 {
     function __construct()
     {
-        $this->model = new Model_News();
+        $this->model = new News_Model();
         $this->content_view = 'news_view.php';
         parent::__construct();
     }
 
-    function action_index()
+    function index_action()
     {
-        $data = $this->model->getData();
+        $data = $this->model->getNews();
         $this->view->generate($this->content_view, $data);
     }
 
-    function action_news_item($id)
+    function news_item_action()
     {
         $this->content_view = 'news_item_view.php';
-        $data = $this->model->getDataById($id);
+        $data = $this->model->getNewsItem($this->model->request('id'));
         $this->view->generate($this->content_view, $data);
     }
 }

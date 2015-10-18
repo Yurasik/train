@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Main extends Controller
+class Main_Controller extends Controller
 {
 	function __construct()
 	{
@@ -8,7 +8,7 @@ class Controller_Main extends Controller
 		parent::__construct();
 	}
 
-	function action_index()
+	function index_action()
 	{
 		$this->view->sidebar = false;
 		$this->view->generate($this->content_view);

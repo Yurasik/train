@@ -14,14 +14,8 @@ class Route
 		$controllerName = 'Main';
 		$actionName = 'index';
 
-		if(strpos($_SERVER['REQUEST_URI'], '?') === false){
-			$routes = explode('/', $_SERVER['REQUEST_URI']);
-		} else {
-			$explodeForTrimId = explode('?', $_SERVER['REQUEST_URI']);
-			$removeId = explode('=', $explodeForTrimId[1]);
-			$id = $removeId[1];
-			$routes = explode('/', $explodeForTrimId[0]);
-		}
+		$forExplode = explode('?', $_SERVER['REQUEST_URI']);
+		$routes = explode('/', $forExplode[0]);
 
 		// получаем имя контроллера
 		if(!empty($routes[1]))
@@ -36,9 +30,9 @@ class Route
 		}
 
 		// добавляем префиксы
-		$modelName = 'Model_'.$controllerName;
-		$controllerName = 'Controller_'.$controllerName;
-		$actionName = 'action_'.$actionName;
+		$modelName = $controllerName.'_Model';
+		$controllerName = $controllerName.'_Controller';
+		$actionName = $actionName.'_action';
 
 		/*
 		echo "Model: $modelName <br>";
@@ -77,11 +71,7 @@ class Route
 		if(method_exists($controller, $action))
 		{
 			// вызываем действие контроллера
-			if(isset($id) && $id != ''){
-				$controller->$action($id);
-			} else {
-				$controller->$action();
-			}
+			$controller->$action();
 		}
 		else
 		{
@@ -96,7 +86,7 @@ class Route
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
-		header('Location:'.$host.'404');
+		header('Location:'.$host.'page404');
     }
     
 }
