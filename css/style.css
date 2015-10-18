@@ -124,27 +124,27 @@ footer {
   padding-top: 15px;
   padding-bottom: 15px; }
 
-/* Авторизация */
-.users-page .users-content .users-form-box form {
+/* Регистрация и авторизация */
+.users-form-box .navbar-form {
   background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 3px #000; }
-  .users-page .users-content .users-form-box form h3 {
+  .users-form-box .navbar-form h4 {
     color: #fff;
     text-align: center; }
-  .users-page .users-content .users-form-box form label {
+  .users-form-box .navbar-form label {
     color: #fff;
     font-size: 10px; }
-  .users-page .users-content .users-form-box form input {
+  .users-form-box .navbar-form input {
     width: 100%; }
-  .users-page .users-content .users-form-box form button {
+  .users-form-box .navbar-form button {
     outline: none;
     min-width: 50%; }
-  .users-page .users-content .users-form-box form a {
+  .users-form-box .navbar-form a {
     margin-top: 10px;
     outline: none; }
-.users-page .users-content .users-form-box #authorization_info {
+.users-form-box #login_info {
   color: #fff; }
 
 /* Общие настройки для страниц */

@@ -171,39 +171,37 @@ footer {
   }
 }
 
-/* Авторизация */
-.users-page{
-  .users-content{
-    .users-form-box{
-      form{
-        background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 0 3px #000;
-        h3{
-          color: #fff;
-          text-align: center;
-        }
-        label{
-          color: #fff;
-          font-size: 10px;
-        }
-        input{
-          width: 100%;
-        }
-        button{
-          outline: none;
-          min-width: 50%;
-        }
-        a{
-          margin-top: 10px;
-          outline: none;
-        }
-      }
-      #authorization_info{
-        color: #fff;
-      }
+/* Регистрация и авторизация */
+.authorization-page{}
+.register-page{}
+.users-form-box{
+  .navbar-form{
+    background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #000;
+    h4{
+      color: #fff;
+      text-align: center;
     }
+    label{
+      color: #fff;
+      font-size: 10px;
+    }
+    input{
+      width: 100%;
+    }
+    button{
+      outline: none;
+      min-width: 50%;
+    }
+    a{
+      margin-top: 10px;
+      outline: none;
+    }
+  }
+  #login_info{
+    color: #fff;
   }
 }
 

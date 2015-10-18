@@ -2,32 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e735ec2e-4df9-484a-b8dd-3423283f6d39" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/page404_controller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/page404_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/users_controller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/users_model.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/users_view.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/controller_404.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/controller_users.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/model_users.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/404_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/personal_view.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/controllers/controller_contacts.php" afterPath="$PROJECT_DIR$/application/controllers/contacts_controller.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/controllers/controller_main.php" afterPath="$PROJECT_DIR$/application/controllers/main_controller.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/controllers/controller_news.php" afterPath="$PROJECT_DIR$/application/controllers/news_controller.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/controllers/controller_portfolio.php" afterPath="$PROJECT_DIR$/application/controllers/portfolio_controller.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/controllers/controller_services.php" afterPath="$PROJECT_DIR$/application/controllers/services_controller.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/models/model_news.php" afterPath="$PROJECT_DIR$/application/models/news_model.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/models/model_portfolio.php" afterPath="$PROJECT_DIR$/application/models/portfolio_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Controller.php" afterPath="$PROJECT_DIR$/application/core/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Model.php" afterPath="$PROJECT_DIR$/application/core/Model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Route.php" afterPath="$PROJECT_DIR$/application/core/Route.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header_view.php" afterPath="$PROJECT_DIR$/application/views/header_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/page_view.php" afterPath="$PROJECT_DIR$/application/views/page_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/register_view.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/views/users_view.php" afterPath="$PROJECT_DIR$/application/views/authorization_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css.map" afterPath="$PROJECT_DIR$/css/style.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.scss" afterPath="$PROJECT_DIR$/css/style.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/users_controller.php" afterPath="$PROJECT_DIR$/application/controllers/users_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/users_model.php" afterPath="$PROJECT_DIR$/application/models/users_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mvc.zz.iws" />
@@ -49,7 +30,99 @@
     <favorites_list name="mvc.zz" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="users_controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/users_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.0">
+              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.962963">
+              <caret line="182" column="6" selection-start-line="182" selection-start-column="6" selection-end-line="182" selection-end-column="6" />
+              <folding>
+                <element signature="e#28#46#0" expanded="false" />
+                <element signature="e#57#178#0" expanded="false" />
+                <element signature="e#62#176#0" expanded="false" />
+                <element signature="e#114#172#0" expanded="false" />
+                <element signature="e#186#712#0" expanded="false" />
+                <element signature="e#205#710#0" expanded="false" />
+                <element signature="e#355#522#0" expanded="false" />
+                <element signature="e#408#516#0" expanded="false" />
+                <element signature="e#419#508#0" expanded="false" />
+                <element signature="e#537#706#0" expanded="false" />
+                <element signature="e#617#649#0" expanded="false" />
+                <element signature="e#670#700#0" expanded="false" />
+                <element signature="e#722#1022#0" expanded="false" />
+                <element signature="e#833#1020#0" expanded="false" />
+                <element signature="e#864#1016#0" expanded="false" />
+                <element signature="e#954#1010#0" expanded="false" />
+                <element signature="e#1032#1055#0" expanded="false" />
+                <element signature="e#1076#1174#0" expanded="false" />
+                <element signature="e#1122#1172#0" expanded="false" />
+                <element signature="e#1179#1364#0" expanded="false" />
+                <element signature="e#1187#1247#0" expanded="false" />
+                <element signature="e#1256#1291#0" expanded="false" />
+                <element signature="e#1308#1362#0" expanded="false" />
+                <element signature="e#1372#1538#0" expanded="false" />
+                <element signature="e#1473#1536#0" expanded="false" />
+                <element signature="e#1504#1532#0" expanded="false" />
+                <element signature="e#1563#1739#0" expanded="false" />
+                <element signature="e#1768#1967#0" expanded="false" />
+                <element signature="e#1906#1935#0" expanded="false" />
+                <element signature="e#1939#1965#0" expanded="false" />
+                <element signature="e#2016#2521#0" expanded="false" />
+                <element signature="e#2029#2519#0" expanded="false" />
+                <element signature="e#2160#2403#0" expanded="false" />
+                <element signature="e#2409#2453#0" expanded="false" />
+                <element signature="e#2468#2515#0" expanded="false" />
+                <element signature="e#2477#2509#0" expanded="false" />
+                <element signature="e#2590#2870#0" expanded="false" />
+                <element signature="e#2607#2659#0" expanded="false" />
+                <element signature="e#2667#2868#0" expanded="false" />
+                <element signature="e#2675#2864#0" expanded="false" />
+                <element signature="e#2698#2858#0" expanded="false" />
+                <element signature="e#2904#2976#0" expanded="false" />
+                <element signature="e#2920#2974#0" expanded="false" />
+                <element signature="e#3298#3347#0" expanded="false" />
+                <element signature="e#3357#3383#0" expanded="false" />
+                <element signature="e#3394#3444#0" expanded="false" />
+                <element signature="e#3450#3502#0" expanded="false" />
+                <element signature="e#3520#3542#0" expanded="false" />
+                <element signature="e#3685#3705#0" expanded="false" />
+                <element signature="e#3722#3740#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authorization_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/authorization_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.0">
+              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register_view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/register_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.06214039">
+              <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,7 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/register_view.php" />
         <option value="$PROJECT_DIR$/application/core/Config.php" />
         <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/application/core/Request.php" />
@@ -67,7 +139,6 @@
         <option value="$PROJECT_DIR$/application/models/model_users.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_users.php" />
         <option value="$PROJECT_DIR$/application/views/personal_view.php" />
-        <option value="$PROJECT_DIR$/application/views/authorization_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_authorization.php" />
         <option value="$PROJECT_DIR$/application/views/404_view.php" />
         <option value="$PROJECT_DIR$/application/views/page_view.php" />
@@ -96,11 +167,13 @@
         <option value="$PROJECT_DIR$/application/core/Model.php" />
         <option value="$PROJECT_DIR$/application/controllers/login_controller.php" />
         <option value="$PROJECT_DIR$/application/models/login_model.php" />
-        <option value="$PROJECT_DIR$/application/models/users_model.php" />
         <option value="$PROJECT_DIR$/application/views/users_view.php" />
         <option value="$PROJECT_DIR$/application/views/header_view.php" />
-        <option value="$PROJECT_DIR$/css/style.scss" />
+        <option value="$PROJECT_DIR$/application/models/users_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/users_controller.php" />
+        <option value="$PROJECT_DIR$/css/style.scss" />
+        <option value="$PROJECT_DIR$/application/views/authorization_view.php" />
+        <option value="$PROJECT_DIR$/application/views/register_view.php" />
       </list>
     </option>
   </component>
@@ -305,14 +378,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="24" width="1873" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2509589" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2509589" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -362,7 +435,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/users_view.php">
+    <entry file="file://$PROJECT_DIR$/application/views/authorization_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -569,10 +642,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78711164">
+          <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/main_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.041426927">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08285385">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/users_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.0">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62140393">
-          <caret line="175" column="8" selection-start-line="175" selection-start-column="8" selection-end-line="175" selection-end-column="8" />
+        <state vertical-scroll-proportion="-20.962963">
+          <caret line="182" column="6" selection-start-line="182" selection-start-column="6" selection-end-line="182" selection-end-column="6" />
           <folding>
             <element signature="e#28#46#0" expanded="false" />
             <element signature="e#57#178#0" expanded="false" />
@@ -617,55 +722,29 @@
             <element signature="e#2698#2858#0" expanded="false" />
             <element signature="e#2904#2976#0" expanded="false" />
             <element signature="e#2920#2974#0" expanded="false" />
-            <element signature="e#3058#3580#0" expanded="false" />
-            <element signature="e#3234#3298#0" expanded="false" />
-            <element signature="e#3312#3373#0" expanded="false" />
-            <element signature="e#3387#3421#0" expanded="false" />
-            <element signature="e#3436#3498#0" expanded="false" />
-            <element signature="e#3508#3572#0" expanded="false" />
-            <element signature="e#3606#3636#0" expanded="false" />
-            <element signature="e#3789#3809#0" expanded="false" />
-            <element signature="e#3826#3844#0" expanded="false" />
+            <element signature="e#3298#3347#0" expanded="false" />
+            <element signature="e#3357#3383#0" expanded="false" />
+            <element signature="e#3394#3444#0" expanded="false" />
+            <element signature="e#3450#3502#0" expanded="false" />
+            <element signature="e#3520#3542#0" expanded="false" />
+            <element signature="e#3685#3705#0" expanded="false" />
+            <element signature="e#3722#3740#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/users_controller.php">
+    <entry file="file://$PROJECT_DIR$/application/views/authorization_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26927504">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        <state vertical-scroll-proportion="-2.0">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
+    <entry file="file://$PROJECT_DIR$/application/views/register_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06214039">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/users_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10356732">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78711164">
-          <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/main_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041426927">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
           <folding />
         </state>
       </provider>

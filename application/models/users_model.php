@@ -2,7 +2,7 @@
 
 class Users_Model extends Model
 {
-    public function Authorization()
+    public function authorization()
     {
         $login = $this->request('login');
         if($this->existUser($login)){
