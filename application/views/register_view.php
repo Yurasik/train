@@ -4,7 +4,7 @@
             <h4>Регстрация пользователя:</h4>
             <label for="login">Login:</label>
             <p><input type="text" class="form-control" name="login"/></p>
-            <label for="email">Login:</label>
+            <label for="email">Email:</label>
             <p><input type="email" class="form-control" name="email"/></p>
             <label for="password">Password:</label>
             <p><input type="password" class="form-control" name="password"/></p>

@@ -2,6 +2,13 @@
 
 class Model
 {
+    protected $config;
+
+    function __construct()
+    {
+        $this->config = new Config();
+    }
+
     public function redirect($link)
 	{
 		header('Location: '.$link);
@@ -85,9 +92,32 @@ class Model
         return (null == $result)? false : true;
     }
 
+    protected function existEmail($email)
+    {
+        $result = $this->select('users', 'email', array('login' => $email));
+        return (null == $result)? false : true;
+    }
+
     protected function checkPassword($login, $password)
     {
         $result = $this->select('users', 'password', array('login' => $login));
         return ($result[0]['password'] != $password)? false : true;
+    }
+
+    protected function validEmail($email){
+        return (!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i", $email))? false : true;
+    }
+
+    protected function validLogin($login){
+        if($this->isContainQuotes($login)) return false;
+        return(!preg_match("/^[a-z0-9_-]{3,32}$/i", $login))? false : true;
+    }
+
+    private function isContainQuotes($string){
+        $array = array("\"", "'", "`", "&quot;", "&apos;");
+        foreach ($array as $key => $value) {
+            if(strpos($string, $value) !== false) return true;
+        }
+        return false;
     }
 }
