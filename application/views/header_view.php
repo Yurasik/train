@@ -28,6 +28,9 @@
                     <li><a href="/services">Услуги</a></li>
                     <li><a href="/portfolio">Портфолио</a></li>
                     <li><a href="/contacts">Контакты</a></li>
+                    <?php
+                        if(isset($_SESSION['login']) && Model::isStaff($_SESSION['login']) == true) echo '<li><a href="/admin">Админка</a></li>'
+                    ?>
                 </ul>
                 <div id="users-box" class="navbar-form navbar-right">
                     <?php if(isset($_SESSION['login'])){ ?>

@@ -2,6 +2,7 @@
 
 class Main_Controller extends Controller
 {
+
 	function __construct()
 	{
 		$this->content_view = 'main_view.php';

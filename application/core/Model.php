@@ -2,13 +2,6 @@
 
 class Model
 {
-    protected $config;
-
-    function __construct()
-    {
-        $this->config = new Config();
-    }
-
     public function redirect($link)
 	{
 		header('Location: '.$link);
@@ -119,5 +112,26 @@ class Model
             if(strpos($string, $value) !== false) return true;
         }
         return false;
+    }
+
+    static public function isStaff($login)
+    {
+        try{
+            $connect = new Mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DATABASE);
+            $connect->set_charset(CHARSET);
+        } catch (Exception $e){
+            echo $e->getMessage();
+        }
+
+        $sql = "SELECT status FROM users WHERE login='$login'";
+        $data = $connect->query($sql);
+        $result = array();
+        $num_rows = mysqli_num_rows($data);
+
+        for($i = 0; $i < $num_rows; $i++){
+            $result[] = mysqli_fetch_assoc($data);
+        }
+
+        return ($result[0]['status'] == 'admin' || $result[0]['status'] == 'moderator')? true : false;
     }
 }

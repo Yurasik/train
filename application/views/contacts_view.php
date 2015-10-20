@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-sm-12" id="contact-box">
             <p><img src="images/icq.png" alt="icq"> 86686613</p>
