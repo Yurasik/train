@@ -15,7 +15,9 @@
                 Регистрация
             </a>
             <div class="clear"></div>
-            <p id="login_info"><?php if(isset($_SESSION['authorization_info'])) echo $_SESSION['authorization_info']; unset($_SESSION['authorization_info']) ?></p>
+            <p id="login_info">
+                <?php echo View::getPageInfo() ?>
+            </p>
         </form>
     </div>
 </div>

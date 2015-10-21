@@ -12,20 +12,18 @@ class Users_Model extends Model
     public function authorization()
     {
         $login = $this->request('login');
+        $password = $this->request('password');
+        $password = md5(SECRET_WORD.$password);
         if($this->existUser($login)){
-            $password = $this->request('password');
-            $hashPassword = md5(SECRET_WORD.$password);
-            if($this->checkPassword($login, $hashPassword)){
+            if($this->checkPassword($login, $password)){
                 session_start();
                 $_SESSION['login'] = $login;
                 $this->redirect('/');
             } else{
-                $_SESSION['authorization_info'] = 'Ошибка авторизации!';
-                $this->redirect('login');
+                View::setPageInfo('Ошибка авторизации!');
             }
         } else {
-            $_SESSION['authorization_info'] = 'Пользователя с таким логином не существует.';
-            $this->redirect('login');
+            View::setPageInfo('Пользователя с таким логином не существует.');
         }
     }
 
@@ -45,24 +43,18 @@ class Users_Model extends Model
                     $newValues = array($login, $email, $hashPassword, 'user');
                     $result = $this->insert($this->table_name, $values, $newValues);
                     if($result){
-                        $_SESSION['authorization_info'] = 'Регистрация прошла успешно. Вы можете войти на сайт под своим логином и паролем, указанным при регистрации.';
-                        $this->redirect('login');
+                        View::setPageInfo('Регистрация прошла успешно. Вы можете войти на сайт под своим логином и паролем, указанным при регистрации.');
                     } else {
-                        $_SESSION['register_info'] = 'Ошибка регистрации. Попробуйте повторить попытку еще раз.';
-                        $this->redirect('register');
+                        View::setPageInfo('Ошибка регистрации. Попробуйте повторить попытку еще раз.');
                     }
                 } else {
-                    $_SESSION['register_info'] = 'Неверно заполнено поле Почта.';
-                    $this->redirect('register');
+                    View::setPageInfo('Неверно заполнено поле Почта.');
                 }
             } else {
-                $_SESSION['register_info'] = 'Неверено заполнено поле Логин. (Логин не может быть меньше 3 и больше 32 символов.
-                Логин может состоять из букв, цифр, и символов "-" и "_".';
-                $this->redirect('register');
+                View::setPageInfo('Неверено заполнено поле Логин. (Логин не может быть меньше 3 и больше 32 символов. Логин может состоять из букв, цифр, и символов "-" и "_".');
             }
         } else {
-            $_SESSION['register_info'] = 'Пользователя с таким Логином/Почтой уже зарегестрирован.';
-            $this->redirect('register');
+            View::setPageInfo('Пользователя с таким Логином/Почтой уже зарегестрирован.');
         }
     }
 }

@@ -2,73 +2,63 @@
 
 class View
 {
-	public $header;
-	public $footer;
-	public $page;
-	public $sidebar;
-	public $template;
+    public $header;
+    public $footer;
+    public $page;
+    public $sidebar;
+    public static $page_info;
 
-	function __construct()
-	{
-		$this->header = $this->getHeader();
-		$this->footer = $this->getFooter();
-		$this->page = $this->getPage();
-		$this->sidebar = $this->getSidebar();
-		$this->template = $this->getPageTemplate();
-	}
+    function __construct()
+    {
+        $this->header = $this->getHeader();
+        $this->page = $this->getPage();
+        $this->footer = $this->getFooter();
+        $this->sidebar = $this->getSidebar();
+    }
 
 	public function generate($content_view, $data = null)
 	{
-		/*
-		if(is_array($data)) {
-			
-			// преобразуем элементы массива в переменные
-			extract($data);
-		}
-		*/
-		$header_view = $this->header;
-		$footer_view = $this->footer;
-		$page_view = $this->page;
-		$sidebar_view = $this->sidebar;
-		$template_view = $this->template;
+        /* Подключаем шаблоны */
+        $header_view = $this->header;
+        $page_view = $this->page;
+        $footer_view = $this->footer;
+        $sidebar_view = $this->sidebar;
+
+        /* Присваиваем CSS классы страничкам */
 		$page_name = str_replace('_view.php', '', $content_view);
 		$page_id = $page_name.'-page';
 		$content_id = $page_name.'-content';
-		include 'application/views/'.$template_view;
+
+		include 'application/views/template_view.php';
 	}
 
-	public function getHeader()
+	public function getHeader($view = 'header_view.php')
 	{
-		$default_header = 'header_view.php';
-		$header_view = $default_header;
-		return $header_view;
+		return $view;
 	}
 
-	public function getFooter()
+	public function getFooter($view = 'footer_view.php')
 	{
-		$default_footer = 'footer_view.php';
-		$footer_view = $default_footer;
-		return $footer_view;
+		return $view;
 	}
 
-	public function getPage()
+	public function getPage($view = 'page_view.php')
 	{
-		$default_page = 'page_view.php';
-		$page_view = $default_page;
-		return $page_view;
+		return $view;
 	}
 
-	public function getPageTemplate()
+	public function getSidebar($view = 'sidebar_view.php')
 	{
-		$default_template_view = 'template_view.php';
-		$template_view = $default_template_view;
-		return $template_view;
+		return $view;
 	}
 
-	public function getSidebar()
-	{
-		$default_sidebar_view = 'sidebar_view.php';
-		$sidebar_view = $default_sidebar_view;
-		return $sidebar_view;
-	}
+    public static function setPageInfo($pageInfo)
+    {
+        View::$page_info = $pageInfo;
+    }
+
+    public static function getPageInfo()
+    {
+        return View::$page_info;
+    }
 }
