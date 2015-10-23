@@ -1,43 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e735ec2e-4df9-484a-b8dd-3423283f6d39" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Contacts_Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Main_Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/News_Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Page404_Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Portfolio_Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Services_Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Users_Controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/core/Config.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/core/Route.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/News_Model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/Portfolio_Model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/Users_Model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/authorization_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/contacts_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/footer_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/header_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/main_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/news_item_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/news_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/page404_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/page_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/portfolio_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/register_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/services_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/sidebar_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/template_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/404.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Controller.php" afterPath="$PROJECT_DIR$/application/core/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Model.php" afterPath="$PROJECT_DIR$/application/core/Model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/View.php" afterPath="$PROJECT_DIR$/application/core/View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/bootstrap.php" afterPath="$PROJECT_DIR$/application/bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css.map" afterPath="$PROJECT_DIR$/css/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.scss" afterPath="$PROJECT_DIR$/css/style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="e735ec2e-4df9-484a-b8dd-3423283f6d39" name="Default" comment="" />
     <ignored path="mvc.zz.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
