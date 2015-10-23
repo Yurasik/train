@@ -1,29 +1,22 @@
 <?php
+// Запускаем сессию
+session_start();
 
-function __autoload($class){
-	require_once __DIR__.'/core/'.$class.'.php';
-}
+//function __autoload($class){
+//	require_once __DIR__.'/core/'.$class.'.php';
+//}
+
+//подключаем конфигурационный файл
+require_once 'Config.php';
 
 // подключаем файлы ядра
-/*
-require_once 'core/model.php';
-require_once 'core/view.php';
-require_once 'core/controller.php';
-*/
-//Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
-/*
-	> аутентификацию
-	> кеширование
-	> работу с формами
-	> абстракции для доступа к данным
-	> ORM
-	> Unit тестирование
-	> Benchmarking
-	> Работу с изображениями
-	> Backup
-	> и др.
-*/
+require_once 'core/Model.php';
+require_once 'core/Controller.php';
+//require_once 'core/View.php';
 
-require_once 'core/Config.php';
-require_once 'core/Route.php';
+//подключаем Twig
+require_once dirname(__FILE__).'/../Twig/lib/Twig/Autoloader.php';
+Twig_Autoloader::register(true);
+
+require_once 'Route.php';
 Route::start(); // запускаем маршрутизатор

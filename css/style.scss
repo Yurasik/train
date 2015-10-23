@@ -28,6 +28,10 @@ header {
           outline: none;
         }
       }
+      .dropdown-menu{
+        border: none;
+        background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
+      }
     }
     #users-box{
       margin-right: 0;
@@ -46,16 +50,9 @@ header {
   background-image: linear-gradient(to top, #13243b 0px, #000 100%);
   overflow: hidden;
   color: #fff;
-  ul {
-    list-style: none;
-    li {
-      border-top: solid 1px #787878;
-      padding: 10px 0 10px 0;
-      &:first-of-type{
-        padding-top: 0;
-        border-top: 0;
-      }
-    }
+  .side-box{
+    padding: 10px 0;
+    text-align: center;
   }
 }
 #content {
@@ -116,28 +113,26 @@ footer {
 }
 
 /* Новости */
-.news-content, .news_item-content{
-  .news-box{
-    padding: 0 15px 15px 15px;
-    margin-bottom: 25px;
-    border: 1px solid #000;
+.news-box{
+  padding: 0 15px 15px 15px;
+  margin-bottom: 25px;
+  border: 1px solid #000;
+  box-shadow: 0 0 1px #000;
+  .news-title{
+    background-image: linear-gradient(to top, #13243b 0px, #000 100%);
+    text-align: center;
+    color: #fff;
     box-shadow: 0 0 1px #000;
-    .news-title{
-      background-image: linear-gradient(to top, #13243b 0px, #000 100%);
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 0 1px #000;
-      text-shadow: 1px 1px 1px #265A88;
-      margin: 0 0 15px 0;
-      padding: 5px;
-    }
+    text-shadow: 1px 1px 1px #265A88;
+    margin: 0 0 15px 0;
+    padding: 5px;
+  }
+  a{
+    text-shadow: 1px 1px 1px #000;
+  }
+  .col-sm-12{
     a{
-      text-shadow: 1px 1px 1px #000;
-    }
-    .col-sm-12{
-      a{
-        outline: none;
-      }
+      outline: none;
     }
   }
 }
@@ -164,11 +159,9 @@ footer {
 }
 
 /* Контакты */
-.contacts-content{
-  #contact-box{
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+#contact-box{
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* Регистрация и авторизация */
@@ -206,7 +199,7 @@ footer {
 }
 
 /* Общие настройки для страниц */
-.main-content, .news-content, .news_item-content, .service-content, .portfolio-content, .contacts-content{
+#content{
   padding: 15px;
 }
 .session-message{

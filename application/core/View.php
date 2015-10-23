@@ -6,14 +6,14 @@ class View
     public $footer;
     public $page;
     public $sidebar;
-    public static $page_info;
+    public static $message;
 
     function __construct()
     {
-        $this->header = $this->getHeader();
-        $this->page = $this->getPage();
-        $this->footer = $this->getFooter();
-        $this->sidebar = $this->getSidebar();
+        $this->header = 'header_view.php';
+        $this->footer = 'footer_view.php';
+        $this->page = 'page_view.php';
+        $this->sidebar = false;
     }
 
 	public function generate($content_view, $data = null)
@@ -26,25 +26,11 @@ class View
 
         /* Присваиваем CSS классы страничкам */
 		$page_name = str_replace('_view.php', '', $content_view);
+        $page_name = str_replace('_', '-', $page_name);
 		$page_id = $page_name.'-page';
 		$content_id = $page_name.'-content';
 
-		include 'application/views/template_view.php';
-	}
-
-	public function getHeader($view = 'header_view.php')
-	{
-		return $view;
-	}
-
-	public function getFooter($view = 'footer_view.php')
-	{
-		return $view;
-	}
-
-	public function getPage($view = 'page_view.php')
-	{
-		return $view;
+		include 'application/Views/template_view.php';
 	}
 
 	public function getSidebar($view = 'sidebar_view.php')
@@ -52,13 +38,13 @@ class View
 		return $view;
 	}
 
-    public static function setPageInfo($pageInfo)
+    public static function setMessage($message)
     {
-        View::$page_info = $pageInfo;
+        View::$message = $message;
     }
 
-    public static function getPageInfo()
+    public static function getMessage()
     {
-        return View::$page_info;
+        return View::$message;
     }
 }

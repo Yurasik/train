@@ -2,15 +2,12 @@
 
 class Model
 {
-    public function redirect($link)
-	{
-		header('Location: '.$link);
-	}
+    public static $message;
 
     protected function connect(){
 		try{
-			$connect = new Mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DATABASE);
-			$connect->set_charset(CHARSET);
+			$connect = new Mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+			$connect->set_charset(DB_CHARSET);
 			return $connect;
 		} catch (Exception $e){
 			echo $e->getMessage();
@@ -43,15 +40,15 @@ class Model
                 $sql .= " WHERE ".$k."='".$v."'";
             }
         }
-		$result = $this->connect()->query($sql);
-		return $this->getAssoc($result);
+		$result = $this->getAssoc($this->connect()->query($sql));
+        return (!$result)? false : $result;
 	}
 
     protected function selectById($table, $columns, $where)
 	{
 		$sql = "SELECT $columns FROM $table WHERE id='$where'";
-		$result = $this->connect()->query($sql);
-		return $this->getAssoc($result);
+        $result = $this->getAssoc($this->connect()->query($sql));
+        return (!$result)? false : $result;
 	}
 
 	protected function insert($table, $values, $newValues)
@@ -79,31 +76,20 @@ class Model
 		return $result;
 	}
 
-    protected function existUser($name)
-    {
-        $result = $this->select('users', 'login', array('login' => $name));
-        return (null == $result)? false : true;
-    }
-
     protected function existEmail($email)
     {
-        $result = $this->select('users', 'email', array('login' => $email));
-        return (null == $result)? false : true;
+        $result = $this->select('users', 'email', array('email' => $email));
+        return ($result[0]['email'] == $email)? true : false;
     }
 
-    protected function checkPassword($login, $password)
+    protected function checkPassword($email, $password)
     {
-        $result = $this->select('users', 'password', array('login' => $login));
+        $result = $this->select('users', 'password', array('email' => $email));
         return ($result[0]['password'] != $password)? false : true;
     }
 
     protected function validEmail($email){
-        return (!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i", $email))? false : true;
-    }
-
-    protected function validLogin($login){
-        if($this->isContainQuotes($login)) return false;
-        return(!preg_match("/^[a-z0-9_-]{3,32}$/i", $login))? false : true;
+        return (!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i", $email) || $email = '')? false : true;
     }
 
     private function isContainQuotes($string){
@@ -114,16 +100,16 @@ class Model
         return false;
     }
 
-    static public function isStaff($login)
+    static public function isStaff($email)
     {
         try{
-            $connect = new Mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DATABASE);
-            $connect->set_charset(CHARSET);
+            $connect = new Mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+            $connect->set_charset(DB_CHARSET);
         } catch (Exception $e){
             echo $e->getMessage();
         }
 
-        $sql = "SELECT status FROM users WHERE login='$login'";
+        $sql = "SELECT status FROM users WHERE email='$email'";
         $data = $connect->query($sql);
         $result = array();
         $num_rows = mysqli_num_rows($data);
@@ -133,5 +119,15 @@ class Model
         }
 
         return ($result[0]['status'] == 'admin' || $result[0]['status'] == 'moderator')? true : false;
+    }
+
+    public static function setMessage($message)
+    {
+        Model::$message = $message;
+    }
+
+    public static function getMessage()
+    {
+        return Model::$message;
     }
 }
