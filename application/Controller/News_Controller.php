@@ -2,21 +2,17 @@
 
 class News_Controller extends Controller
 {
-    function __construct()
-    {
-        $this->model = new News_Model();
-        parent::__construct();
-    }
-
     function index_action()
     {
-        $data['news'] = $this->model->getNews();
-        echo $this->view->render('news_view.php', $data);
+        $news_model = $this->loadModel('News');
+        $data['news'] = $news_model->getNews();
+        echo $this->view->render('News/news_view.html.twig', $data);
     }
 
-    function news_item_action()
+    function article_action()
     {
-        $data['news'] = $this->model->getNewsItem($this->model->request('id'));
-        echo $this->view->render('news_item_view.php', $data);
+        $news_model = $this->loadModel('News');
+        $data['news'] = $news_model->getArticle($news_model->request('id'));
+        echo $this->view->render('News/article_view.html.twig', $data);
     }
 }

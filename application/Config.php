@@ -12,3 +12,6 @@ define('DB_PASSWORD', '86686613');
 define('DB_DATABASE', 'mvc');
 define('DB_CHARSET', 'utf8');
 define('SECRET_WORD', 'YRSK');
+
+//PROGRAM
+define('DS', DIRECTORY_SEPARATOR);

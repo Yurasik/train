@@ -2,16 +2,12 @@
 
 class Users_Controller extends Controller
 {
-    function __construct()
-    {
-        $this->model = new Users_Model();
-        parent::__construct();
-    }
-
     public function register_action()
     {
-        if(null !== $this->model->request('register')){
-            $this->model->register();
+        $user_model = $this->loadModel('Users');
+
+        if(null !== $user_model->request('register')){
+            $user_model->register();
         }
 
         if(isset($_SESSION['email'])){
@@ -20,13 +16,15 @@ class Users_Controller extends Controller
 
         $data['email'] = $_COOKIE['email'];
         $data['message'] = Model::getMessage();
-        echo $this->view->render('register_view.php', $data);
+        echo $this->view->render('Users/register_view.html.twig', $data);
     }
 
     public function login_action()
     {
-        if(null !== $this->model->request('authorization')){
-            $this->model->authorization();
+        $user_model = $this->loadModel('Users');
+
+        if(null !== $user_model->request('authorization')){
+            $user_model->authorization();
         }
 
         if(isset($_SESSION['email'])){
@@ -35,7 +33,7 @@ class Users_Controller extends Controller
 
         $data['email'] = $_COOKIE['email'];
         $data['message'] = Model::getMessage();
-        echo $this->view->render('authorization_view.php', $data);
+        echo $this->view->render('Users/authorization_view.html.twig', $data);
     }
 
     public function logout_action()

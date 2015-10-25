@@ -16,10 +16,9 @@ class Users_Model extends Model
 
         if($this->existEmail($email) && $password != ''){
             $hashPassword = md5(SECRET_WORD.$password);
+
             if($this->checkPassword($email, $hashPassword)){
                 $_SESSION['email'] = $email;
-                setcookie('email', $email, time()+157680000);
-
             } else{
                 Model::setMessage('Ошибка авторизации!');
             }
@@ -47,6 +46,7 @@ class Users_Model extends Model
                 $result = $this->insert($this->table_name, $values, $newValues);
 
                 if($result){
+                    setcookie('email', $email, time()+157680000);
                     $_SESSION['email'] = $email;
                 } else {
                     Model::setMessage('Ошибка регистрации. Повторите попытку еще раз.');
