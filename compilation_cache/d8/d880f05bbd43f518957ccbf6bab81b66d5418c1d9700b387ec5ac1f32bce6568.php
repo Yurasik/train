@@ -10,6 +10,8 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
         $this->parent = false;
 
         $this->blocks = array(
+            'css' => array($this, 'block_css'),
+            'js' => array($this, 'block_js'),
             'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
@@ -32,13 +34,27 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
     <link rel='stylesheet' type='text/css' href='/css/font-awesome.css' />
     <link rel='stylesheet' href='/css/bootstrap.css'>
     <link rel='stylesheet' href='/css/bootstrap-theme.css'>
-
+    ";
+        // line 15
+        $this->displayBlock('css', $context, $blocks);
+        // line 16
+        echo "
     <script src=\"/js/jquery-2.1.3.min.js\"></script>
     <script src='/js/bootstrap.min.js'></script>
     <script src='/js/global.js' type='text/javascript'></script>
-
+    <script type=\"text/javascript\" src=\"/js/tinymce/tinymce.min.js\"></script>
+    <script type=\"text/javascript\">
+        tinymce.init({
+            selector: \".tiny\"
+        });
+    </script>
+    ";
+        // line 26
+        $this->displayBlock('js', $context, $blocks);
+        // line 27
+        echo "
     <title>";
-        // line 20
+        // line 28
         $this->displayBlock('title', $context, $blocks);
         echo "| Web-Dealer</title>
 </head>
@@ -48,32 +64,32 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
     <div class=\"navbar navbar-top navbar-inverse\">
         <ul class=\"nav navbar-nav\">
             <li><a href=\"";
-        // line 27
+        // line 35
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "homepage"), "method"), "html", null, true);
         echo "\">Главная</a></li>
             <li class=\"dropdown\">
                 <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Новости <b class=\"caret\"></b></a>
                 <ul class=\"dropdown-menu\">
                     <li><a href=\"";
-        // line 31
+        // line 39
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "adminNews"), "method"), "html", null, true);
         echo "\">Все новости</a></li>
                     <li><a href=\"";
-        // line 32
+        // line 40
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "articleAdd"), "method"), "html", null, true);
         echo "\">Добавить новость</a></li>
-                    <li><a href=\"/admin/category\">Категории</a></li>
+                    <li class=\"disabled\"><a href=\"/admin/category\">Категории</a></li>
                 </ul>
             </li>
         </ul>
         <div id=\"users-box\" class=\"navbar-form navbar-right\">
             <p id=\"wellcome-text\">
                 Приветствуем, <b>";
-        // line 39
+        // line 47
         echo twig_escape_filter($this->env, (isset($context["user_email"]) ? $context["user_email"] : null), "html", null, true);
         echo "</b>
                 <a href=\"";
-        // line 40
+        // line 48
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "logout"), "method"), "html", null, true);
         echo "\"><i class=\"fa fa-sign-out\"></i> Выйти </a>
             </p>
@@ -86,20 +102,20 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
         <div id=\"page-content\" class=\"container-fluid\">
             <div class=\"row\">
                 ";
-        // line 51
+        // line 59
         echo "                    ";
-        // line 52
+        // line 60
         echo "                    ";
-        // line 53
+        // line 61
         echo "                    ";
-        // line 54
+        // line 62
         echo "                ";
-        // line 55
+        // line 63
         echo "                <div id=\"content\" class=\"col-sm-12\">
                     ";
-        // line 56
+        // line 64
         $this->displayBlock('content', $context, $blocks);
-        // line 58
+        // line 66
         echo "                </div>
             </div>
         </div>
@@ -117,15 +133,25 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 </html>";
     }
 
-    // line 20
+    // line 15
+    public function block_css($context, array $blocks = array())
+    {
+    }
+
+    // line 26
+    public function block_js($context, array $blocks = array())
+    {
+    }
+
+    // line 28
     public function block_title($context, array $blocks = array())
     {
     }
 
-    // line 56
+    // line 64
     public function block_content($context, array $blocks = array())
     {
-        // line 57
+        // line 65
         echo "                    ";
     }
 
@@ -141,7 +167,7 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 
     public function getDebugInfo()
     {
-        return array (  129 => 57,  126 => 56,  121 => 20,  103 => 58,  101 => 56,  98 => 55,  96 => 54,  94 => 53,  92 => 52,  90 => 51,  77 => 40,  73 => 39,  63 => 32,  59 => 31,  52 => 27,  42 => 20,  21 => 1,);
+        return array (  155 => 65,  152 => 64,  147 => 28,  142 => 26,  137 => 15,  119 => 66,  117 => 64,  114 => 63,  112 => 62,  110 => 61,  108 => 60,  106 => 59,  93 => 48,  89 => 47,  79 => 40,  75 => 39,  68 => 35,  58 => 28,  55 => 27,  53 => 26,  41 => 16,  39 => 15,  23 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -158,10 +184,18 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 /*     <link rel='stylesheet' type='text/css' href='/css/font-awesome.css' />*/
 /*     <link rel='stylesheet' href='/css/bootstrap.css'>*/
 /*     <link rel='stylesheet' href='/css/bootstrap-theme.css'>*/
+/*     {% block css %}{% endblock %}*/
 /* */
 /*     <script src="/js/jquery-2.1.3.min.js"></script>*/
 /*     <script src='/js/bootstrap.min.js'></script>*/
 /*     <script src='/js/global.js' type='text/javascript'></script>*/
+/*     <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>*/
+/*     <script type="text/javascript">*/
+/*         tinymce.init({*/
+/*             selector: ".tiny"*/
+/*         });*/
+/*     </script>*/
+/*     {% block js %}{% endblock %}*/
 /* */
 /*     <title>{% block title %}{% endblock %}| Web-Dealer</title>*/
 /* </head>*/
@@ -176,7 +210,7 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 /*                 <ul class="dropdown-menu">*/
 /*                     <li><a href="{{ url.generate('adminNews') }}">Все новости</a></li>*/
 /*                     <li><a href="{{ url.generate('articleAdd') }}">Добавить новость</a></li>*/
-/*                     <li><a href="/admin/category">Категории</a></li>*/
+/*                     <li class="disabled"><a href="/admin/category">Категории</a></li>*/
 /*                 </ul>*/
 /*             </li>*/
 /*         </ul>*/

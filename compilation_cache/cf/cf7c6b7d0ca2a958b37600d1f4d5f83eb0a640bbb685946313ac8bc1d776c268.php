@@ -28,7 +28,9 @@ class __TwigTemplate_e51caa12d805c99b451ae1d752f62559bfc69725c183bc0abaf8fff6b2d
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo " Новость ";
+        echo " ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "title", array()), "html", null, true);
+        echo " ";
     }
 
     // line 5
@@ -49,7 +51,7 @@ class __TwigTemplate_e51caa12d805c99b451ae1d752f62559bfc69725c183bc0abaf8fff6b2d
             <div class=\"col-sm-12\">
                 <p class=\"news-description\">";
             // line 12
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "full_text", array()), "html", null, true);
+            echo $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "full_text", array());
             echo "</p>
             </div>
         </div>
@@ -73,12 +75,12 @@ class __TwigTemplate_e51caa12d805c99b451ae1d752f62559bfc69725c183bc0abaf8fff6b2d
 
     public function getDebugInfo()
     {
-        return array (  60 => 17,  52 => 12,  47 => 10,  43 => 8,  41 => 7,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
+        return array (  62 => 17,  54 => 12,  49 => 10,  45 => 8,  43 => 7,  40 => 6,  37 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
 /* */
-/* {% block title %} Новость {% endblock %}*/
+/* {% block title %} {{ article.title }} {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* */
@@ -87,7 +89,7 @@ class __TwigTemplate_e51caa12d805c99b451ae1d752f62559bfc69725c183bc0abaf8fff6b2d
 /*         <div class="row">*/
 /*             <h2 class="news-title">{{ article.title }}</h2>*/
 /*             <div class="col-sm-12">*/
-/*                 <p class="news-description">{{ article.full_text }}</p>*/
+/*                 <p class="news-description">{{ article.full_text|raw }}</p>*/
 /*             </div>*/
 /*         </div>*/
 /*     </div>*/

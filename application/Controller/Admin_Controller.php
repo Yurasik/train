@@ -40,7 +40,8 @@ class Admin_Controller extends Controller
             $title = $admin_model->request('title');
             $description = $admin_model->request('description');
             $full_text = $admin_model->request('full_text');
-            $values = array('title' => $title, 'description' => $description, 'full_text' => $full_text);
+            $date = date('d-m-Y H:i:s');
+            $values = array('title' => $title, 'description' => $description, 'full_text' => $full_text, 'date' => $date);
             if($admin_model->addArticle($values)){
                 $admin_model->redirect('/admin/news');
             }
@@ -56,7 +57,8 @@ class Admin_Controller extends Controller
             $title = $admin_model->request('title');
             $description = $admin_model->request('description');
             $full_text = $admin_model->request('full_text');
-            $newValues = array('title' => $title, 'description' => $description, 'full_text' => $full_text);
+            $date = date('d-m-Y H:i:s');
+            $newValues = array('title' => $title, 'description' => $description, 'full_text' => $full_text, 'date' => $date);
             if($admin_model->updateArticleById($id, $newValues)){
                 $admin_model->redirect('/admin/news');
             }

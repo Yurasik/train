@@ -9,9 +9,11 @@
         <div class="col-sm-12 bg-info news-box">
             <div class="row">
                 <h2 class="news-title">{{ article.title }} </h2>
-                <div class="col-sm-12">
-                    <p class="news-description">{{ article.description }}</p>
+                <div class="col-sm-12 news-description">
+                    {{ article.description|raw }}
+
                     <a href="{{ url.generate('article',{id: article.id}) }}" class="btn btn-primary pull-right">Читать далее...</a>
+                    <p class="pull-right" style="margin: 0 10px"><b>Добавлено: </b><i>{{ article.date }}</i></p>
                 </div>
             </div>
         </div>

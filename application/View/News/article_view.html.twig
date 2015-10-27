@@ -1,6 +1,6 @@
 {% extends "template_view.html.twig" %}
 
-{% block title %} Новость {% endblock %}
+{% block title %} {{ article.title }} {% endblock %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
         <div class="row">
             <h2 class="news-title">{{ article.title }}</h2>
             <div class="col-sm-12">
-                <p class="news-description">{{ article.full_text }}</p>
+                <p class="news-description">{{ article.full_text|raw }}</p>
             </div>
         </div>
     </div>

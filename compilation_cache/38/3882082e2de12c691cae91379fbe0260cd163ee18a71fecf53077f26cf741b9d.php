@@ -51,15 +51,20 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
                 // line 11
                 echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "title", array()), "html", null, true);
                 echo " </h2>
-                <div class=\"col-sm-12\">
-                    <p class=\"news-description\">";
+                <div class=\"col-sm-12 news-description\">
+                    ";
                 // line 13
-                echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "description", array()), "html", null, true);
-                echo "</p>
+                echo $this->getAttribute($context["article"], "description", array());
+                echo "
+
                     <a href=\"";
-                // line 14
+                // line 15
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "article", 1 => array("id" => $this->getAttribute($context["article"], "id", array()))), "method"), "html", null, true);
                 echo "\" class=\"btn btn-primary pull-right\">Читать далее...</a>
+                    <p class=\"pull-right\" style=\"margin: 0 10px\"><b>Добавлено: </b><i>";
+                // line 16
+                echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "date", array()), "html", null, true);
+                echo "</i></p>
                 </div>
             </div>
         </div>
@@ -68,10 +73,10 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 19
+            // line 21
             echo "    ";
         }
-        // line 20
+        // line 22
         echo "
 ";
     }
@@ -88,7 +93,7 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
 
     public function getDebugInfo()
     {
-        return array (  75 => 20,  72 => 19,  61 => 14,  57 => 13,  52 => 11,  48 => 9,  43 => 8,  41 => 7,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
+        return array (  80 => 22,  77 => 21,  66 => 16,  62 => 15,  57 => 13,  52 => 11,  48 => 9,  43 => 8,  41 => 7,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
@@ -102,9 +107,11 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
 /*         <div class="col-sm-12 bg-info news-box">*/
 /*             <div class="row">*/
 /*                 <h2 class="news-title">{{ article.title }} </h2>*/
-/*                 <div class="col-sm-12">*/
-/*                     <p class="news-description">{{ article.description }}</p>*/
+/*                 <div class="col-sm-12 news-description">*/
+/*                     {{ article.description|raw }}*/
+/* */
 /*                     <a href="{{ url.generate('article',{id: article.id}) }}" class="btn btn-primary pull-right">Читать далее...</a>*/
+/*                     <p class="pull-right" style="margin: 0 10px"><b>Добавлено: </b><i>{{ article.date }}</i></p>*/
 /*                 </div>*/
 /*             </div>*/
 /*         </div>*/

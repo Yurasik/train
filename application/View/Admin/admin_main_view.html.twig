@@ -8,8 +8,9 @@
         {% for article in news %}
             <p>
                 <a href="{{ url.generate('article',{id: article.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>
-                <a href="{{ url.generate('articleEdit', {id: article.id}) }}" class="btn btn-warning">Редактировать</a>
-                <a href="{{ url.generate('articleDelete', {id: article.id}) }}" class="btn btn-danger">Удалить</a>
+                <a href="{{ url.generate('articleEdit', {id: article.id}) }}" class="btn-sm btn-warning">Редактировать</a>
+                <a href="{{ url.generate('articleDelete', {id: article.id}) }}" class="btn-sm btn-danger">Удалить</a>
+                <a href="{{ url.generate('articleAdd') }}" class="btn-sm btn-success">Добавить</a>
             </p>
             <hr>
         {% endfor %}
@@ -17,10 +18,10 @@
         <form action="" method="post">
             <input type="hidden" name="id" value="{{ article.id }}">
             <p><b>Заголовок: <br></b><input style="width: 100%" type="text" name="title" value="{{ article.title }}"></p>
-            <p><b>Описание: <br></b><textarea style="width: 100%" name="description" id="description" rows="5">{{ article.description }}</textarea></p>
-            <p><b>Новость: <br></b><textarea style="width: 100%" name="full_text" id="full_text" cols="35" rows="15">{{ article.full_text }}</textarea></p>
+            <p><b>Описание: <br></b><textarea style="width: 100%" name="description" id="description" class="tiny"   rows="5">{{ article.description }}</textarea></p>
+            <p><b>Новость: <br></b><textarea style="width: 100%" name="full_text" id="full_text" class="tiny" rows="15">{{ article.full_text }}</textarea></p>
             <button type="submit" name="save" class="btn btn-success pull-right">Сохранить</button>
-            <a href="{{ url.generate('adminNews') }}" class="btn btn-danger pull-right" style="margin-right: 10px;">Отмена</a>
+            <a href="{{ url.generate('adminNews') }}" class="btn-lg btn-danger pull-right" style="margin-right: 10px;">Отмена</a>
             <div class="clear"></div>
         </form>
     {% else %}

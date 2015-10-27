@@ -22,7 +22,9 @@ class Users_Controller extends Controller
             $this->redirect('/');
         }
 
-        $data['email'] = $_COOKIE['email'];
+        if(isset($_COOKIE['email'])){
+            $data['email'] = $_COOKIE['email'];
+        }
         $data['message'] = Model::getMessage();
         echo $this->view->render('Users/register_view.html.twig', $data);
     }
@@ -39,7 +41,9 @@ class Users_Controller extends Controller
             $this->redirect('/');
         }
 
-        $data['email'] = $_COOKIE['email'];
+        if(isset($_COOKIE['email'])){
+            $data['email'] = $_COOKIE['email'];
+        }
         $data['message'] = Model::getMessage();
         echo $this->view->render('Users/authorization_view.html.twig', $data);
     }
