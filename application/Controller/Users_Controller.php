@@ -2,6 +2,14 @@
 
 class Users_Controller extends Controller
 {
+
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->view->addGlobal('status_info', 'q');
+    }
+
     public function register_action()
     {
         $user_model = $this->loadModel('Users');

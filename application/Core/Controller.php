@@ -18,6 +18,15 @@ class Controller {
         ));
         $this->view->addGlobal('url', $this->router);
         $this->view->addExtension(new Twig_Extension_Debug());
+        if(isset($_SESSION['email'])){
+            $this->view->addGlobal('user_login', true);
+            $this->view->addGlobal('user_email', $_SESSION['email']);
+            $this->view->addGlobal('user_role', Model::isStaff($_SESSION['email']));
+        }
+//        $getHeader = new Twig_SimpleFunction('get_header', function(){
+//
+//        });
+//        $this->view->addFunction($getHeader);
 	}
 
     public function redirect($link)

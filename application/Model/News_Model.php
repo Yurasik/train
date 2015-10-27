@@ -9,7 +9,7 @@ class News_Model extends Model
         return $data;
     }
 
-    public function getArticle($id)
+    public function getArticleById($id)
     {
         $data = $this->selectById('news', $columns = 'id, title, full_text', $id);
         return $data;

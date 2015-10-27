@@ -19,23 +19,22 @@ class Model
 		}
 	}
 
-    public function request($name)
+    protected function insert($table, $values)
     {
-        if(isset($_REQUEST[$name])){
-            return $_REQUEST[$name];
+        $sql = "INSERT INTO $table (";
+        foreach($values as $key => $value){
+            $sql .= $key.",";
         }
+        $sql = substr($sql, 0, -1);
+        $sql .= ") VALUES (";
+        foreach($values as $key => $value){
+            $sql .= "'$value'".",";
+        }
+        $sql = substr($sql, 0, -1);
+        $sql .= ");";
+        $result = $this->connect()->query($sql);
+        return $result;
     }
-
-	private function getAssoc($data)
-	{
-		$result = array();
-		$num_rows = mysqli_num_rows($data);
-
-		for($i = 0; $i < $num_rows; $i++){
-			$result[] = mysqli_fetch_assoc($data);
-		}
-		return $result;
-	}
 
     protected function select($table, $columns, $where = array())
 	{
@@ -53,33 +52,45 @@ class Model
 	{
 		$sql = "SELECT $columns FROM $table WHERE id='$where'";
         $result = $this->getAssoc($this->connect()->query($sql));
-        return (!$result)? false : $result;
+        return (!$result)? false : $result[0];
 	}
 
-	protected function insert($table, $values, $newValues)
-	{
-		$sql = "INSERT INTO $table (";
-		$countValues = count($values);
-		for($i = 0; $i < $countValues; $i++){
-			if(isset($values[$i+1])){
-				$sql .= $values[$i].',';
-			} else {
-				$sql .= $values[$i];
-			}
-		}
-		$sql .= ") VALUES (";
-		$countNewValues = count($newValues);
-		for($i = 0; $i < $countNewValues;$i++){
-			if(isset($newValues[$i+1])){
-				$sql .= "'$newValues[$i]'".',';
-			} else {
-				$sql .= "'$newValues[$i]'";
-			}
-		}
-		$sql .= ");";
-		$result = $this->connect()->query($sql);
-		return $result;
-	}
+    protected function updateById($table_name, $newValues, $id)
+    {
+        $sql = "UPDATE $table_name SET ";
+        foreach($newValues as $key => $value){
+            $sql .= "$key='$value',";
+        }
+        $sql = substr($sql, 0, -1);
+        $sql .= "WHERE id='$id'";
+        $result = $this->connect()->query($sql);
+        return ($result)? true : false;
+    }
+
+    protected function deleteById($table_name, $id)
+    {
+        $sql = "DELETE FROM $table_name WHERE id='$id'";
+        $result = $this->connect()->query($sql);
+        return ($result)? true : false;
+    }
+
+    public function request($name)
+    {
+        if(isset($_REQUEST[$name])){
+            return $_REQUEST[$name];
+        }
+    }
+
+    private function getAssoc($data)
+    {
+        $result = array();
+        $num_rows = mysqli_num_rows($data);
+
+        for($i = 0; $i < $num_rows; $i++){
+            $result[] = mysqli_fetch_assoc($data);
+        }
+        return $result;
+    }
 
     protected function existEmail($email)
     {
@@ -105,11 +116,25 @@ class Model
         return false;
     }
 
-    public function isStaff($email)
+    static public function isStaff($email)
     {
+        try{
+            $connect = new Mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+            $connect->set_charset(DB_CHARSET);
+        } catch (Exception $e){
+            echo $e->getMessage();
+        }
+
         $sql = "SELECT status FROM users WHERE email='$email'";
-        $result = $this->getAssoc($this->connect()->query($sql));
-        return (!$result)? false : $result[0];
+        $data = $connect->query($sql);
+        $result = array();
+        $num_rows = mysqli_num_rows($data);
+
+        for($i = 0; $i < $num_rows; $i++){
+            $result[] = mysqli_fetch_assoc($data);
+        }
+
+        return $result[0]['status'];
     }
 
     public static function setMessage($message)

@@ -10,6 +10,7 @@ class __TwigTemplate_3bc39c86269def4dd218bd8ba52666f831e740497ccd34d6a531c1092cb
         // line 1
         $this->parent = $this->loadTemplate("template_view.html.twig", "Main/main_view.html.twig", 1);
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,9 +26,15 @@ class __TwigTemplate_3bc39c86269def4dd218bd8ba52666f831e740497ccd34d6a531c1092cb
     }
 
     // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo " Главная ";
+    }
+
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<div class=\"box\">
     <h1 class=\"text-center\">Добро пожаловать!</h1>
     <div class=\"container\">
@@ -54,10 +61,12 @@ class __TwigTemplate_3bc39c86269def4dd218bd8ba52666f831e740497ccd34d6a531c1092cb
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,  11 => 1,);
+        return array (  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
+/* */
+/* {% block title %} Главная {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* <div class="box">*/

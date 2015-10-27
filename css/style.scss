@@ -9,6 +9,7 @@ html, body{
     &:hover{
       text-decoration: none;
       color: #245681;
+      cursor: pointer;
     }
   }
 }
@@ -47,7 +48,7 @@ header {
   }
 }
 #sidebar {
-  background-image: linear-gradient(to top, #13243b 0px, #000 100%);
+  background-image: linear-gradient(to top, #13243b 0%, #000 50%, #13243b 100%);
   overflow: hidden;
   color: #fff;
   .side-box{

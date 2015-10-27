@@ -10,6 +10,7 @@ class __TwigTemplate_eac22f263b0cbb3db95c52e3eccc09ea8a6f495d101059c4acd472cd1b4
         // line 1
         $this->parent = $this->loadTemplate("template_view.html.twig", "Users/register_view.html.twig", 1);
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,16 +26,22 @@ class __TwigTemplate_eac22f263b0cbb3db95c52e3eccc09ea8a6f495d101059c4acd472cd1b4
     }
 
     // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo " Регистрация ";
+    }
+
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<div class=\"container\">
     <div class=\"col-sm-6 col-sm-offset-3  users-form-box\">
         <form action=\"\" class=\"navbar-form\" method=\"post\">
             <h4>Регстрация пользователя:</h4>
             <label for=\"email\">Email:</label>
             <p><input type=\"email\" class=\"form-control\" name=\"email\" value=\"";
-        // line 9
+        // line 11
         echo twig_escape_filter($this->env, (isset($context["email"]) ? $context["email"] : null), "html", null, true);
         echo "\"/></p>
             <label for=\"password\">Password:</label>
@@ -50,7 +57,7 @@ class __TwigTemplate_eac22f263b0cbb3db95c52e3eccc09ea8a6f495d101059c4acd472cd1b4
             <div class=\"clear\"></div>
             <p id=\"login_info\">
                 ";
-        // line 22
+        // line 24
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
             </p>
@@ -72,10 +79,12 @@ class __TwigTemplate_eac22f263b0cbb3db95c52e3eccc09ea8a6f495d101059c4acd472cd1b4
 
     public function getDebugInfo()
     {
-        return array (  54 => 22,  38 => 9,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  61 => 24,  45 => 11,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
+/* */
+/* {% block title %} Регистрация {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* <div class="container">*/

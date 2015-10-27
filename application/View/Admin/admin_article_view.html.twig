@@ -1,0 +1,16 @@
+{% extends "Admin/admin_template_view.html.twig" %}
+
+{% block title %} Добавить новость {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form action="" method="post">
+            <p><b>Заголовок: <br></b><input style="width: 100%" type="text" name="title"></p>
+            <p><b>Описание: <br></b><textarea style="width: 100%" name="description" id="description" rows="5"></textarea></p>
+            <p><b>Новость: <br></b><textarea style="width: 100%" name="full_text" id="full_text" cols="35" rows="15"></textarea></p>
+            <button type="submit" name="save" class="btn btn-success pull-right">Добавить</button>
+            <a href="{{ url.generate('adminNews') }}" class="btn btn-danger pull-right" style="margin-right: 10px;">Отмена</a>
+            <div class="clear"></div>
+        </form>
+    </div>
+{% endblock %}

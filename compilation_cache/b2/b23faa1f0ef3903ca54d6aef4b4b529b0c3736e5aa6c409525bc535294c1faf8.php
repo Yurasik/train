@@ -10,6 +10,7 @@ class __TwigTemplate_92a75d32e28f22c533749b38c7661be13c834560d86b4f494f975c8487d
         // line 1
         $this->parent = $this->loadTemplate("template_view.html.twig", "Users/authorization_view.html.twig", 1);
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,9 +26,15 @@ class __TwigTemplate_92a75d32e28f22c533749b38c7661be13c834560d86b4f494f975c8487d
     }
 
     // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo " Авторизация ";
+    }
+
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<div class=\"container\">
     <div class=\"col-sm-6 col-sm-offset-3  users-form-box\">
         <form action=\"\" class=\"navbar-form\" method=\"post\">
@@ -35,7 +42,7 @@ class __TwigTemplate_92a75d32e28f22c533749b38c7661be13c834560d86b4f494f975c8487d
             <label for=\"email\">Email:</label>
             <p>
                 <input id=\"email\" type=\"text\" class=\"form-control\" name=\"email\" value=\"";
-        // line 10
+        // line 12
         echo twig_escape_filter($this->env, (isset($context["email"]) ? $context["email"] : null), "html", null, true);
         echo "\"/>
             </p>
@@ -54,7 +61,7 @@ class __TwigTemplate_92a75d32e28f22c533749b38c7661be13c834560d86b4f494f975c8487d
             <div class=\"clear\"></div>
             <p id=\"login_info\">
                 ";
-        // line 26
+        // line 28
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
             </p>
@@ -76,10 +83,12 @@ class __TwigTemplate_92a75d32e28f22c533749b38c7661be13c834560d86b4f494f975c8487d
 
     public function getDebugInfo()
     {
-        return array (  58 => 26,  39 => 10,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  65 => 28,  46 => 12,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
+/* */
+/* {% block title %} Авторизация {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* <div class="container">*/

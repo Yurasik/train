@@ -10,6 +10,7 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
         $this->parent = false;
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -36,7 +37,10 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
         <script src='/js/bootstrap.min.js'></script>
         <script src='/js/global.js' type='text/javascript'></script>
 
-        <title>Web-Dealer</title>
+        <title>";
+        // line 20
+        $this->displayBlock('title', $context, $blocks);
+        echo "| Web-Dealer</title>
     </head>
 
     <body>
@@ -63,36 +67,50 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
         // line 31
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "contacts"), "method"), "html", null, true);
         echo "\">Контакты</a></li>
-                    <li class=\"disabled\"><a href=\"";
+                    ";
         // line 32
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "profile"), "method"), "html", null, true);
-        echo "\">Профиль</a></li>
-                    <li><a href=\"/admin\">Админка</a></li>
-                    <a href=\"/users/logout\"><i class=\"fa fa-sign-out\"></i> Выйти </a>
-                </ul>
+        if ((isset($context["user_role"]) ? $context["user_role"] : null)) {
+            // line 33
+            echo "                    <li class=\"disabled\"><a href=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "profile"), "method"), "html", null, true);
+            echo "\">Профиль</a></li>
+                    ";
+        }
+        // line 35
+        echo "                    ";
+        if ((((isset($context["user_role"]) ? $context["user_role"] : null) == "admin") || ((isset($context["user_role"]) ? $context["user_role"] : null) == "moderator"))) {
+            // line 36
+            echo "                    <li><a href=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "adminMain"), "method"), "html", null, true);
+            echo "\">Админка</a></li>
+                    ";
+        }
+        // line 38
+        echo "                </ul>
                 <div id=\"users-box\" class=\"navbar-form navbar-right\">
                     ";
-        // line 37
-        echo twig_escape_filter($this->env, (isset($context["login_status"]) ? $context["login_status"] : null), "html", null, true);
-        echo "
-                    ";
-        // line 38
-        if (((isset($context["login_status"]) ? $context["login_status"] : null) == 2)) {
-            // line 39
+        // line 40
+        if ((isset($context["user_login"]) ? $context["user_login"] : null)) {
+            // line 41
             echo "                    <p id=\"wellcome-text\">
                         Приветствуем, <b>";
-            // line 40
-            echo twig_escape_filter($this->env, (isset($context["sessionEmail"]) ? $context["sessionEmail"] : null), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, (isset($context["user_email"]) ? $context["user_email"] : null), "html", null, true);
             echo "</b>
-                        <a href=\"/users/logout\"><i class=\"fa fa-sign-out\"></i> Выйти </a>
+                        <a href=\"";
+            // line 43
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "logout"), "method"), "html", null, true);
+            echo "\"><i class=\"fa fa-sign-out\"></i> Выйти </a>
                     </p>
                     ";
         } else {
-            // line 44
-            echo "                    <a href=\"/users/login\" class=\"btn btn-primary\"><i class=\"fa fa-sign-in\"></i> Вход </a>
+            // line 46
+            echo "                    <a href=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "login"), "method"), "html", null, true);
+            echo "\" class=\"btn btn-primary\"><i class=\"fa fa-sign-in\"></i> Вход </a>
                     ";
         }
-        // line 46
+        // line 48
         echo "                </div>
             </div>
         </header>
@@ -101,15 +119,19 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
             <div class=\"row\">
                 <div id=\"page-content\" class=\"container-fluid\">
                     <div class=\"row\">
-                        <div id=\"sidebar\" class=\"col-sm-3\">
-                            <div class=\"side-box\">
-                            </div>
-                        </div>
-                        <div id=\"content\" class=\"col-sm-9\">
-                            ";
+                        ";
+        // line 57
+        echo "                            ";
+        // line 58
+        echo "                            ";
         // line 59
-        $this->displayBlock('content', $context, $blocks);
+        echo "                        ";
+        // line 60
+        echo "                        <div id=\"content\" class=\"col-sm-12\">
+                            ";
         // line 61
+        $this->displayBlock('content', $context, $blocks);
+        // line 63
         echo "                        </div>
                     </div>
                 </div>
@@ -128,10 +150,15 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
 ";
     }
 
-    // line 59
+    // line 20
+    public function block_title($context, array $blocks = array())
+    {
+    }
+
+    // line 61
     public function block_content($context, array $blocks = array())
     {
-        // line 60
+        // line 62
         echo "                            ";
     }
 
@@ -147,7 +174,7 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
 
     public function getDebugInfo()
     {
-        return array (  135 => 60,  132 => 59,  113 => 61,  111 => 59,  96 => 46,  92 => 44,  85 => 40,  82 => 39,  80 => 38,  76 => 37,  68 => 32,  64 => 31,  60 => 30,  56 => 29,  52 => 28,  48 => 27,  20 => 1,);
+        return array (  162 => 62,  159 => 61,  154 => 20,  135 => 63,  133 => 61,  130 => 60,  128 => 59,  126 => 58,  124 => 57,  114 => 48,  108 => 46,  102 => 43,  98 => 42,  95 => 41,  93 => 40,  89 => 38,  83 => 36,  80 => 35,  74 => 33,  72 => 32,  68 => 31,  64 => 30,  60 => 29,  56 => 28,  52 => 27,  42 => 20,  21 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -169,7 +196,7 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
 /*         <script src='/js/bootstrap.min.js'></script>*/
 /*         <script src='/js/global.js' type='text/javascript'></script>*/
 /* */
-/*         <title>Web-Dealer</title>*/
+/*         <title>{% block title %}{% endblock %}| Web-Dealer</title>*/
 /*     </head>*/
 /* */
 /*     <body>*/
@@ -181,19 +208,21 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
 /*                     <li><a href="{{ url.generate('services') }}">Услуги</a></li>*/
 /*                     <li><a href="{{ url.generate('portfolio') }}">Портфолио</a></li>*/
 /*                     <li><a href="{{ url.generate('contacts') }}">Контакты</a></li>*/
+/*                     {% if user_role %}*/
 /*                     <li class="disabled"><a href="{{ url.generate('profile') }}">Профиль</a></li>*/
-/*                     <li><a href="/admin">Админка</a></li>*/
-/*                     <a href="/users/logout"><i class="fa fa-sign-out"></i> Выйти </a>*/
+/*                     {% endif %}*/
+/*                     {% if user_role == 'admin' or user_role == 'moderator' %}*/
+/*                     <li><a href="{{ url.generate('adminMain') }}">Админка</a></li>*/
+/*                     {% endif %}*/
 /*                 </ul>*/
 /*                 <div id="users-box" class="navbar-form navbar-right">*/
-/*                     {{ login_status }}*/
-/*                     {% if login_status == 2 %}*/
+/*                     {% if user_login %}*/
 /*                     <p id="wellcome-text">*/
-/*                         Приветствуем, <b>{{ sessionEmail }}</b>*/
-/*                         <a href="/users/logout"><i class="fa fa-sign-out"></i> Выйти </a>*/
+/*                         Приветствуем, <b>{{ user_email }}</b>*/
+/*                         <a href="{{ url.generate('logout') }}"><i class="fa fa-sign-out"></i> Выйти </a>*/
 /*                     </p>*/
 /*                     {% else %}*/
-/*                     <a href="/users/login" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход </a>*/
+/*                     <a href="{{ url.generate('login') }}" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход </a>*/
 /*                     {% endif %}*/
 /*                 </div>*/
 /*             </div>*/
@@ -203,11 +232,11 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
 /*             <div class="row">*/
 /*                 <div id="page-content" class="container-fluid">*/
 /*                     <div class="row">*/
-/*                         <div id="sidebar" class="col-sm-3">*/
-/*                             <div class="side-box">*/
-/*                             </div>*/
-/*                         </div>*/
-/*                         <div id="content" class="col-sm-9">*/
+/*                         {#<div id="sidebar" class="col-sm-3">#}*/
+/*                             {#<div class="side-box">#}*/
+/*                             {#</div>#}*/
+/*                         {#</div>#}*/
+/*                         <div id="content" class="col-sm-12">*/
 /*                             {% block content %}*/
 /*                             {% endblock %}*/
 /*                         </div>*/

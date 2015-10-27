@@ -12,7 +12,7 @@ try {
 
     //News
     $router->add('news', '/news', 'News_Controller:index_action');
-    $router->add('article', '/article/(slug:str)', 'News_Controller:article_action');
+    $router->add('article', '/article/(id:num)', 'News_Controller:article_action');
 
     //About
     $router->add('services', '/services', 'Services_Controller:index_action');
@@ -22,18 +22,17 @@ try {
     $router->add('portfolio', '/portfolio', 'Portfolio_Controller:index_action');
 
     //Users
-    $router->add('login', '/users/login', 'Users_Controller:login_action', 'GET|POST');
-    $router->add('authorization', '/users/authorization', 'Users_Controller:authorization_action', 'GET|POST');
-    $router->add('register', '/users/register', 'Users_Controller:register_action');
-    $router->add('logout', '/users/logout', 'Users_Controller:logout_action');
-    $router->add('profile', 'users/profile', 'Users_Controller:profile_action');
+    $router->add('login', '/login', 'Users_Controller:login_action', 'GET|POST');
+    $router->add('register', '/register', 'Users_Controller:register_action', 'GET|POST');
+    $router->add('logout', '/logout', 'Users_Controller:logout_action');
+    $router->add('profile', '/profile', 'Users_Controller:profile_action', 'GET|POST');
 
     //Admin
     $router->add('adminMain', '/admin', 'Admin_Controller:index_action' , 'GET|POST');
-    $router->add('adminLogin', '/admin/login', 'Admin_Controller:login_action');
-    $router->add('adminLogout', '/admin/logout', 'Admin_Controller:logout_action');
     $router->add('adminNews', '/admin/news', 'Admin_Controller:news_action' , 'GET|POST_action');
-    $router->add('adminArticle', '/admin/article/id(id:num)', 'Admin_Controller:article_action' , 'GET|POST');
+    $router->add('articleAdd', '/article/add', 'Admin_Controller:article_add_action', 'GET|POST');
+    $router->add('articleEdit', '/article/edit/(id:num)', 'Admin_Controller:article_edit_action' , 'GET|POST');
+    $router->add('articleDelete', '/article/delete/(id:num)', 'Admin_Controller:article_delete_action' , 'GET|POST');
     $router->add('adminPages', '/admin/pages', 'Admin_Controller:pages_action' , 'GET|POST');
     $router->add('adminOnePage', '/admin/page/id(id:num)', 'Admin_Controller:onepage_action' , 'GET|POST');
     

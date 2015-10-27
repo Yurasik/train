@@ -10,6 +10,7 @@ class __TwigTemplate_4e0a3242a9499dd332252f924b4abbc3807444e55f4478374f2ffdf10d6
         // line 1
         $this->parent = $this->loadTemplate("template_view.html.twig", "Portfolio/portfolio_view.html.twig", 1);
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,33 +26,39 @@ class __TwigTemplate_4e0a3242a9499dd332252f924b4abbc3807444e55f4478374f2ffdf10d6
     }
 
     // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo " Портфолио ";
+    }
+
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<div class=\"container portfolio-content\">
     <table class=\"bg-info\">
         <tr>
             <td>Год</td><td>Проект</td><td>Описание</td>
         </tr>
         ";
-        // line 9
+        // line 11
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["portfolio"]) ? $context["portfolio"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
-            // line 10
+            // line 12
             echo "        <tr>
             <td>";
-            // line 11
+            // line 13
             echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "year", array()));
             echo "</td>
             <td><a target=\"_blank\" href=\"";
-            // line 12
+            // line 14
             echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "url", array()));
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "url", array()));
             echo "</a></td>
             <td>";
-            // line 13
+            // line 15
             echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "description", array()));
             echo "</td>
         </tr>
@@ -60,7 +67,7 @@ class __TwigTemplate_4e0a3242a9499dd332252f924b4abbc3807444e55f4478374f2ffdf10d6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 16
+        // line 18
         echo "    </table>
 </div>
 ";
@@ -78,10 +85,12 @@ class __TwigTemplate_4e0a3242a9499dd332252f924b4abbc3807444e55f4478374f2ffdf10d6
 
     public function getDebugInfo()
     {
-        return array (  64 => 16,  55 => 13,  49 => 12,  45 => 11,  42 => 10,  38 => 9,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  71 => 18,  62 => 15,  56 => 14,  52 => 13,  49 => 12,  45 => 11,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
+/* */
+/* {% block title %} Портфолио {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* <div class="container portfolio-content">*/

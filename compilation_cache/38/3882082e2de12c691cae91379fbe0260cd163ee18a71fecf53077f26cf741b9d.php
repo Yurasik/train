@@ -1,6 +1,6 @@
 <?php
 
-/* News/news_view.html.twig */
+/* /News/news_view.html.twig */
 class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd4d38e extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,8 +8,9 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("template_view.html.twig", "News/news_view.html.twig", 1);
+        $this->parent = $this->loadTemplate("template_view.html.twig", "/News/news_view.html.twig", 1);
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,33 +26,39 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
     }
 
     // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo " Новости ";
+    }
+
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "
     ";
-        // line 5
+        // line 7
         if ((isset($context["news"]) ? $context["news"] : null)) {
-            // line 6
+            // line 8
             echo "        ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["news"]) ? $context["news"] : null));
-            foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
-                // line 7
+            foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+                // line 9
                 echo "        <div class=\"col-sm-12 bg-info news-box\">
             <div class=\"row\">
                 <h2 class=\"news-title\">";
-                // line 9
-                echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "title", array()));
+                // line 11
+                echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "title", array()), "html", null, true);
                 echo " </h2>
                 <div class=\"col-sm-12\">
                     <p class=\"news-description\">";
-                // line 11
-                echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "description", array()));
+                // line 13
+                echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "description", array()), "html", null, true);
                 echo "</p>
-                    <a href=\"news/news_item/?id=";
-                // line 12
-                echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "id", array()));
+                    <a href=\"";
+                // line 14
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "article", 1 => array("id" => $this->getAttribute($context["article"], "id", array()))), "method"), "html", null, true);
                 echo "\" class=\"btn btn-primary pull-right\">Читать далее...</a>
                 </div>
             </div>
@@ -59,19 +66,19 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
         ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 17
+            // line 19
             echo "    ";
         }
-        // line 18
+        // line 20
         echo "
 ";
     }
 
     public function getTemplateName()
     {
-        return "News/news_view.html.twig";
+        return "/News/news_view.html.twig";
     }
 
     public function isTraitable()
@@ -81,21 +88,23 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
 
     public function getDebugInfo()
     {
-        return array (  68 => 18,  65 => 17,  54 => 12,  50 => 11,  45 => 9,  41 => 7,  36 => 6,  34 => 5,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  75 => 20,  72 => 19,  61 => 14,  57 => 13,  52 => 11,  48 => 9,  43 => 8,  41 => 7,  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
 /* */
+/* {% block title %} Новости {% endblock %}*/
+/* */
 /* {% block content %}*/
 /* */
 /*     {% if news %}*/
-/*         {% for row in news %}*/
+/*         {% for article in news %}*/
 /*         <div class="col-sm-12 bg-info news-box">*/
 /*             <div class="row">*/
-/*                 <h2 class="news-title">{{ row.title|escape }} </h2>*/
+/*                 <h2 class="news-title">{{ article.title }} </h2>*/
 /*                 <div class="col-sm-12">*/
-/*                     <p class="news-description">{{ row.description|escape }}</p>*/
-/*                     <a href="news/news_item/?id={{ row.id|escape }}" class="btn btn-primary pull-right">Читать далее...</a>*/
+/*                     <p class="news-description">{{ article.description }}</p>*/
+/*                     <a href="{{ url.generate('article',{id: article.id}) }}" class="btn btn-primary pull-right">Читать далее...</a>*/
 /*                 </div>*/
 /*             </div>*/
 /*         </div>*/

@@ -10,6 +10,7 @@ class __TwigTemplate_b5ce8337906c7e70b4faadebb9a44ab606fd4ca3cd3d95a0c4c1ac1f365
         // line 1
         $this->parent = $this->loadTemplate("template_view.html.twig", "Services/services_view.html.twig", 1);
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,9 +26,15 @@ class __TwigTemplate_b5ce8337906c7e70b4faadebb9a44ab606fd4ca3cd3d95a0c4c1ac1f365
     }
 
     // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo " Услуги ";
+    }
+
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<div class=\"container\">
     <h2>Компания <a href=\"/\">Web Dealer</a> оказывает следующие услуги:</h2>
     <ul>
@@ -61,10 +68,12 @@ class __TwigTemplate_b5ce8337906c7e70b4faadebb9a44ab606fd4ca3cd3d95a0c4c1ac1f365
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,  11 => 1,);
+        return array (  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
+/* */
+/* {% block title %} Услуги {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* <div class="container">*/

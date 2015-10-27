@@ -1,16 +1,18 @@
 {% extends "template_view.html.twig" %}
 
+{% block title %} Новость {% endblock %}
+
 {% block content %}
-    {% if news %}
-        {% for row in news %}
-        <div class="col-sm-12 bg-info news-box">
-            <div class="row">
-                <h2 class="news-title">{{ row.title|escape }}</h2>
-                <div class="col-sm-12">
-                    <p class="news-description">{{ row.full_text|escape }}</p>
-                </div>
+
+    {% if article %}
+    <div class="col-sm-12 bg-info news-box">
+        <div class="row">
+            <h2 class="news-title">{{ article.title }}</h2>
+            <div class="col-sm-12">
+                <p class="news-description">{{ article.full_text }}</p>
             </div>
         </div>
-        {% endfor %}
+    </div>
     {% endif %}
+
 {% endblock %}

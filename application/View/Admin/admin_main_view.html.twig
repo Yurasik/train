@@ -1,0 +1,30 @@
+{% extends "Admin/admin_template_view.html.twig" %}
+
+{% block title %} Панель администратора {% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if news %}
+        {% for article in news %}
+            <p>
+                <a href="{{ url.generate('article',{id: article.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>
+                <a href="{{ url.generate('articleEdit', {id: article.id}) }}" class="btn btn-warning">Редактировать</a>
+                <a href="{{ url.generate('articleDelete', {id: article.id}) }}" class="btn btn-danger">Удалить</a>
+            </p>
+            <hr>
+        {% endfor %}
+    {% elseif article %}
+        <form action="" method="post">
+            <input type="hidden" name="id" value="{{ article.id }}">
+            <p><b>Заголовок: <br></b><input style="width: 100%" type="text" name="title" value="{{ article.title }}"></p>
+            <p><b>Описание: <br></b><textarea style="width: 100%" name="description" id="description" rows="5">{{ article.description }}</textarea></p>
+            <p><b>Новость: <br></b><textarea style="width: 100%" name="full_text" id="full_text" cols="35" rows="15">{{ article.full_text }}</textarea></p>
+            <button type="submit" name="save" class="btn btn-success pull-right">Сохранить</button>
+            <a href="{{ url.generate('adminNews') }}" class="btn btn-danger pull-right" style="margin-right: 10px;">Отмена</a>
+            <div class="clear"></div>
+        </form>
+    {% else %}
+        <h1 class="text-center text-info">Добро пожаловать в панель администратора!</h1>
+    {% endif %}
+</div>
+{% endblock %}

@@ -10,6 +10,7 @@ class __TwigTemplate_3398a04371da530a7793a03058acc8310a17ebb32d2b9a22f3ffea4c961
         // line 1
         $this->parent = $this->loadTemplate("template_view.html.twig", "Contacts/contacts_view.html.twig", 1);
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,9 +26,15 @@ class __TwigTemplate_3398a04371da530a7793a03058acc8310a17ebb32d2b9a22f3ffea4c961
     }
 
     // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo " Контакты ";
+    }
+
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<div class=\"container\">
     <div class=\"row\">
         <div class=\"col-sm-12\" id=\"contact-box\">
@@ -58,10 +65,12 @@ class __TwigTemplate_3398a04371da530a7793a03058acc8310a17ebb32d2b9a22f3ffea4c961
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,  11 => 1,);
+        return array (  38 => 6,  35 => 5,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends "template_view.html.twig" %}*/
+/* */
+/* {% block title %} Контакты {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* <div class="container">*/
