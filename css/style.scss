@@ -1,8 +1,18 @@
+/* mixin */
+$bi: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
+$tc: #ffd000;
+$ws: 0 0 2px #fff;
+$bs: 0 0 2px #000;
+
 /* Общие настройки */
 .clear{
   clear: both;
 }
 html, body{
+  .btn{
+    box-shadow: $bs;
+    color: $tc;
+  }
   a{
     color: #337AB7;
     outline: none;
@@ -11,27 +21,41 @@ html, body{
       color: #245681;
       cursor: pointer;
     }
+
   }
 }
+
 header {
-  .navbar-inverse{
-    background-image: linear-gradient(to top, #13243b 0px, #000 100%);
+  background-image: $bi;
+  .header-navbar{
     margin-bottom: 0;
     border-radius: 0;
     border: none;
     .navbar-nav{
       margin: 0;
       text-align: center;
+      .open > a{
+        background-image: $bi;
+      }
       li{
         a{
-          color: #337AB7;
+          color: $tc;
+          text-shadow: 1px 1px 2px #000;
           font-size: 22px;
           outline: none;
+          &:hover{
+            background-image: $bi;
+            text-shadow: $ws;
+          }
+          &:focus{
+            background-image: $bi;
+            text-shadow: 0 0 3px #fff;
+          }
         }
       }
       .dropdown-menu{
         border: none;
-        background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
+        background-image: $bi;
       }
     }
     #users-box{
@@ -39,21 +63,32 @@ header {
       margin-left: 0;
       text-align: center;
       a{
+        color: $tc;
         outline: none;
+        &:hover{
+          text-shadow: $ws;
+        }
       }
       #wellcome-text{
-        color: #fff;
+        color: $tc;
       }
     }
   }
 }
 #sidebar {
-  background-image: linear-gradient(to top, #13243b 0%, #000 50%, #13243b 100%);
+  background-image: $bi;
   overflow: hidden;
-  color: #fff;
+  color: $tc;
   .side-box{
-    padding: 10px 0;
     text-align: center;
+    border: 1px solid #fff;
+    margin-bottom: 10px;
+    .side-title{
+      padding: 10px 0;
+      margin: 0;
+      background-image: $bi;
+      border-bottom: 1px solid #fff;
+    }
   }
 }
 #content {
@@ -81,12 +116,17 @@ header {
   }
 }
 footer {
-  color: #fff;
-  background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
+  color: $tc;
+  background-image: $bi;
+  padding: 5px;
   #copyright{
     text-align: center;
     a{
       outline: none;
+      color: $tc;
+      &:hover{
+        text-shadow: $ws;
+      }
     }
   }
 }
@@ -94,7 +134,7 @@ footer {
 /* 404 */
 .page404-page{
   background: url("../images/bg_main_content.jpg") no-repeat center center / cover;
-  color: #fff;
+  color: $tc;
   font-size: 32px;
   text-align: center;
   text-shadow: 1px 1px 1px #000;
@@ -103,7 +143,7 @@ footer {
 /* Главная */
 .main-content{
   background: url("../images/bg_main_content.jpg") no-repeat center center / cover;
-  color: #fff;
+  color: $tc;
   text-shadow: 1px 1px 1px #000;
   h1{
     text-align: center;
@@ -115,18 +155,25 @@ footer {
 
 /* Новости */
 .news-box{
-  padding: 0 15px 15px 15px;
   margin-bottom: 25px;
   border: 1px solid #000;
   box-shadow: 0 0 1px #000;
   .news-title{
-    background-image: linear-gradient(to top, #13243b 0px, #000 100%);
+    background-image: $bi;
     text-align: center;
-    color: #fff;
-    box-shadow: 0 0 1px #000;
-    text-shadow: 1px 1px 1px #265A88;
-    margin: 0 0 15px 0;
+    color: $tc;
+    text-shadow: -1px -1px 2px #000;
+    margin: 0;
     padding: 5px;
+  }
+  .news-description{
+    padding: 15px;
+  }
+  .news-info{
+    padding: 10px;
+    color: $tc;
+    text-shadow: -1px -1px 2px #000;
+    background-image: $bi;
   }
   a{
     text-shadow: 1px 1px 1px #000;
@@ -134,6 +181,22 @@ footer {
   .col-sm-12{
     a{
       outline: none;
+    }
+  }
+}
+.category-nav{
+  list-style: none;
+  margin: 0; padding: 0;
+  font-size: 16px;
+  li{
+    a{
+      display: block;
+      padding: 5px;
+      color: $tc;
+      outline: none;
+      &:hover{
+        text-shadow: $ws;
+      }
     }
   }
 }
@@ -152,8 +215,8 @@ footer {
       &:first-of-type{
         text-align: center;
         font-weight: bold;
-        background-image: linear-gradient(to top, #13243b 0px, #000 100%);
-        color: #fff;
+        background-image: $bi;
+        color: $tc;
       }
     }
   }
@@ -170,16 +233,16 @@ footer {
 .register-page{}
 .users-form-box{
   .navbar-form{
-    background-image: linear-gradient(to bottom, #13243b 0px, #000 100%);
+    background-image: $bi;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 3px #000;
     h4{
-      color: #fff;
+      color: $tc;
       text-align: center;
     }
     label{
-      color: #fff;
+      color: $tc;
       font-size: 10px;
     }
     input{
@@ -192,10 +255,14 @@ footer {
     a{
       margin-top: 10px;
       outline: none;
+      color: $tc;
+      &:hover{
+        text-shadow: $ws;
+      }
     }
   }
   #login_info{
-    color: #fff;
+    color: $tc;
   }
 }
 

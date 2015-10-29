@@ -13,6 +13,7 @@ try {
     //News
     $router->add('news', '/news', 'News_Controller:index_action');
     $router->add('article', '/article/(id:num)', 'News_Controller:article_action');
+    $router->add('newsCategory', '/news/category/(id:num)', 'News_Controller:category_action');
 
     //About
     $router->add('services', '/services', 'Services_Controller:index_action');
@@ -29,7 +30,7 @@ try {
 
     //Admin
     $router->add('adminMain', '/admin', 'Admin_Controller:index_action' , 'GET|POST');
-    $router->add('adminNews', '/admin/news', 'Admin_Controller:news_action' , 'GET|POST_action');
+    $router->add('adminNews', '/admin/news', 'Admin_Controller:news_action' , 'GET|POST');
     $router->add('articleAdd', '/article/add', 'Admin_Controller:article_add_action', 'GET|POST');
     $router->add('articleEdit', '/article/edit/(id:num)', 'Admin_Controller:article_edit_action' , 'GET|POST');
     $router->add('articleDelete', '/article/delete/(id:num)', 'Admin_Controller:article_delete_action' , 'GET|POST');

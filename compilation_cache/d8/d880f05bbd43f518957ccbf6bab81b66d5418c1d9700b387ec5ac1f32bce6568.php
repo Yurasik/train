@@ -29,11 +29,11 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
     <meta name=\"description\" content='' />
     <meta name=\"keywords\" content='' />
 
-    <link rel='stylesheet' type='text/css' href='/css/style.css' />
     <link rel='stylesheet' type='text/css' href='/fonts/fonts.css' />
     <link rel='stylesheet' type='text/css' href='/css/font-awesome.css' />
     <link rel='stylesheet' href='/css/bootstrap.css'>
     <link rel='stylesheet' href='/css/bootstrap-theme.css'>
+    <link rel='stylesheet' type='text/css' href='/css/style.css' />
     ";
         // line 15
         $this->displayBlock('css', $context, $blocks);
@@ -45,37 +45,38 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
     <script type=\"text/javascript\" src=\"/js/tinymce/tinymce.min.js\"></script>
     <script type=\"text/javascript\">
         tinymce.init({
-            selector: \".tiny\"
+            selector: \".tiny\",
+            plugins: \"code\"
         });
     </script>
     ";
-        // line 26
-        $this->displayBlock('js', $context, $blocks);
         // line 27
+        $this->displayBlock('js', $context, $blocks);
+        // line 28
         echo "
     <title>";
-        // line 28
+        // line 29
         $this->displayBlock('title', $context, $blocks);
         echo "| Web-Dealer</title>
 </head>
 
 <body>
 <header>
-    <div class=\"navbar navbar-top navbar-inverse\">
+    <div class=\"navbar navbar-top header-navbar\">
         <ul class=\"nav navbar-nav\">
             <li><a href=\"";
-        // line 35
+        // line 36
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "homepage"), "method"), "html", null, true);
         echo "\">Главная</a></li>
             <li class=\"dropdown\">
                 <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Новости <b class=\"caret\"></b></a>
                 <ul class=\"dropdown-menu\">
                     <li><a href=\"";
-        // line 39
+        // line 40
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "adminNews"), "method"), "html", null, true);
         echo "\">Все новости</a></li>
                     <li><a href=\"";
-        // line 40
+        // line 41
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "articleAdd"), "method"), "html", null, true);
         echo "\">Добавить новость</a></li>
                     <li class=\"disabled\"><a href=\"/admin/category\">Категории</a></li>
@@ -85,11 +86,11 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
         <div id=\"users-box\" class=\"navbar-form navbar-right\">
             <p id=\"wellcome-text\">
                 Приветствуем, <b>";
-        // line 47
+        // line 48
         echo twig_escape_filter($this->env, (isset($context["user_email"]) ? $context["user_email"] : null), "html", null, true);
         echo "</b>
                 <a href=\"";
-        // line 48
+        // line 49
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "logout"), "method"), "html", null, true);
         echo "\"><i class=\"fa fa-sign-out\"></i> Выйти </a>
             </p>
@@ -102,20 +103,20 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
         <div id=\"page-content\" class=\"container-fluid\">
             <div class=\"row\">
                 ";
-        // line 59
-        echo "                    ";
         // line 60
         echo "                    ";
         // line 61
         echo "                    ";
         // line 62
-        echo "                ";
+        echo "                    ";
         // line 63
+        echo "                ";
+        // line 64
         echo "                <div id=\"content\" class=\"col-sm-12\">
                     ";
-        // line 64
+        // line 65
         $this->displayBlock('content', $context, $blocks);
-        // line 66
+        // line 67
         echo "                </div>
             </div>
         </div>
@@ -138,20 +139,20 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
     {
     }
 
-    // line 26
+    // line 27
     public function block_js($context, array $blocks = array())
     {
     }
 
-    // line 28
+    // line 29
     public function block_title($context, array $blocks = array())
     {
     }
 
-    // line 64
+    // line 65
     public function block_content($context, array $blocks = array())
     {
-        // line 65
+        // line 66
         echo "                    ";
     }
 
@@ -167,7 +168,7 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 
     public function getDebugInfo()
     {
-        return array (  155 => 65,  152 => 64,  147 => 28,  142 => 26,  137 => 15,  119 => 66,  117 => 64,  114 => 63,  112 => 62,  110 => 61,  108 => 60,  106 => 59,  93 => 48,  89 => 47,  79 => 40,  75 => 39,  68 => 35,  58 => 28,  55 => 27,  53 => 26,  41 => 16,  39 => 15,  23 => 1,);
+        return array (  156 => 66,  153 => 65,  148 => 29,  143 => 27,  138 => 15,  120 => 67,  118 => 65,  115 => 64,  113 => 63,  111 => 62,  109 => 61,  107 => 60,  94 => 49,  90 => 48,  80 => 41,  76 => 40,  69 => 36,  59 => 29,  56 => 28,  54 => 27,  41 => 16,  39 => 15,  23 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -179,11 +180,11 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 /*     <meta name="description" content='' />*/
 /*     <meta name="keywords" content='' />*/
 /* */
-/*     <link rel='stylesheet' type='text/css' href='/css/style.css' />*/
 /*     <link rel='stylesheet' type='text/css' href='/fonts/fonts.css' />*/
 /*     <link rel='stylesheet' type='text/css' href='/css/font-awesome.css' />*/
 /*     <link rel='stylesheet' href='/css/bootstrap.css'>*/
 /*     <link rel='stylesheet' href='/css/bootstrap-theme.css'>*/
+/*     <link rel='stylesheet' type='text/css' href='/css/style.css' />*/
 /*     {% block css %}{% endblock %}*/
 /* */
 /*     <script src="/js/jquery-2.1.3.min.js"></script>*/
@@ -192,7 +193,8 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 /*     <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>*/
 /*     <script type="text/javascript">*/
 /*         tinymce.init({*/
-/*             selector: ".tiny"*/
+/*             selector: ".tiny",*/
+/*             plugins: "code"*/
 /*         });*/
 /*     </script>*/
 /*     {% block js %}{% endblock %}*/
@@ -202,7 +204,7 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 /* */
 /* <body>*/
 /* <header>*/
-/*     <div class="navbar navbar-top navbar-inverse">*/
+/*     <div class="navbar navbar-top header-navbar">*/
 /*         <ul class="nav navbar-nav">*/
 /*             <li><a href="{{ url.generate('homepage') }}">Главная</a></li>*/
 /*             <li class="dropdown">*/

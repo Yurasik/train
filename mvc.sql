@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Окт 17 2015 г., 21:06
--- Версия сервера: 5.5.44-0ubuntu0.14.04.1
--- Версия PHP: 5.5.9-1ubuntu4.13
+-- Время создания: Окт 29 2015 г., 07:05
+-- Версия сервера: 5.5.46-0ubuntu0.14.04.2
+-- Версия PHP: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,28 +23,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `category`
+--
+
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) unsigned DEFAULT NULL,
+  `category_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `category`
+--
+
+INSERT INTO `category` (`id`, `parent_id`, `category_name`) VALUES
+(1, NULL, 'HTML'),
+(2, NULL, 'PHP');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `news`
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) unsigned NOT NULL,
+  `author_id` int(10) unsigned NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `full_text` text NOT NULL,
+  `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Дамп данных таблицы `news`
 --
 
-INSERT INTO `news` (`id`, `title`, `description`, `full_text`) VALUES
-(1, 'Новость 1', '1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda delectus deserunt dicta doloremque earum enim eveniet exercitationem illum in, inventore ipsam modi nobis nostrum, omnis praesentium quasi quia ratione sit suscipit. At imped', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquam aliquid architecto, assumenda aut commodi consequatur cumque debitis dolores doloribus ducimus error esse excepturi facilis id itaque libero mollitia nemo, nobis, rem reprehenderit voluptatibus. Alias commodi consequuntur cum debitis dolorum ducimus esse eveniet in labore laudantium maiores odit, officiis perspiciatis quidem quisquam repellendus, reprehenderit repudiandae tempora? Explicabo fuga impedit molestiae non tenetur! Fugiat quis vel voluptas voluptate. Adipisci at distinctio est fuga in itaque libero necessitatibus porro reiciendis saepe, sunt, voluptatibus voluptatum. Ad aliquid distinctio dolorem earum eos impedit magni maxime nam nemo quas quisquam quos repellat, unde, voluptatibus.'),
-(2, 'Новость 2', '2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda delectus deserunt dicta doloremque earum enim eveniet exercitationem illum in, inventore ipsam modi nobis nostrum, omnis praesentium quasi quia ratione sit suscipit. At imped', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquam aliquid architecto, assumenda aut commodi consequatur cumque debitis dolores doloribus ducimus error esse excepturi facilis id itaque libero mollitia nemo, nobis, rem reprehenderit voluptatibus. Alias commodi consequuntur cum debitis dolorum ducimus esse eveniet in labore laudantium maiores odit, officiis perspiciatis quidem quisquam repellendus, reprehenderit repudiandae tempora? Explicabo fuga impedit molestiae non tenetur! Fugiat quis vel voluptas voluptate. Adipisci at distinctio est fuga in itaque libero necessitatibus porro reiciendis saepe, sunt, voluptatibus voluptatum. Ad aliquid distinctio dolorem earum eos impedit magni maxime nam nemo quas quisquam quos repellat, unde, voluptatibus.'),
-(3, 'Новость 3', '3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda delectus deserunt dicta doloremque earum enim eveniet exercitationem illum in, inventore ipsam modi nobis nostrum, omnis praesentium quasi quia ratione sit suscipit. At imped', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquam aliquid architecto, assumenda aut commodi consequatur cumque debitis dolores doloribus ducimus error esse excepturi facilis id itaque libero mollitia nemo, nobis, rem reprehenderit voluptatibus. Alias commodi consequuntur cum debitis dolorum ducimus esse eveniet in labore laudantium maiores odit, officiis perspiciatis quidem quisquam repellendus, reprehenderit repudiandae tempora? Explicabo fuga impedit molestiae non tenetur! Fugiat quis vel voluptas voluptate. Adipisci at distinctio est fuga in itaque libero necessitatibus porro reiciendis saepe, sunt, voluptatibus voluptatum. Ad aliquid distinctio dolorem earum eos impedit magni maxime nam nemo quas quisquam quos repellat, unde, voluptatibus.'),
-(4, 'Новость 4', '4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda delectus deserunt dicta doloremque earum enim eveniet exercitationem illum in, inventore ipsam modi nobis nostrum, omnis praesentium quasi quia ratione sit suscipit. At imped', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquam aliquid architecto, assumenda aut commodi consequatur cumque debitis dolores doloribus ducimus error esse excepturi facilis id itaque libero mollitia nemo, nobis, rem reprehenderit voluptatibus. Alias commodi consequuntur cum debitis dolorum ducimus esse eveniet in labore laudantium maiores odit, officiis perspiciatis quidem quisquam repellendus, reprehenderit repudiandae tempora? Explicabo fuga impedit molestiae non tenetur! Fugiat quis vel voluptas voluptate. Adipisci at distinctio est fuga in itaque libero necessitatibus porro reiciendis saepe, sunt, voluptatibus voluptatum. Ad aliquid distinctio dolorem earum eos impedit magni maxime nam nemo quas quisquam quos repellat, unde, voluptatibus.'),
-(5, 'Новость 5', '5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda delectus deserunt dicta doloremque earum enim eveniet exercitationem illum in, inventore ipsam modi nobis nostrum, omnis praesentium quasi quia ratione sit suscipit. At imped', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquam aliquid architecto, assumenda aut commodi consequatur cumque debitis dolores doloribus ducimus error esse excepturi facilis id itaque libero mollitia nemo, nobis, rem reprehenderit voluptatibus. Alias commodi consequuntur cum debitis dolorum ducimus esse eveniet in labore laudantium maiores odit, officiis perspiciatis quidem quisquam repellendus, reprehenderit repudiandae tempora? Explicabo fuga impedit molestiae non tenetur! Fugiat quis vel voluptas voluptate. Adipisci at distinctio est fuga in itaque libero necessitatibus porro reiciendis saepe, sunt, voluptatibus voluptatum. Ad aliquid distinctio dolorem earum eos impedit magni maxime nam nemo quas quisquam quos repellat, unde, voluptatibus.'),
-(6, 'Новость 6', '6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda delectus deserunt dicta doloremque earum enim eveniet exercitationem illum in, inventore ipsam modi nobis nostrum, omnis praesentium quasi quia ratione sit suscipit. At imped', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquam aliquid architecto, assumenda aut commodi consequatur cumque debitis dolores doloribus ducimus error esse excepturi facilis id itaque libero mollitia nemo, nobis, rem reprehenderit voluptatibus. Alias commodi consequuntur cum debitis dolorum ducimus esse eveniet in labore laudantium maiores odit, officiis perspiciatis quidem quisquam repellendus, reprehenderit repudiandae tempora? Explicabo fuga impedit molestiae non tenetur! Fugiat quis vel voluptas voluptate. Adipisci at distinctio est fuga in itaque libero necessitatibus porro reiciendis saepe, sunt, voluptatibus voluptatum. Ad aliquid distinctio dolorem earum eos impedit magni maxime nam nemo quas quisquam quos repellat, unde, voluptatibus.');
+INSERT INTO `news` (`id`, `category_id`, `author_id`, `title`, `description`, `full_text`, `date`) VALUES
+(1, 1, 1, 'Новость 1', '<p style="text-align: center;">Краткое описание новости 1...</p>', '<p style="text-align: center;">Полный текст новости 1...</p>', '27-10-2015 16:46:52'),
+(2, 1, 1, 'Новость 2', '<p style="text-align: center;">Краткое описание новости 2...</p>', '<p style="text-align: center;">Полный текст новости 2...</p>', '27-10-2015 16:46:49'),
+(9, 2, 1, 'Проба поломать Tiny', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '<p style="text-align: left;">Ломаем</p>\r\n<p style="text-align: left;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: left;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: left;">&lt;/form&gt;</p>', '27-10-2015 16:46:40'),
+(12, 1, 1, 'Добавление с выбором категории', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '29-10-2015 04:26:02'),
+(18, 1, 1, 'Добавление новости с данными автора', '<p style="text-align: center;">Добавление новости с данными автора</p>', '<p style="text-align: center;">Добавление новости с данными автора</p>', '29-10-2015 02:50:37'),
+(19, 1, 1, 'Проверка на авторство', '<p style="text-align: center;">Проверка на авторство</p>', '<p style="text-align: center;">Проверка на авторство</p>', '29-10-2015 03:29:48');
 
 -- --------------------------------------------------------
 
@@ -84,15 +108,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+  `status` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(1, 'info@yurasik.ml', '92956371ce3f3bea6c775e3f4252952a');
+INSERT INTO `users` (`id`, `email`, `password`, `status`) VALUES
+(1, 'info@yurasik.ml', '92956371ce3f3bea6c775e3f4252952a', 'admin'),
+(3, 'yurasik777@mail.ru', '92956371ce3f3bea6c775e3f4252952a', 'user'),
+(4, 'user@yurasik.ml', '08d76284cb7b85130945d8396881ca91', 'user'),
+(5, 'mawina11000@mail.ru', 'f9c73450aa3cf64eeb8dcf746b5f390c', 'user');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

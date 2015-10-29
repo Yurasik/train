@@ -2,22 +2,39 @@
 
 {% block title %} Новости {% endblock %}
 
-{% block content %}
+{% block  sidebar%}
+<div id="sidebar" class="col-sm-3">
+    <div class="side-box">
+        <h2 class="side-title">Категории:</h2>
+        <ul class="category-nav">
+            <li><a href="{{ url.generate('news') }}">Все новости</a></li>
+            {% for row in category %}
+            <li><a href="{{ url.generate('newsCategory', {id:row.id}) }}">{{ row.category_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
 
+{% block content %}
+<div id="content" class="col-sm-9">
     {% if news %}
         {% for article in news %}
-        <div class="col-sm-12 bg-info news-box">
+        <div class="col-sm-12 news-box">
             <div class="row">
                 <h2 class="news-title">{{ article.title }} </h2>
-                <div class="col-sm-12 news-description">
+                <div class="col-sm-12 news-description bg-info">
                     {{ article.description|raw }}
-
-                    <a href="{{ url.generate('article',{id: article.id}) }}" class="btn btn-primary pull-right">Читать далее...</a>
-                    <p class="pull-right" style="margin: 0 10px"><b>Добавлено: </b><i>{{ article.date }}</i></p>
+                </div>
+                <div class="news-info col-sm-12">
+                    <a href="{{ url.generate('article',{id: article.id}) }}" class="btn btn-primary pull-right"><b>Читать далее... </b><i class="fa fa-eye"></i></a>
+                    <p class="pull-right" style="margin: 0 10px"><i class="fa fa-calendar"></i> <b>Добавлено: </b><i>{{ article.date }}</i></p>
+                    <p class="pull-right" style="margin: 0 10px"><i class="fa fa-folder-o"></i> <b>Категория: </b><i>{{ article.category_name }}</i></p>
+                    <p class="pull-right" style="margin: 0 10px"><i class="fa fa-user"></i> <b>Автор: </b><i>{{ article.email }}</i></p>
                 </div>
             </div>
         </div>
         {% endfor %}
     {% endif %}
-
+</div>
 {% endblock %}

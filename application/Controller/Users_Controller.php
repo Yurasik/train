@@ -53,4 +53,9 @@ class Users_Controller extends Controller
         unset($_SESSION['email']);
         $this->redirect('/');
     }
+
+    public function profile_action()
+    {
+        echo $this->view->render('Users/profile_view.html.twig');
+    }
 }

@@ -16,12 +16,30 @@
         {% endfor %}
     {% elseif article %}
         <form action="" method="post">
+            <a href="{{ url.generate('adminNews') }}" class="btn btn-danger" style="margin-right: 10px;"><i class="fa fa-close"></i> Отмена</a>
             <input type="hidden" name="id" value="{{ article.id }}">
-            <p><b>Заголовок: <br></b><input style="width: 100%" type="text" name="title" value="{{ article.title }}"></p>
-            <p><b>Описание: <br></b><textarea style="width: 100%" name="description" id="description" class="tiny"   rows="5">{{ article.description }}</textarea></p>
-            <p><b>Новость: <br></b><textarea style="width: 100%" name="full_text" id="full_text" class="tiny" rows="15">{{ article.full_text }}</textarea></p>
-            <button type="submit" name="save" class="btn btn-success pull-right">Сохранить</button>
-            <a href="{{ url.generate('adminNews') }}" class="btn-lg btn-danger pull-right" style="margin-right: 10px;">Отмена</a>
+            <p>
+                <b>Заголовок: </b><br>
+                <input style="width: 100%" type="text" name="title" value="{{ article.title }}">
+            </p>
+            {% if category %}
+            <p>
+                <b>Категория:</b><br>
+                <select name="category" id="category">
+                    {% for row in category %}
+                        {% if article.category_id == row.id %}
+                            <option selected class="bg-success" value="{{ row.id }}">{{ row.category_name }}</option>
+                        {% else %}
+                            <option value="{{ row.id }}">{{ row.category_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </p>
+            {% endif %}
+            <p>
+                <b>Новость: </b><br>
+                <textarea style="width: 100%" name="full_text" id="full_text" class="tiny" rows="15">{{ article.full_text }}</textarea></p>
+            <button type="submit" name="save" class="btn btn-success pull-right">Сохранить <i class="fa fa-file-o"></i></button>
             <div class="clear"></div>
         </form>
     {% else %}

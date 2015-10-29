@@ -4,7 +4,7 @@ class admin_model extends Model
 {
     public function getNews()
     {
-        $data = $this->select('news', $columns = 'id, title');
+        $data = $this->select('news', 'id, title');
         return $data;
     }
 
@@ -20,6 +20,12 @@ class admin_model extends Model
         return $data;
     }
 
+    public function getCategory()
+    {
+        $data = $this->select('category', '*');
+        return $data;
+    }
+
     public function updateArticleById($id, $newValues)
     {
         $data = $this->updateById('news', $newValues, $id);
@@ -29,6 +35,12 @@ class admin_model extends Model
     public function deleteArticleById($id)
     {
         $data = $this->deleteById('news', $id);
+        return $data;
+    }
+
+    public function getAuthorId($email)
+    {
+        $data = $this->select('users', 'id', array('email' => $email));
         return $data;
     }
 }

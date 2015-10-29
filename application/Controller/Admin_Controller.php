@@ -11,6 +11,7 @@ class Admin_Controller extends Controller
     protected function checkStaff()
     {
         $admin_model = $this->loadModel('Admin');
+
         if(isset($_SESSION['email'])){
             $role = Model::isStaff($_SESSION['email']);
             if ($role != 'admin'){
@@ -30,33 +31,47 @@ class Admin_Controller extends Controller
     {
         $admin_model = $this->loadModel('Admin');
         $data['news'] = $admin_model->getNews();
+
         echo $this->view->render('Admin/admin_main_view.html.twig', $data);
     }
 
     public function article_add_action()
     {
         $admin_model = $this->loadModel('Admin');
+        $data['category'] = $admin_model->getCategory();
+
         if(null !== $admin_model->request('save')){
             $title = $admin_model->request('title');
-            $description = $admin_model->request('description');
             $full_text = $admin_model->request('full_text');
+            $description = substr($full_text, 0, 250);
+            $category_id = $admin_model->request('category');
+            $author_id = $admin_model->getAuthorId($_SESSION['email']);
             $date = date('d-m-Y H:i:s');
-            $values = array('title' => $title, 'description' => $description, 'full_text' => $full_text, 'date' => $date);
+            $values = array(
+                'category_id' => $category_id,
+                'author_id' => $author_id['id'],
+                'title' => $title,
+                'description' => $description,
+                'full_text' => $full_text,
+                'date' => $date);
             if($admin_model->addArticle($values)){
                 $admin_model->redirect('/admin/news');
             }
         }
-        echo $this->view->render('Admin/admin_article_view.html.twig');
+
+        echo $this->view->render('Admin/admin_article_view.html.twig', $data);
     }
 
     public function article_edit_action($id)
     {
         $admin_model = $this->loadModel('Admin');
+        $data['article'] = $admin_model->getArticleById($id);
+        $data['category'] = $admin_model->getCategory();
 
         if(null !== $admin_model->request('save')){
             $title = $admin_model->request('title');
-            $description = $admin_model->request('description');
             $full_text = $admin_model->request('full_text');
+            $description = substr($full_text, 0, 250);
             $date = date('d-m-Y H:i:s');
             $newValues = array('title' => $title, 'description' => $description, 'full_text' => $full_text, 'date' => $date);
             if($admin_model->updateArticleById($id, $newValues)){
@@ -64,7 +79,6 @@ class Admin_Controller extends Controller
             }
         }
 
-        $data['article'] = $admin_model->getArticleById($id);
         echo $this->view->render('Admin/admin_main_view.html.twig', $data);
     }
 

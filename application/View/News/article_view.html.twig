@@ -2,17 +2,26 @@
 
 {% block title %} {{ article.title }} {% endblock %}
 
+{% block sidebar %}{% endblock %}
+
 {% block content %}
+<div id="content" class="col-sm-12">
 
     {% if article %}
-    <div class="col-sm-12 bg-info news-box">
+    <div class="col-sm-12 news-box">
         <div class="row">
             <h2 class="news-title">{{ article.title }}</h2>
-            <div class="col-sm-12">
-                <p class="news-description">{{ article.full_text|raw }}</p>
+            <div class="col-sm-12 news-description bg-info">
+                {{ article.full_text|raw }}
+            </div>
+            <div class="news-info col-sm-12">
+                <p class="pull-right" style="margin: 0 10px"><i class="fa fa-calendar"></i> <b>Добавлено: </b><i>{{ article.date }}</i></p>
+                <p class="pull-right" style="margin: 0 10px"><i class="fa fa-folder-o"></i> <b>Категория: </b><i>{{ article.category_name }}</i></p>
+                <p class="pull-right" style="margin: 0 10px"><i class="fa fa-user"></i> <b>Автор: </b><i>{{ article.email }}</i></p>
             </div>
         </div>
     </div>
     {% endif %}
 
+</div>
 {% endblock %}

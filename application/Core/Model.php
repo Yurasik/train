@@ -45,8 +45,24 @@ class Model
             }
         }
 		$result = $this->getAssoc($this->connect()->query($sql));
-        return (!$result)? false : $result;
+        if($result && count($result) < 2){
+            return $result[0];
+        } elseif($result && count($result) >= 2){
+            return $result;
+        } else {
+            return false;
+        }
 	}
+
+    protected function selectByJoin($table1, $column = array(), $table2)
+    {
+        $sql = "SELECT ";
+        foreach($column as $value){
+            $sql .= $table1.".".$value.",";
+        }
+        $sql = substr($sql, 0, -1);
+        $sql .= " FROM $table1 INNER JOIN $table2 ON ";
+    }
 
     protected function selectById($table, $columns, $where)
 	{
@@ -81,7 +97,7 @@ class Model
         }
     }
 
-    private function getAssoc($data)
+    protected function getAssoc($data)
     {
         $result = array();
         $num_rows = mysqli_num_rows($data);
@@ -95,13 +111,13 @@ class Model
     protected function existEmail($email)
     {
         $result = $this->select('users', 'email', array('email' => $email));
-        return ($result[0]['email'] == $email)? true : false;
+        return ($result['email'] == $email)? true : false;
     }
 
     protected function checkPassword($email, $password)
     {
         $result = $this->select('users', 'password', array('email' => $email));
-        return ($result[0]['password'] != $password)? false : true;
+        return ($result['password'] != $password)? false : true;
     }
 
     protected function validEmail($email){
