@@ -56,7 +56,7 @@ class __TwigTemplate_92a75d32e28f22c533749b38c7661be13c834560d86b4f494f975c8487d
                 </button>
                 <div class=\"clear\"></div>
                 <a href=\"register\" class=\"pull-right\">
-                    <i class=\"fa fa-user\"></i>
+                    <i class=\"fa fa-user-plus\"></i>
                     Регистрация
                 </a>
                 <div class=\"clear\"></div>
@@ -111,7 +111,7 @@ class __TwigTemplate_92a75d32e28f22c533749b38c7661be13c834560d86b4f494f975c8487d
 /*                 </button>*/
 /*                 <div class="clear"></div>*/
 /*                 <a href="register" class="pull-right">*/
-/*                     <i class="fa fa-user"></i>*/
+/*                     <i class="fa fa-user-plus"></i>*/
 /*                     Регистрация*/
 /*                 </a>*/
 /*                 <div class="clear"></div>*/

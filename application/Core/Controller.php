@@ -23,10 +23,7 @@ class Controller {
             $this->view->addGlobal('user_email', $_SESSION['email']);
             $this->view->addGlobal('user_role', Model::isStaff($_SESSION['email']));
         }
-//        $getHeader = new Twig_SimpleFunction('get_header', function(){
-//
-//        });
-//        $this->view->addFunction($getHeader);
+        $this->view->addGlobal('model', new Model());
 	}
 
     public function redirect($link)

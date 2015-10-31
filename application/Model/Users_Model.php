@@ -42,10 +42,8 @@ class Users_Model extends Model
             if(!$this->existEmail($email)){
 
                 if($this->validEmail($email)){
-                    $values = array('email', 'password', 'status');
-                    $newValues = array($email, $hashPassword, 'user');
-                    $result = $this->insert($this->table_name, $values, $newValues);
-
+                    $values = array('email' => $email, 'password' => $hashPassword, 'status' => 'user');
+                    $result = $this->insert($this->table_name, $values);
                     if($result){
                         $_SESSION['email'] = $email;
                     } else {
@@ -60,5 +58,11 @@ class Users_Model extends Model
         } else {
             Model::setMessage('Не все поля заполнены!');
         }
+    }
+
+    public function addArticle($values)
+    {
+        $data = $this->insert('news', $values);
+        return $data;
     }
 }

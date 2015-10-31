@@ -56,6 +56,40 @@ class Users_Controller extends Controller
 
     public function profile_action()
     {
-        echo $this->view->render('Users/profile_view.html.twig');
+        $data['title'] = 'Страница пользователя';
+        echo $this->view->render('Users/profile_view.html.twig', $data);
+    }
+
+    public function submit_article_action()
+    {
+        $news_model = $this->loadModel('News');
+        $data['title'] = 'Предложить новость';
+        $data['category'] = $news_model->getCategory();
+
+        if(null !== $news_model->request('save')){
+            $title = $news_model->request('title');
+            $full_text = $news_model->request('full_text');
+            $description = $news_model->getDescription($full_text);
+            $category_id = $news_model->request('category');
+            $author_id = $news_model->getAuthorId($_SESSION['email']);
+            $date = date('d-m-Y');
+            $values = array(
+                'category_id' => $category_id,
+                'author_id' => $author_id['id'],
+                'title' => $title,
+                'description' => $description,
+                'full_text' => $full_text,
+                'date' => $date,
+                'status' => 'moderation');
+
+            $user_model = $this->loadModel('Users');
+
+            if($user_model->addArticle($values)){
+                $user_model->redirect('/news');
+            }
+        }
+
+        $data['submit_news'] = true;
+        echo $this->view->render('Users/profile_view.html.twig', $data);
     }
 }

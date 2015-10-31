@@ -36,12 +36,20 @@ class Model
         return $result;
     }
 
-    protected function select($table, $columns, $where = array())
+    protected function select($table, $columns, $where = array(), $order = '', $desc = '')
 	{
 		$sql = "SELECT $columns FROM $table";
         if($where != ''){
             foreach($where as $k => $v){
                 $sql .= " WHERE ".$k."='".$v."'";
+            }
+        }
+        if($order != ''){
+            $sql .= " ORDER BY ".$order;
+            if($desc != ''){
+                $sql .= " ".$desc.";";
+            } else {
+                $sql .= ";";
             }
         }
 		$result = $this->getAssoc($this->connect()->query($sql));
@@ -53,6 +61,19 @@ class Model
             return false;
         }
 	}
+
+    protected function selectExceptId($table, $columns, $id)
+    {
+        $sql = "SELECT $columns FROM $table WHERE id !='".$id."'";
+        $result = $this->getAssoc($this->connect()->query($sql));
+        if($result && count($result) < 2){
+            return $result[0];
+        } elseif($result && count($result) >= 2){
+            return $result;
+        } else {
+            return false;
+        }
+    }
 
     protected function selectByJoin($table1, $column = array(), $table2)
     {
@@ -153,6 +174,11 @@ class Model
         return $result[0]['status'];
     }
 
+    public function getDescription($full_text)
+    {
+        return substr($full_text, 0, 250);
+    }
+
     public static function setMessage($message)
     {
         Model::$message = $message;
@@ -161,5 +187,17 @@ class Model
     public static function getMessage()
     {
         return Model::$message;
+    }
+
+    public function getAuthorId($email)
+    {
+        $data = $this->select('users', 'id', array('email' => $email));
+        return $data;
+    }
+
+    public function getDate($format, $uTime)
+    {
+        $date = date($format, $uTime);
+        return $date;
     }
 }

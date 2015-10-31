@@ -35,9 +35,11 @@ class __TwigTemplate_ddcf2a581cc65f267e70ee88348384f717735d76933be988045d7e47e95
     public function block_content($context, array $blocks = array())
     {
         // line 6
-        echo "<h1 class=\"text-center\">Ошибка 404</h1>
-<h2 class=\"text-center\">Страница не найдена</h2>
-<p class=\"text-center\"><a href=\"milto:info@yurasik.ml\">Напишите нам!</a></p>
+        echo "<div id=\"content\" class=\" col-sm-12\">
+    <h1 class=\"text-center\"><i class=\"fa fa-exclamation-triangle\"></i> Ошибка 404</h1>
+    <h2 class=\"text-center\">Страница не найдена.</h2>
+    <h4 class=\"text-center\"><i class=\"fa fa-envelope-o\"></i> Помогите исправить ошибку, <a href=\"milto:info@yurasik.ml\">сообщите пожалуйста нам!</a></h4>
+</div>
 ";
     }
 
@@ -61,7 +63,9 @@ class __TwigTemplate_ddcf2a581cc65f267e70ee88348384f717735d76933be988045d7e47e95
 /* {% block title %} Страница не найдена - 404 {% endblock %}*/
 /* */
 /* {% block content %}*/
-/* <h1 class="text-center">Ошибка 404</h1>*/
-/* <h2 class="text-center">Страница не найдена</h2>*/
-/* <p class="text-center"><a href="milto:info@yurasik.ml">Напишите нам!</a></p>*/
+/* <div id="content" class=" col-sm-12">*/
+/*     <h1 class="text-center"><i class="fa fa-exclamation-triangle"></i> Ошибка 404</h1>*/
+/*     <h2 class="text-center">Страница не найдена.</h2>*/
+/*     <h4 class="text-center"><i class="fa fa-envelope-o"></i> Помогите исправить ошибку, <a href="milto:info@yurasik.ml">сообщите пожалуйста нам!</a></h4>*/
+/* </div>*/
 /* {% endblock %}*/

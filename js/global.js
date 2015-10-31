@@ -21,10 +21,10 @@ $(document).ready(function() {
             windowWidth = $(window).width(),
             headerHeight = $('header').outerHeight(),
             footerHeight = $('footer').outerHeight(),
-            pageHeight = windowHeight - headerHeight - footerHeight,
-            contentHeight = content.outerHeight();
+            pageHeight = windowHeight - headerHeight - footerHeight;
 
         content.css("min-height", pageHeight);
+        var contentHeight = content.outerHeight();
         sidebar.css("min-height", contentHeight);
 
         if(windowWidth < 768){

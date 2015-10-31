@@ -1,0 +1,146 @@
+{% extends "Admin/admin_template_view.html.twig" %}
+
+{% block title %} Администрирование новостей {% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: ".tiny",
+            plugins: "code"
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    {% if news %}
+        <div class="col-sm-offset-2 col-sm-8">
+            <ol>
+                <hr>
+                {% for article in news %}
+                    <li>
+                        {% if article.status == 'moderation' %} <b class="text-danger"><i class="fa fa-info-circle"></i> Ожидает модерации -</b>{% endif %}
+                        <a href="{{ url.generate('article',{id: article.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>
+                        <a href="{{ url.generate('articleAdd') }}" class="btn-xs btn-success">Добавить</a>
+                        <a href="{{ url.generate('articleEdit', {id: article.id}) }}" class="btn-xs btn-warning">Редактировать</a>
+                        <a href="{{ url.generate('articleDelete', {id: article.id}) }}" class="btn-xs btn-danger">Удалить</a>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ol>
+        </div>
+    {% elseif article_add %}
+        <div class="col-sm-offset-2 col-sm-8">
+            <form action="" method="post">
+                <p>
+                    <b>Название: </b><br>
+                    <input style="width: 100%" type="text" name="title">
+                </p>
+                <p>
+                    <b>Категория:</b><br>
+                    <select style="width: 100%" name="category" id="category">
+                        {% for row in category %}
+                            <option value="{{ row.id }}">{{ row.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <p>
+                    <b>Новость: </b><br>
+                    <textarea style="width: 100%" name="full_text" id="full_text" class="tiny" rows="15"></textarea>
+                </p>
+                <button type="submit" name="save" class="btn btn-success pull-right">Сохранить <i class="fa fa-file-o"></i></button>
+                <a href="{{ url.generate('adminNews') }}" class="btn btn-danger pull-right" style="margin-right: 10px;"><i class="fa fa-close"></i> Отмена</a>
+                <div class="clear"></div>
+            </form>
+        </div>
+    {% elseif article_edit %}
+        <div class="col-sm-offset-2 col-sm-8">
+            <form action="" method="post">
+                <input type="hidden" name="id" value="{{ article_edit.id }}">
+                <p>
+                    <b>Заголовок: </b><br>
+                    <input style="width: 100%" type="text" name="title" value="{{ article_edit.title }}">
+                </p>
+                <p>
+                    <b>Категория:</b><br>
+                    <select style="width: 100%" name="category" id="category">
+                        {% for row in category %}
+                            {% if article_edit.category_id == row.id %}
+                                <option selected class="bg-success" value="{{ row.id }}">{{ row.category_name }}</option>
+                            {% else %}
+                                <option value="{{ row.id }}">{{ row.category_name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </p>
+                <p>
+                    <b>Новость: </b><br>
+                    <textarea style="width: 100%" name="full_text" id="full_text" class="tiny" rows="15">{{ article_edit.full_text }}</textarea>
+                </p>
+                <button type="submit" name="save" class="btn btn-success pull-right">Сохранить <i class="fa fa-file-o"></i></button>
+                <a href="{{ url.generate('adminNews') }}" class="btn btn-danger pull-right" style="margin-right: 10px;"><i class="fa fa-close"></i> Отмена</a>
+                <div class="clear"></div>
+            </form>
+        </div>
+    {% elseif category_add %}
+        <div class="col-sm-offset-2 col-sm-8">
+            <form action="" method="post">
+                <p>
+                    <b>Название категории: </b><br>
+                    <input style="width: 100%" type="text" name="category_name">
+                </p>
+                <p>
+                    <b>Принадлежность: </b>
+                    <select style="width: 100%" name="parent_id" id="category">
+                        <option selected value="0">Основная категория</option>
+                        {% for row in category %}
+                            <option value="{{ row.id }}">{{ row.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <button type="submit" name="save" class="btn btn-success pull-right">Сохранить <i class="fa fa-file-o"></i></button>
+                <a href="{{ url.generate('category') }}" class="btn btn-danger pull-right" style="margin-right: 10px;"><i class="fa fa-close"></i> Отмена</a>
+                <div class="clear"></div>
+            </form>
+        </div>
+    {% elseif category_edit %}
+        <div class="col-sm-offset-2 col-sm-8">
+            <form action="" method="post">
+                <input type="hidden" name="id" value="{{ category_info.id }}">
+                <p>
+                    <b>Название категории: </b><br>
+                    <input style="width: 100%" type="text" name="category_name" value="{{ category_info.category_name }}">
+                </p>
+                <p>
+                    <b>Принадлежность: </b>
+                    <select style="width: 100%" name="parent_id" id="category">
+                        <option selected value="0">Основная категория</option>
+                        {% for row in category %}
+                            <option value="{{ row.id }}">{{ row.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <button type="submit" name="save" class="btn btn-success pull-right">Сохранить <i class="fa fa-file-o"></i></button>
+                <a href="{{ url.generate('category') }}" class="btn btn-danger pull-right" style="margin-right: 10px;"><i class="fa fa-close"></i> Отмена</a>
+                <div class="clear"></div>
+            </form>
+        </div>
+    {% elseif category %}
+        <div class="col-sm-offset-2 col-sm-8">
+            <ol>
+                <hr>
+                {% for row in category %}
+                    <li>
+                        <a href="{{ url.generate('newsCategory', {id:row.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ row.category_name }}</b></a>
+                        <a href="{{ url.generate('categoryAdd') }}" class="btn-xs btn-success">Добавить</a>
+                        <a href="{{ url.generate('categoryEdit', {id: row.id}) }}" class="btn-xs btn-warning">Редактировать</a>
+                        <a href="{{ url.generate('categoryDelete', {id: row.id}) }}" class="btn-xs btn-danger">Удалить</a>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

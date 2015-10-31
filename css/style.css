@@ -4,19 +4,34 @@
 .clear {
   clear: both; }
 
-html .btn, body .btn {
-  box-shadow: 0 0 2px #000;
-  color: #ffd000; }
-html a, body a {
-  color: #337AB7;
-  outline: none; }
-  html a:hover, body a:hover {
-    text-decoration: none;
-    color: #245681;
-    cursor: pointer; }
+html, body {
+  text-shadow: 1px 1px 1px #000; }
+  html .btn, body .btn {
+    box-shadow: 0 0 2px #000;
+    font-weight: bold; }
+  html a, body a {
+    color: #ffd000;
+    outline: none;
+    text-decoration: none; }
+    html a:hover, body a:hover {
+      color: #ffd000;
+      outline: none;
+      text-decoration: none;
+      text-shadow: 0 0 2px #fff;
+      cursor: pointer; }
+    html a:active, body a:active {
+      color: #ffd000;
+      outline: none;
+      text-decoration: none;
+      text-shadow: 0 0 2px #fff; }
+    html a:focus, body a:focus {
+      color: #ffd000;
+      outline: none;
+      text-decoration: none;
+      text-shadow: 0 0 2px #fff; }
 
 header {
-  background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%); }
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%); }
   header .header-navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -25,21 +40,22 @@ header {
       margin: 0;
       text-align: center; }
       header .header-navbar .navbar-nav .open > a {
-        background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%); }
+        background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%); }
       header .header-navbar .navbar-nav li a {
         color: #ffd000;
         text-shadow: 1px 1px 2px #000;
-        font-size: 22px;
+        font-size: 18px;
         outline: none; }
         header .header-navbar .navbar-nav li a:hover {
-          background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
+          background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
           text-shadow: 0 0 2px #fff; }
         header .header-navbar .navbar-nav li a:focus {
-          background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
+          background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
           text-shadow: 0 0 3px #fff; }
       header .header-navbar .navbar-nav .dropdown-menu {
         border: none;
-        background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%); }
+        background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
+        padding: 0; }
     header .header-navbar #users-box {
       margin-right: 0;
       margin-left: 0;
@@ -50,21 +66,25 @@ header {
         header .header-navbar #users-box a:hover {
           text-shadow: 0 0 2px #fff; }
       header .header-navbar #users-box #wellcome-text {
-        color: #ffd000; }
+        color: #ffd000;
+        margin: 5px 0 0 0; }
 
 #sidebar {
-  background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
   overflow: hidden;
   color: #ffd000; }
   #sidebar .side-box {
     text-align: center;
-    border: 1px solid #fff;
     margin-bottom: 10px; }
     #sidebar .side-box .side-title {
       padding: 10px 0;
       margin: 0;
-      background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
-      border-bottom: 1px solid #fff; }
+      background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%); }
+      #sidebar .side-box .side-title a {
+        color: #ffd000;
+        outline: none; }
+        #sidebar .side-box .side-title a:hover {
+          text-shadow: 0 0 2px #fff; }
 
 #content {
   overflow: hidden; }
@@ -87,7 +107,7 @@ header {
 
 footer {
   color: #ffd000;
-  background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
   padding: 5px; }
   footer #copyright {
     text-align: center; }
@@ -102,8 +122,7 @@ footer {
   background: url("../images/bg_main_content.jpg") no-repeat center center/cover;
   color: #ffd000;
   font-size: 32px;
-  text-align: center;
-  text-shadow: 1px 1px 1px #000; }
+  text-align: center; }
 
 /* Главная */
 .main-content {
@@ -116,41 +135,39 @@ footer {
     font-size: 16px; }
 
 /* Новости */
-.news-box {
-  margin-bottom: 25px;
-  border: 1px solid #000;
-  box-shadow: 0 0 1px #000; }
-  .news-box .news-title {
-    background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
-    text-align: center;
+.news-box .news-title {
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
+  text-align: center;
+  color: #ffd000;
+  text-shadow: -1px -1px 2px #000;
+  margin: 0;
+  padding: 10px; }
+  .news-box .news-title a {
     color: #ffd000;
-    text-shadow: -1px -1px 2px #000;
-    margin: 0;
-    padding: 5px; }
-  .news-box .news-description {
-    padding: 15px; }
-  .news-box .news-info {
-    padding: 10px;
-    color: #ffd000;
-    text-shadow: -1px -1px 2px #000;
-    background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%); }
-  .news-box a {
-    text-shadow: 1px 1px 1px #000; }
-  .news-box .col-sm-12 a {
     outline: none; }
+    .news-box .news-title a:hover {
+      text-shadow: 0 0 2px #fff; }
+.news-box .news-description {
+  padding: 15px; }
+.news-box .news-info {
+  padding: 10px;
+  color: #ffd000;
+  text-shadow: -1px -1px 2px #000;
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%); }
+.news-box a {
+  text-shadow: 1px 1px 1px #000;
+  outline: none;
+  color: #ffd000; }
 
 .category-nav {
   list-style: none;
   margin: 0;
-  padding: 0;
-  font-size: 16px; }
+  padding: 0; }
   .category-nav li a {
     display: block;
     padding: 5px;
-    color: #ffd000;
-    outline: none; }
-    .category-nav li a:hover {
-      text-shadow: 0 0 2px #fff; }
+    outline: none;
+    background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%); }
 
 /* Услуги */
 /* Портфолио */
@@ -160,7 +177,7 @@ footer {
 .portfolio-content table tr:first-of-type {
   text-align: center;
   font-weight: bold;
-  background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
   color: #ffd000; }
 
 /* Контакты */
@@ -170,7 +187,7 @@ footer {
 
 /* Регистрация и авторизация */
 .users-form-box .navbar-form {
-  background-image: linear-gradient(to top, #2a5487 0%, #000000 50%, #529dff 100%);
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 3px #000; }
@@ -196,7 +213,9 @@ footer {
 
 /* Общие настройки для страниц */
 #content {
-  padding: 15px; }
+  background-image: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
+  color: #ffd000;
+  padding: 0; }
 
 .session-message {
   color: #fff; }

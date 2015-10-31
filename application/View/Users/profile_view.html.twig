@@ -1,9 +1,55 @@
 {% extends "template_view.html.twig" %}
 
-{% block title %} Профиль {% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: ".tiny",
+            plugins: "code"
+        });
+    </script>
+{% endblock %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block sidebar %}
+    <div id="sidebar" class="col-sm-3">
+        <div class="row">
+            <div class="side-box">
+                <ul class="category-nav">
+                    <li><a href="{{ url.generate('submitArticle') }}">Предложить новость</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
-<div id="content" class="col-sm-12">
-
+<div id="content" class="col-sm-9">
+    {% if submit_news %}
+    <div class="col-sm-8">
+        <form action="" method="post">
+            <p>
+                <b>Название: </b><br>
+                <input style="width: 100%" type="text" name="title">
+            </p>
+            <p>
+                <b>Категория:</b><br>
+                <select style="width: 100%" name="category" id="category">
+                    {% for row in category %}
+                        <option value="{{ row.id }}">{{ row.category_name }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <b>Новость: </b><br>
+                <textarea style="width: 100%" name="full_text" id="full_text" class="tiny" rows="15"></textarea>
+            </p>
+            <button type="submit" name="save" class="btn btn-success pull-right">Сохранить <i class="fa fa-file-o"></i></button>
+            <a href="{{ url.generate('adminNews') }}" class="btn btn-danger pull-right" style="margin-right: 10px;"><i class="fa fa-close"></i> Отмена</a>
+            <div class="clear"></div>
+        </form>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

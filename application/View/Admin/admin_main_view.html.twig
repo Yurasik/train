@@ -3,47 +3,7 @@
 {% block title %} Панель администратора {% endblock %}
 
 {% block content %}
-<div class="container">
-    {% if news %}
-        {% for article in news %}
-            <p>
-                <a href="{{ url.generate('article',{id: article.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>
-                <a href="{{ url.generate('articleEdit', {id: article.id}) }}" class="btn-sm btn-warning">Редактировать</a>
-                <a href="{{ url.generate('articleDelete', {id: article.id}) }}" class="btn-sm btn-danger">Удалить</a>
-                <a href="{{ url.generate('articleAdd') }}" class="btn-sm btn-success">Добавить</a>
-            </p>
-            <hr>
-        {% endfor %}
-    {% elseif article %}
-        <form action="" method="post">
-            <a href="{{ url.generate('adminNews') }}" class="btn btn-danger" style="margin-right: 10px;"><i class="fa fa-close"></i> Отмена</a>
-            <input type="hidden" name="id" value="{{ article.id }}">
-            <p>
-                <b>Заголовок: </b><br>
-                <input style="width: 100%" type="text" name="title" value="{{ article.title }}">
-            </p>
-            {% if category %}
-            <p>
-                <b>Категория:</b><br>
-                <select name="category" id="category">
-                    {% for row in category %}
-                        {% if article.category_id == row.id %}
-                            <option selected class="bg-success" value="{{ row.id }}">{{ row.category_name }}</option>
-                        {% else %}
-                            <option value="{{ row.id }}">{{ row.category_name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-            </p>
-            {% endif %}
-            <p>
-                <b>Новость: </b><br>
-                <textarea style="width: 100%" name="full_text" id="full_text" class="tiny" rows="15">{{ article.full_text }}</textarea></p>
-            <button type="submit" name="save" class="btn btn-success pull-right">Сохранить <i class="fa fa-file-o"></i></button>
-            <div class="clear"></div>
-        </form>
-    {% else %}
-        <h1 class="text-center text-info">Добро пожаловать в панель администратора!</h1>
-    {% endif %}
+<div id="content">
+    <h1 class="text-center">Добро пожаловать в панель администратора!</h1>
 </div>
 {% endblock %}

@@ -48,7 +48,7 @@ class __TwigTemplate_eac22f263b0cbb3db95c52e3eccc09ea8a6f495d101059c4acd472cd1b4
                 <label for=\"password\">Password:</label>
                 <p><input type=\"password\" class=\"form-control\" name=\"password\"/></p>
                 <button type=\"submit\" name=\"register\" class=\"btn btn-success pull-right\">
-                    <i class=\"fa fa-user\"></i> <b>Зарегестрироваться</b>
+                    <i class=\"fa fa-user-plus\"></i> <b>Зарегестрироваться</b>
                 </button>
                 <div class=\"clear\"></div>
                 <a href=\"login\" class=\"pull-right\">
@@ -99,7 +99,7 @@ class __TwigTemplate_eac22f263b0cbb3db95c52e3eccc09ea8a6f495d101059c4acd472cd1b4
 /*                 <label for="password">Password:</label>*/
 /*                 <p><input type="password" class="form-control" name="password"/></p>*/
 /*                 <button type="submit" name="register" class="btn btn-success pull-right">*/
-/*                     <i class="fa fa-user"></i> <b>Зарегестрироваться</b>*/
+/*                     <i class="fa fa-user-plus"></i> <b>Зарегестрироваться</b>*/
 /*                 </button>*/
 /*                 <div class="clear"></div>*/
 /*                 <a href="login" class="pull-right">*/
