@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Окт 29 2015 г., 07:05
+-- Время создания: Окт 31 2015 г., 05:33
 -- Версия сервера: 5.5.46-0ubuntu0.14.04.2
 -- Версия PHP: 5.5.9-1ubuntu4.14
 
@@ -28,18 +28,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` int(11) unsigned DEFAULT NULL,
+  `parent_id` int(11) unsigned DEFAULT '0',
   `category_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `category`
 --
 
 INSERT INTO `category` (`id`, `parent_id`, `category_name`) VALUES
-(1, NULL, 'HTML'),
-(2, NULL, 'PHP');
+(1, 0, 'HTML'),
+(2, 0, 'PHP'),
+(3, 0, 'Web-Design');
 
 -- --------------------------------------------------------
 
@@ -55,20 +56,22 @@ CREATE TABLE IF NOT EXISTS `news` (
   `description` varchar(255) NOT NULL,
   `full_text` text NOT NULL,
   `date` varchar(255) NOT NULL,
+  `status` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
 -- Дамп данных таблицы `news`
 --
 
-INSERT INTO `news` (`id`, `category_id`, `author_id`, `title`, `description`, `full_text`, `date`) VALUES
-(1, 1, 1, 'Новость 1', '<p style="text-align: center;">Краткое описание новости 1...</p>', '<p style="text-align: center;">Полный текст новости 1...</p>', '27-10-2015 16:46:52'),
-(2, 1, 1, 'Новость 2', '<p style="text-align: center;">Краткое описание новости 2...</p>', '<p style="text-align: center;">Полный текст новости 2...</p>', '27-10-2015 16:46:49'),
-(9, 2, 1, 'Проба поломать Tiny', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '<p style="text-align: left;">Ломаем</p>\r\n<p style="text-align: left;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: left;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: left;">&lt;/form&gt;</p>', '27-10-2015 16:46:40'),
-(12, 1, 1, 'Добавление с выбором категории', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '29-10-2015 04:26:02'),
-(18, 1, 1, 'Добавление новости с данными автора', '<p style="text-align: center;">Добавление новости с данными автора</p>', '<p style="text-align: center;">Добавление новости с данными автора</p>', '29-10-2015 02:50:37'),
-(19, 1, 1, 'Проверка на авторство', '<p style="text-align: center;">Проверка на авторство</p>', '<p style="text-align: center;">Проверка на авторство</p>', '29-10-2015 03:29:48');
+INSERT INTO `news` (`id`, `category_id`, `author_id`, `title`, `description`, `full_text`, `date`, `status`) VALUES
+(9, 2, 1, 'Проба поломать Tiny', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '1446251858', 'published'),
+(12, 1, 1, 'Добавление с выбором категории', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '1446251860', 'published'),
+(18, 1, 1, 'Добавление новости с данными автора', '<p style="text-align: center;">Добавление новости с данными автора</p>', '<p style="text-align: center;">Добавление новости с данными автора</p>', '1446251862', 'published'),
+(19, 1, 1, 'Проверка на авторство', '<p style="text-align: center;">Проверка на авторство</p>', '<p style="text-align: center;">Проверка на авторство</p>', '1446251864', 'published'),
+(21, 3, 1, 'Добавление новости в новую категорию', '<p style="text-align: center;">Добавление новости в новую категорию</p>', '<p style="text-align: center;">Добавление новости в новую категорию</p>', '1446251866', 'published'),
+(28, 1, 1, 'Добавление предложеной новости', '<p style="text-align: center;">Добавление предложеной новости</p>', '<p style="text-align: center;">Добавление предложеной новости</p>', '1446251868', 'moderation'),
+(31, 1, 3, 'Добавление предложеной новости от нового автора', '<p style="text-align: center;">Добавление предложеной новости от нового автора</p>', '<p style="text-align: center;">Добавление предложеной новости от нового автора</p>', '31-10-2015', 'moderation');
 
 -- --------------------------------------------------------
 
@@ -120,7 +123,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `email`, `password`, `status`) VALUES
 (1, 'info@yurasik.ml', '92956371ce3f3bea6c775e3f4252952a', 'admin'),
 (3, 'yurasik777@mail.ru', '92956371ce3f3bea6c775e3f4252952a', 'user'),
-(4, 'user@yurasik.ml', '08d76284cb7b85130945d8396881ca91', 'user'),
 (5, 'mawina11000@mail.ru', 'f9c73450aa3cf64eeb8dcf746b5f390c', 'user');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
