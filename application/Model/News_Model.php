@@ -5,14 +5,14 @@ class News_Model extends Model
 
     public function getNews()
     {
-        $sql = "SELECT news.id, news.category_id, news.title, news.description, news.date, category.category_name, users.email
+        $sql = "SELECT news.id, news.category_id, news.title, news.description, news.created_at, news.article_slug, category.category_name, category.category_slug, users.email
                 FROM news
                 INNER JOIN category
                 ON news.category_id=category.id
                 INNER JOIN users
                 ON users.id=news.author_id
                 AND news.status='published'
-                ORDER BY news.date DESC";
+                ORDER BY news.created_at DESC";
 
         $data = $this->connect()->query($sql);
         if($data){
@@ -24,11 +24,29 @@ class News_Model extends Model
 
     public function getArticleById($id)
     {
-        $sql = "SELECT news.id, news.category_id, news.title, news.full_text, news.date, category.category_name, users.email
+        $sql = "SELECT news.id, news.category_id, news.title, news.full_text, news.created_at, category.category_name, category.category_slug, users.email
                 FROM news
                 INNER JOIN category
                 ON news.category_id=category.id
                 AND news.id=$id
+                INNER JOIN users
+                ON users.id=news.author_id";
+
+        $data = $this->getAssoc($this->connect()->query($sql));
+        if(count($data) < 2){
+            return $data[0];
+        } else {
+            return $data;
+        }
+    }
+
+    public function getArticleBySlug($slug)
+    {
+        $sql = "SELECT news.id, news.category_id, news.title, news.full_text, news.created_at, news.article_slug, category.category_name, category.category_slug, users.email
+                FROM news
+                INNER JOIN category
+                ON news.category_id=category.id
+                AND news.article_slug='$slug'
                 INNER JOIN users
                 ON users.id=news.author_id";
 
@@ -48,7 +66,7 @@ class News_Model extends Model
 
     public function getNewsByCategoryId($id)
     {
-        $sql = "SELECT news.id, news.category_id, news.title, news.description, news.date, category.category_name, users.email
+        $sql = "SELECT news.id, news.category_id, news.title, news.description, news.created_at, news.article_slug, category.category_name, category.category_slug, users.email
                 FROM news
                 INNER JOIN category
                 ON news.category_id=$id
@@ -56,7 +74,7 @@ class News_Model extends Model
                 AND news.category_id=category.id
                 INNER JOIN users
                 ON users.id=news.author_id
-                ORDER BY news.date DESC";
+                ORDER BY news.created_at DESC";
 
         $data = $this->connect()->query($sql);
         if($data){
@@ -66,9 +84,9 @@ class News_Model extends Model
         return $data;
     }
 
-    public function getCategoryNameByCategoryId($id)
+    public function getCategoryBySlug($slug)
     {
-        $data = $this->selectById('category', 'category_name', $id);
+        $data = $this->select('category', 'category_name, id', array('category_slug' => $slug));
         return $data;
     }
 }

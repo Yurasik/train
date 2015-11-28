@@ -53,7 +53,7 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
         foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
             // line 12
             echo "                    <li><a href=\"";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "newsCategory", 1 => array("id" => $this->getAttribute($context["row"], "id", array()))), "method"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "newsCategory", 1 => array("slug" => $this->getAttribute($context["row"], "category_slug", array()))), "method"), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "category_name", array()), "html", null, true);
             echo "</a></li>
@@ -88,11 +88,11 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
             <div class=\"row\">
                 <h4 class=\"news-title\"><a href=\"";
                 // line 26
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "article", 1 => array("id" => $this->getAttribute($context["article"], "id", array()))), "method"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "article", 1 => array("slug" => $this->getAttribute($context["article"], "article_slug", array()))), "method"), "html", null, true);
                 echo "\"><i class=\"fa fa-eye\"></i> ";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "title", array()), "html", null, true);
                 echo "</a></h4>
-                <div class=\"col-sm-12 news-description bg-info\">
+                <div class=\"col-sm-12 news-description\">
                     ";
                 // line 28
                 echo $this->getAttribute($context["article"], "description", array());
@@ -101,11 +101,11 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
                 <div class=\"news-info col-sm-12\">
                     <p class=\"pull-right\" style=\"margin: 0 10px\"><i class=\"fa fa-calendar\"></i> <b>Добавлено: </b><i>";
                 // line 31
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "getDate", array(0 => "d-m-Y", 1 => $this->getAttribute($context["article"], "date", array())), "method"), "html", null, true);
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["article"], "created_at", array()), "d.m.Y"), "html", null, true);
                 echo "</i></p>
                     <p class=\"pull-right\" style=\"margin: 0 10px\"><i class=\"fa fa-folder-o\"></i> <b>Категория: </b><a href=\"";
                 // line 32
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "newsCategory", 1 => array("id" => $this->getAttribute($context["article"], "category_id", array()))), "method"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "newsCategory", 1 => array("slug" => $this->getAttribute($context["article"], "category_slug", array()))), "method"), "html", null, true);
                 echo "\"><i>";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "category_name", array()), "html", null, true);
                 echo "</i></a></p>
@@ -156,7 +156,7 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
 /*             <h4 class="side-title"><i class="fa fa-folder-open-o"></i>: <a href="{{ url.generate('news') }}">Все новости</a></h4>*/
 /*             <ul class="category-nav">*/
 /*                 {% for row in category %}*/
-/*                     <li><a href="{{ url.generate('newsCategory', {id:row.id}) }}">{{ row.category_name }}</a></li>*/
+/*                     <li><a href="{{ url.generate('newsCategory', {slug:row.category_slug}) }}">{{ row.category_name }}</a></li>*/
 /*                 {% endfor %}*/
 /*             </ul>*/
 /*         </div>*/
@@ -170,13 +170,13 @@ class __TwigTemplate_58ee2474da6d4d2019742b498c332c695c74095d0ef57452af733969edd
 /*         {% for article in news %}*/
 /*         <div class="col-sm-12 news-box">*/
 /*             <div class="row">*/
-/*                 <h4 class="news-title"><a href="{{ url.generate('article',{id: article.id}) }}"><i class="fa fa-eye"></i> {{ article.title }}</a></h4>*/
-/*                 <div class="col-sm-12 news-description bg-info">*/
+/*                 <h4 class="news-title"><a href="{{ url.generate('article', {slug:article.article_slug}) }}"><i class="fa fa-eye"></i> {{ article.title }}</a></h4>*/
+/*                 <div class="col-sm-12 news-description">*/
 /*                     {{ article.description|raw }}*/
 /*                 </div>*/
 /*                 <div class="news-info col-sm-12">*/
-/*                     <p class="pull-right" style="margin: 0 10px"><i class="fa fa-calendar"></i> <b>Добавлено: </b><i>{{ model.getDate("d-m-Y", article.date) }}</i></p>*/
-/*                     <p class="pull-right" style="margin: 0 10px"><i class="fa fa-folder-o"></i> <b>Категория: </b><a href="{{ url.generate('newsCategory', {id:article.category_id}) }}"><i>{{ article.category_name }}</i></a></p>*/
+/*                     <p class="pull-right" style="margin: 0 10px"><i class="fa fa-calendar"></i> <b>Добавлено: </b><i>{{ article.created_at|date("d.m.Y") }}</i></p>*/
+/*                     <p class="pull-right" style="margin: 0 10px"><i class="fa fa-folder-o"></i> <b>Категория: </b><a href="{{ url.generate('newsCategory', {slug:article.category_slug}) }}"><i>{{ article.category_name }}</i></a></p>*/
 /*                     <p class="pull-right" style="margin: 0 10px"><i class="fa fa-user"></i> <b>Автор: </b><i>{{ article.email }}</i></p>*/
 /*                     <div class="clear"></div>*/
 /*                 </div>*/

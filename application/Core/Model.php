@@ -75,6 +75,19 @@ class Model
         }
     }
 
+    protected function selectExceptSlug($table, $columns, $slug)
+    {
+        $sql = "SELECT $columns FROM $table WHERE category_slug !='".$slug."'";
+        $result = $this->getAssoc($this->connect()->query($sql));
+        if($result && count($result) < 2){
+            return $result[0];
+        } elseif($result && count($result) >= 2){
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
     protected function selectByJoin($table1, $column = array(), $table2)
     {
         $sql = "SELECT ";
@@ -92,6 +105,13 @@ class Model
         return (!$result)? false : $result[0];
 	}
 
+    protected function selectArticleBySlug($table, $columns, $slug)
+    {
+        $sql = "SELECT $columns FROM $table WHERE article_slug='$slug'";
+        $result = $this->getAssoc($this->connect()->query($sql));
+        return (!$result)? false : $result[0];
+    }
+
     protected function updateById($table_name, $newValues, $id)
     {
         $sql = "UPDATE $table_name SET ";
@@ -104,9 +124,35 @@ class Model
         return ($result)? true : false;
     }
 
+    protected function updateArticleBySlug($table_name, $newValues, $slug)
+    {
+        $sql = "UPDATE $table_name SET ";
+        foreach($newValues as $key => $value){
+            $sql .= "$key='$value',";
+        }
+        $sql = substr($sql, 0, -1);
+        $sql .= "WHERE article_slug='$slug'";
+        $result = $this->connect()->query($sql);
+        return ($result)? true : false;
+    }
+
     protected function deleteById($table_name, $id)
     {
         $sql = "DELETE FROM $table_name WHERE id='$id'";
+        $result = $this->connect()->query($sql);
+        return ($result)? true : false;
+    }
+
+    protected function deleteArticleBySlug($table_name, $slug)
+    {
+        $sql = "DELETE FROM $table_name WHERE article_slug='$slug'";
+        $result = $this->connect()->query($sql);
+        return ($result)? true : false;
+    }
+
+    protected function deleteCategoryBySlug($table_name, $slug)
+    {
+        $sql = "DELETE FROM $table_name WHERE category_slug='$slug'";
         $result = $this->connect()->query($sql);
         return ($result)? true : false;
     }
@@ -199,5 +245,21 @@ class Model
     {
         $date = date($format, $uTime);
         return $date;
+    }
+
+    public function makeTranslite($string)
+    {
+        $string = trim($string);
+
+        $translite = array(' ' => '-', '%' => '', 'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'e', 'ж' => 'j',
+            'з' => 'z', 'и' => 'i', 'й' => 'y', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't',
+            'у' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'c', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sh', 'ъ' => '', 'ы' => 'i', 'ь' => '', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya',
+            'A' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Д' => 'D', 'Е' => 'E', 'Ё' => 'E', 'Ж' => 'J',
+            'З' => 'Z', 'И' => 'I', 'Й' => 'Y', 'К' => 'K', 'Л' => 'L', 'М' => 'M', 'Н' => 'N', 'О' => 'O', 'П' => 'P', 'Р' => 'R', 'С' => 'S', 'Т' => 'T',
+            'У' => 'U', 'Ф' => 'F', 'Х' => 'H', 'Ц' => 'C', 'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Sh', 'Ъ' => '', 'Ы' => 'I', 'Ь' => '', 'Э' => 'E', 'Ю' => 'Yu', 'Я' => 'Ya',);
+
+        $data = strtr($string, $translite);
+
+        return strtolower($data);
     }
 }

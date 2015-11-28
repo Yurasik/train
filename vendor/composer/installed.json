@@ -61,5 +61,61 @@
         "keywords": [
             "templating"
         ]
+    },
+    {
+        "name": "pyrech/composer-changelogs",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pyrech/composer-changelogs.git",
+            "reference": "b686b4ad1ea4512b6eef38b7985841fda54f5e03"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pyrech/composer-changelogs/zipball/b686b4ad1ea4512b6eef38b7985841fda54f5e03",
+            "reference": "b686b4ad1ea4512b6eef38b7985841fda54f5e03",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "composer/composer": "~1.0.0-alpha10@dev",
+            "fabpot/php-cs-fixer": "~1.5",
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2015-10-22 18:47:01",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Pyrech\\ComposerChangelogs\\ChangelogsPlugin",
+            "branch-alias": {
+                "dev-master": "1.2.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Pyrech\\ComposerChangelogs\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Loïck Piera",
+                "email": "pyrech@gmail.com"
+            }
+        ],
+        "description": "Display changelogs after each composer update",
+        "keywords": [
+            "changelog",
+            "composer",
+            "plugin",
+            "update"
+        ]
     }
 ]

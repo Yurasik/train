@@ -92,7 +92,7 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
                 <a href=\"";
         // line 43
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "logout"), "method"), "html", null, true);
-        echo "\"><i class=\"fa fa-sign-out\"></i> <b>Выйти</b> </a>
+        echo "\" class=\"btn btn-xs btn-danger\"><i class=\"fa fa-sign-out\"></i> <b>Выйти</b> </a>
             </p>
         </div>
     </div>
@@ -201,7 +201,7 @@ class __TwigTemplate_7ef2841e84f9c7c587f7d8ba4c4905d8236b1ef14a6abfa23f44f6251f5
 /*         <div id="users-box" class="navbar-form navbar-right">*/
 /*             <p id="wellcome-text">*/
 /*                 Приветствуем, <b>{{ user_email }}</b>*/
-/*                 <a href="{{ url.generate('logout') }}"><i class="fa fa-sign-out"></i> <b>Выйти</b> </a>*/
+/*                 <a href="{{ url.generate('logout') }}" class="btn btn-xs btn-danger"><i class="fa fa-sign-out"></i> <b>Выйти</b> </a>*/
 /*             </p>*/
 /*         </div>*/
 /*     </div>*/

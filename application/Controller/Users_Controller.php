@@ -3,13 +3,6 @@
 class Users_Controller extends Controller
 {
 
-
-    function __construct()
-    {
-        parent::__construct();
-        $this->view->addGlobal('status_info', 'q');
-    }
-
     public function register_action()
     {
         $user_model = $this->loadModel('Users');
@@ -23,10 +16,12 @@ class Users_Controller extends Controller
         }
 
         if(isset($_COOKIE['email'])){
-            $data['email'] = $_COOKIE['email'];
+            $email = $_COOKIE['email'];
+        } else {
+            $email = null;
         }
-        $data['message'] = Model::getMessage();
-        echo $this->view->render('Users/register_view.html.twig', $data);
+        $message = Model::getMessage();
+        echo $this->view->render('Users/register_view.html.twig', array('email' => $email, 'message' => $message));
     }
 
     public function login_action()
@@ -42,10 +37,13 @@ class Users_Controller extends Controller
         }
 
         if(isset($_COOKIE['email'])){
-            $data['email'] = $_COOKIE['email'];
+            $email = $_COOKIE['email'];
+        } else {
+            $email = null;
         }
-        $data['message'] = Model::getMessage();
-        echo $this->view->render('Users/authorization_view.html.twig', $data);
+
+        $message = Model::getMessage();
+        echo $this->view->render('Users/authorization_view.html.twig', array('email' => $email, 'message' => $message));
     }
 
     public function logout_action()
@@ -56,15 +54,15 @@ class Users_Controller extends Controller
 
     public function profile_action()
     {
-        $data['title'] = 'Страница пользователя';
-        echo $this->view->render('Users/profile_view.html.twig', $data);
+        $title = 'Страница пользователя';
+        echo $this->view->render('Users/profile_view.html.twig', array('title' => $title));
     }
 
     public function submit_article_action()
     {
         $news_model = $this->loadModel('News');
-        $data['title'] = 'Предложить новость';
-        $data['category'] = $news_model->getCategory();
+        $title = 'Предложить новость';
+        $category = $news_model->getCategory();
 
         if(null !== $news_model->request('save')){
             $title = $news_model->request('title');
@@ -89,7 +87,6 @@ class Users_Controller extends Controller
             }
         }
 
-        $data['submit_news'] = true;
-        echo $this->view->render('Users/profile_view.html.twig', $data);
+        echo $this->view->render('Users/profile_view.html.twig', array('title' => $title, 'category' => $category, 'submit_news' => true));
     }
 }

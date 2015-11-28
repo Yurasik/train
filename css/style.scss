@@ -1,11 +1,12 @@
 /* mixin */
-$bi: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
-$content-bg: linear-gradient(to top, #000000 0%, #1c3253 75%, #529dff 100%);
-$text-color: #ffd000;
-$text-shadow: 1px 1px 1px #000;
-$link-color: #ffd000;
-$link-hover-color: #ffd000;
-$link-hover-shadow: 0 0 2px #fff;
+$bi: linear-gradient(to top, #000000 0%, #abc0e8 3%, #ffffff 50%, #abc0e8 97%, #000000 100%);
+$content-bg: linear-gradient(to top, #ffffff 0%, #ffffff 100%);
+$text-color: #000;
+$text-shadow: 0 0 1px #fff;
+$link-color: #000;
+$link-shadow: 0 0 1px #ffffff;
+$link-hover-color: #0d0d0d;
+$link-hover-shadow: 0 0 1px #646464;
 $bs: 0 0 2px #000;
 
 /* Общие настройки */
@@ -15,11 +16,11 @@ $bs: 0 0 2px #000;
 html, body{
   text-shadow: $text-shadow;
   .btn{
-    box-shadow: $bs;
     font-weight: bold;
   }
   a{
     color: $link-color;
+    text-shadow: $link-shadow;
     outline: none;
     text-decoration: none;
     &:hover{
@@ -58,8 +59,6 @@ header {
       }
       li{
         a{
-          color: $link-color;
-          text-shadow: 1px 1px 2px #000;
           font-size: 18px;
           outline: none;
           &:hover{
@@ -83,7 +82,6 @@ header {
       margin-left: 0;
       text-align: center;
       a{
-        color: $link-color;
         outline: none;
         &:hover{
           text-shadow: $link-hover-shadow;
@@ -91,15 +89,14 @@ header {
       }
       #wellcome-text{
         color: $text-color;
-        margin: 5px 0 0 0;
       }
     }
   }
 }
 #sidebar {
-  background-image: $bi;
   overflow: hidden;
   color: $text-color;
+  border-right: 1px solid #000;
   .side-box{
     text-align: center;
     margin-bottom: 10px;
@@ -108,7 +105,6 @@ header {
       margin: 0;
       background-image: $bi;
       a{
-        color: $link-color;
         outline: none;
         &:hover{
           text-shadow: $link-hover-shadow;
@@ -183,16 +179,10 @@ footer {
   .news-title{
     background-image: $bi;
     text-align: center;
-    color: $text-color;
-    text-shadow: -1px -1px 2px #000;
     margin: 0;
     padding: 10px;
     a{
-      color: $link-color;
       outline: none;
-      &:hover{
-        text-shadow: $link-hover-shadow;
-      }
     }
   }
   .news-description{
@@ -201,11 +191,9 @@ footer {
   .news-info{
     padding: 10px;
     color: $text-color;
-    text-shadow: -1px -1px 2px #000;
     background-image: $bi;
   }
   a{
-    text-shadow: 1px 1px 1px #000;
     outline: none;
     color: $link-color;
   }
@@ -277,10 +265,6 @@ footer {
     a{
       margin-top: 10px;
       outline: none;
-      color: $link-color;
-      &:hover{
-        text-shadow: $link-hover-shadow;
-      }
     }
   }
   #login_info{

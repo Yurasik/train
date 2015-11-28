@@ -9,7 +9,7 @@
             <h4 class="side-title"><i class="fa fa-folder-open-o"></i>: <a href="{{ url.generate('news') }}">Все новости</a></h4>
             <ul class="category-nav">
                 {% for row in category %}
-                    <li><a href="{{ url.generate('newsCategory', {id:row.id}) }}">{{ row.category_name }}</a></li>
+                    <li><a href="{{ url.generate('newsCategory', {slug:row.category_slug}) }}">{{ row.category_name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -23,13 +23,13 @@
         {% for article in news %}
         <div class="col-sm-12 news-box">
             <div class="row">
-                <h4 class="news-title"><a href="{{ url.generate('article',{id: article.id}) }}"><i class="fa fa-eye"></i> {{ article.title }}</a></h4>
-                <div class="col-sm-12 news-description bg-info">
+                <h4 class="news-title"><a href="{{ url.generate('article', {slug:article.article_slug}) }}"><i class="fa fa-eye"></i> {{ article.title }}</a></h4>
+                <div class="col-sm-12 news-description">
                     {{ article.description|raw }}
                 </div>
                 <div class="news-info col-sm-12">
-                    <p class="pull-right" style="margin: 0 10px"><i class="fa fa-calendar"></i> <b>Добавлено: </b><i>{{ model.getDate("d-m-Y", article.date) }}</i></p>
-                    <p class="pull-right" style="margin: 0 10px"><i class="fa fa-folder-o"></i> <b>Категория: </b><a href="{{ url.generate('newsCategory', {id:article.category_id}) }}"><i>{{ article.category_name }}</i></a></p>
+                    <p class="pull-right" style="margin: 0 10px"><i class="fa fa-calendar"></i> <b>Добавлено: </b><i>{{ article.created_at|date("d.m.Y") }}</i></p>
+                    <p class="pull-right" style="margin: 0 10px"><i class="fa fa-folder-o"></i> <b>Категория: </b><a href="{{ url.generate('newsCategory', {slug:article.category_slug}) }}"><i>{{ article.category_name }}</i></a></p>
                     <p class="pull-right" style="margin: 0 10px"><i class="fa fa-user"></i> <b>Автор: </b><i>{{ article.email }}</i></p>
                     <div class="clear"></div>
                 </div>

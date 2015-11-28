@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a31e651ea26a527432562441b3545e0a",
-    "content-hash": "c43ceea98646f3ef85cd2f04d3f32b27",
+    "hash": "3a98fe7549f3db6b925841249191a418",
+    "content-hash": "2e3bb88fc2ea26d334ab6fbe0814d8a7",
     "packages": [
         {
             "name": "twig/twig",
@@ -69,7 +69,62 @@
             "time": "2015-10-13 07:07:02"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "pyrech/composer-changelogs",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pyrech/composer-changelogs.git",
+                "reference": "b686b4ad1ea4512b6eef38b7985841fda54f5e03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pyrech/composer-changelogs/zipball/b686b4ad1ea4512b6eef38b7985841fda54f5e03",
+                "reference": "b686b4ad1ea4512b6eef38b7985841fda54f5e03",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0.0-alpha10@dev",
+                "fabpot/php-cs-fixer": "~1.5",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Pyrech\\ComposerChangelogs\\ChangelogsPlugin",
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pyrech\\ComposerChangelogs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Loïck Piera",
+                    "email": "pyrech@gmail.com"
+                }
+            ],
+            "description": "Display changelogs after each composer update",
+            "keywords": [
+                "changelog",
+                "composer",
+                "plugin",
+                "update"
+            ],
+            "time": "2015-10-22 18:47:01"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],

@@ -43,7 +43,7 @@ class __TwigTemplate_4e0a3242a9499dd332252f924b4abbc3807444e55f4478374f2ffdf10d6
         // line 8
         echo "<div id=\"content\" class=\"cols-sm-12\">
     <div class=\"container portfolio-content\">
-        <table class=\"bg-info\">
+        <table>
             <tr>
                 <td>Год</td><td>Проект</td><td>Описание</td>
             </tr>
@@ -105,7 +105,7 @@ class __TwigTemplate_4e0a3242a9499dd332252f924b4abbc3807444e55f4478374f2ffdf10d6
 /* {% block content %}*/
 /* <div id="content" class="cols-sm-12">*/
 /*     <div class="container portfolio-content">*/
-/*         <table class="bg-info">*/
+/*         <table>*/
 /*             <tr>*/
 /*                 <td>Год</td><td>Проект</td><td>Описание</td>*/
 /*             </tr>*/

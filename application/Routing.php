@@ -12,8 +12,8 @@ try {
 
     // News
     $router->add('news', '/news', 'News_Controller:index_action');
-    $router->add('article', '/news/(id:num)', 'News_Controller:article_action');
-    $router->add('newsCategory', '/news/category/(id:num)', 'News_Controller:category_action');
+    $router->add('article', '/news/(slug:str)', 'News_Controller:article_action');
+    $router->add('newsCategory', '/news/category/(slug:str)', 'News_Controller:category_action');
 
     // About
     $router->add('services', '/services', 'Services_Controller:index_action');
@@ -21,6 +21,7 @@ try {
 
     // Portfolio
     $router->add('portfolio', '/portfolio', 'Portfolio_Controller:index_action');
+
 
     // Users - Register and Authorization
     $router->add('register', '/register', 'Users_Controller:register_action', 'GET|POST');
@@ -31,18 +32,18 @@ try {
     $router->add('submitArticle', '/submit/article', 'Users_Controller:submit_article_action', 'GET|POST');
 
     // Admin
-    $router->add('adminMain', '/admin', 'Admin_Controller:index_action' , 'GET|POST');
+    $router->add('adminMain', '/admin', 'Admin_Controller:index_action', 'GET|POST');
     // Admin - News
-    $router->add('adminNews', '/admin/news', 'Admin_Controller:news_action' , 'GET|POST');
+    $router->add('adminNews', '/admin/news', 'Admin_Controller:news_action', 'GET|POST');
     // Admin - Article
     $router->add('articleAdd', '/admin/article/add', 'Admin_Controller:article_add_action', 'GET|POST');
-    $router->add('articleEdit', '/admin/article/edit/(id:num)', 'Admin_Controller:article_edit_action' , 'GET|POST');
-    $router->add('articleDelete', '/admin/article/delete/(id:num)', 'Admin_Controller:article_delete_action' , 'GET|POST');
+    $router->add('articleEdit', '/admin/article/edit/(slug:str)', 'Admin_Controller:article_edit_action', 'GET|POST');
+    $router->add('articleDelete', '/admin/article/delete/(slug:str)', 'Admin_Controller:article_delete_action', 'GET|POST');
     // Admin - Category
     $router->add('category', '/admin/category', 'Admin_Controller:category_action');
     $router->add('categoryAdd', '/admin/category/add', 'Admin_Controller:category_add_action', 'GET|POST');
-    $router->add('categoryEdit', '/admin/category/edit/(id:num)', 'Admin_Controller:category_edit_action', 'GET|POST');
-    $router->add('categoryDelete', '/admin/category/delete/(id:num)', 'Admin_Controller:category_delete_action', 'GET|POST');
+    $router->add('categoryEdit', '/admin/category/edit/(slug:str)', 'Admin_Controller:category_edit_action', 'GET|POST');
+    $router->add('categoryDelete', '/admin/category/delete/(slug:str)', 'Admin_Controller:category_delete_action', 'GET|POST');
 
 //    $router->add('adminPages', '/admin/pages', 'Admin_Controller:pages_action' , 'GET|POST');
 //    $router->add('adminOnePage', '/admin/page/id(id:num)', 'Admin_Controller:onepage_action' , 'GET|POST');

@@ -72,7 +72,7 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
                 }
                 // line 24
                 echo "                        <a href=\"";
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "article", 1 => array("id" => $this->getAttribute($context["article"], "id", array()))), "method"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "article", 1 => array("slug" => $this->getAttribute($context["article"], "article_slug", array()))), "method"), "html", null, true);
                 echo "\" target=\"_blank\"><b style=\"margin-right: 10px;\">";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "title", array()), "html", null, true);
                 echo "</b></a>
@@ -82,11 +82,11 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
                 echo "\" class=\"btn-xs btn-success\">Добавить</a>
                         <a href=\"";
                 // line 26
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "articleEdit", 1 => array("id" => $this->getAttribute($context["article"], "id", array()))), "method"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "articleEdit", 1 => array("slug" => $this->getAttribute($context["article"], "article_slug", array()))), "method"), "html", null, true);
                 echo "\" class=\"btn-xs btn-warning\">Редактировать</a>
                         <a href=\"";
                 // line 27
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "articleDelete", 1 => array("id" => $this->getAttribute($context["article"], "id", array()))), "method"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "articleDelete", 1 => array("slug" => $this->getAttribute($context["article"], "article_slug", array()))), "method"), "html", null, true);
                 echo "\" class=\"btn-xs btn-danger\">Удалить</a>
                     </li>
                     <hr>
@@ -148,29 +148,25 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
             // line 58
             echo "        <div class=\"col-sm-offset-2 col-sm-8\">
             <form action=\"\" method=\"post\">
-                <input type=\"hidden\" name=\"id\" value=\"";
-            // line 60
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article_edit"]) ? $context["article_edit"] : null), "id", array()), "html", null, true);
-            echo "\">
                 <p>
                     <b>Заголовок: </b><br>
                     <input style=\"width: 100%\" type=\"text\" name=\"title\" value=\"";
-            // line 63
+            // line 62
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article_edit"]) ? $context["article_edit"] : null), "title", array()), "html", null, true);
             echo "\">
                 </p>
                 <p>
                     <b>Категория:</b><br>
-                    <select style=\"width: 100%\" name=\"category\" id=\"category\">
+                    <select style=\"width: 100%\" name=\"category_id\" id=\"category\">
                         ";
-            // line 68
+            // line 67
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["category"]) ? $context["category"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
-                // line 69
+                // line 68
                 echo "                            ";
                 if (($this->getAttribute((isset($context["article_edit"]) ? $context["article_edit"] : null), "category_id", array()) == $this->getAttribute($context["row"], "id", array()))) {
-                    // line 70
+                    // line 69
                     echo "                                <option selected class=\"bg-success\" value=\"";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "id", array()), "html", null, true);
                     echo "\">";
@@ -178,7 +174,7 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
                     echo "</option>
                             ";
                 } else {
-                    // line 72
+                    // line 71
                     echo "                                <option value=\"";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "id", array()), "html", null, true);
                     echo "\">";
@@ -186,34 +182,34 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
                     echo "</option>
                             ";
                 }
-                // line 74
+                // line 73
                 echo "                        ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 75
+            // line 74
             echo "                    </select>
                 </p>
                 <p>
                     <b>Новость: </b><br>
                     <textarea style=\"width: 100%\" name=\"full_text\" id=\"full_text\" class=\"tiny\" rows=\"15\">";
-            // line 79
+            // line 78
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article_edit"]) ? $context["article_edit"] : null), "full_text", array()), "html", null, true);
             echo "</textarea>
                 </p>
                 <button type=\"submit\" name=\"save\" class=\"btn btn-success pull-right\">Сохранить <i class=\"fa fa-file-o\"></i></button>
                 <a href=\"";
-            // line 82
+            // line 81
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "adminNews"), "method"), "html", null, true);
             echo "\" class=\"btn btn-danger pull-right\" style=\"margin-right: 10px;\"><i class=\"fa fa-close\"></i> Отмена</a>
                 <div class=\"clear\"></div>
             </form>
         </div>
     ";
-        } elseif (        // line 86
+        } elseif (        // line 85
 (isset($context["category_add"]) ? $context["category_add"] : null)) {
-            // line 87
+            // line 86
             echo "        <div class=\"col-sm-offset-2 col-sm-8\">
             <form action=\"\" method=\"post\">
                 <p>
@@ -225,11 +221,11 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
                     <select style=\"width: 100%\" name=\"parent_id\" id=\"category\">
                         <option selected value=\"0\">Основная категория</option>
                         ";
-            // line 97
+            // line 96
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["category"]) ? $context["category"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
-                // line 98
+                // line 97
                 echo "                            <option value=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "id", array()), "html", null, true);
                 echo "\">";
@@ -240,31 +236,31 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 100
+            // line 99
             echo "                    </select>
                 </p>
                 <button type=\"submit\" name=\"save\" class=\"btn btn-success pull-right\">Сохранить <i class=\"fa fa-file-o\"></i></button>
                 <a href=\"";
-            // line 103
+            // line 102
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "category"), "method"), "html", null, true);
             echo "\" class=\"btn btn-danger pull-right\" style=\"margin-right: 10px;\"><i class=\"fa fa-close\"></i> Отмена</a>
                 <div class=\"clear\"></div>
             </form>
         </div>
     ";
-        } elseif (        // line 107
+        } elseif (        // line 106
 (isset($context["category_edit"]) ? $context["category_edit"] : null)) {
-            // line 108
+            // line 107
             echo "        <div class=\"col-sm-offset-2 col-sm-8\">
             <form action=\"\" method=\"post\">
                 <input type=\"hidden\" name=\"id\" value=\"";
-            // line 110
+            // line 109
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["category_info"]) ? $context["category_info"] : null), "id", array()), "html", null, true);
             echo "\">
                 <p>
                     <b>Название категории: </b><br>
                     <input style=\"width: 100%\" type=\"text\" name=\"category_name\" value=\"";
-            // line 113
+            // line 112
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["category_info"]) ? $context["category_info"] : null), "category_name", array()), "html", null, true);
             echo "\">
                 </p>
@@ -273,11 +269,11 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
                     <select style=\"width: 100%\" name=\"parent_id\" id=\"category\">
                         <option selected value=\"0\">Основная категория</option>
                         ";
-            // line 119
+            // line 118
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["category"]) ? $context["category"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
-                // line 120
+                // line 119
                 echo "                            <option value=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "id", array()), "html", null, true);
                 echo "\">";
@@ -288,48 +284,48 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 122
+            // line 121
             echo "                    </select>
                 </p>
                 <button type=\"submit\" name=\"save\" class=\"btn btn-success pull-right\">Сохранить <i class=\"fa fa-file-o\"></i></button>
                 <a href=\"";
-            // line 125
+            // line 124
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "category"), "method"), "html", null, true);
             echo "\" class=\"btn btn-danger pull-right\" style=\"margin-right: 10px;\"><i class=\"fa fa-close\"></i> Отмена</a>
                 <div class=\"clear\"></div>
             </form>
         </div>
     ";
-        } elseif (        // line 129
+        } elseif (        // line 128
 (isset($context["category"]) ? $context["category"] : null)) {
-            // line 130
+            // line 129
             echo "        <div class=\"col-sm-offset-2 col-sm-8\">
             <ol>
                 <hr>
                 ";
-            // line 133
+            // line 132
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["category"]) ? $context["category"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
-                // line 134
+                // line 133
                 echo "                    <li>
                         <a href=\"";
-                // line 135
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "newsCategory", 1 => array("id" => $this->getAttribute($context["row"], "id", array()))), "method"), "html", null, true);
+                // line 134
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "newsCategory", 1 => array("slug" => $this->getAttribute($context["row"], "category_slug", array()))), "method"), "html", null, true);
                 echo "\" target=\"_blank\"><b style=\"margin-right: 10px;\">";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["row"], "category_name", array()), "html", null, true);
                 echo "</b></a>
                         <a href=\"";
-                // line 136
+                // line 135
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "categoryAdd"), "method"), "html", null, true);
                 echo "\" class=\"btn-xs btn-success\">Добавить</a>
                         <a href=\"";
-                // line 137
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "categoryEdit", 1 => array("id" => $this->getAttribute($context["row"], "id", array()))), "method"), "html", null, true);
+                // line 136
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "categoryEdit", 1 => array("slug" => $this->getAttribute($context["row"], "category_slug", array()))), "method"), "html", null, true);
                 echo "\" class=\"btn-xs btn-warning\">Редактировать</a>
                         <a href=\"";
-                // line 138
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "categoryDelete", 1 => array("id" => $this->getAttribute($context["row"], "id", array()))), "method"), "html", null, true);
+                // line 137
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "categoryDelete", 1 => array("slug" => $this->getAttribute($context["row"], "category_slug", array()))), "method"), "html", null, true);
                 echo "\" class=\"btn-xs btn-danger\">Удалить</a>
                     </li>
                     <hr>
@@ -338,12 +334,12 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 142
+            // line 141
             echo "            </ol>
         </div>
     ";
         }
-        // line 145
+        // line 144
         echo "</div>
 ";
     }
@@ -360,7 +356,7 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
 
     public function getDebugInfo()
     {
-        return array (  347 => 145,  342 => 142,  332 => 138,  328 => 137,  324 => 136,  318 => 135,  315 => 134,  311 => 133,  306 => 130,  304 => 129,  297 => 125,  292 => 122,  281 => 120,  277 => 119,  268 => 113,  262 => 110,  258 => 108,  256 => 107,  249 => 103,  244 => 100,  233 => 98,  229 => 97,  217 => 87,  215 => 86,  208 => 82,  202 => 79,  196 => 75,  190 => 74,  182 => 72,  174 => 70,  171 => 69,  167 => 68,  159 => 63,  153 => 60,  149 => 58,  147 => 57,  140 => 53,  131 => 46,  120 => 44,  116 => 43,  105 => 34,  103 => 33,  99 => 31,  89 => 27,  85 => 26,  81 => 25,  74 => 24,  70 => 23,  67 => 22,  63 => 21,  58 => 18,  56 => 17,  53 => 16,  50 => 15,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  343 => 144,  338 => 141,  328 => 137,  324 => 136,  320 => 135,  314 => 134,  311 => 133,  307 => 132,  302 => 129,  300 => 128,  293 => 124,  288 => 121,  277 => 119,  273 => 118,  264 => 112,  258 => 109,  254 => 107,  252 => 106,  245 => 102,  240 => 99,  229 => 97,  225 => 96,  213 => 86,  211 => 85,  204 => 81,  198 => 78,  192 => 74,  186 => 73,  178 => 71,  170 => 69,  167 => 68,  163 => 67,  155 => 62,  149 => 58,  147 => 57,  140 => 53,  131 => 46,  120 => 44,  116 => 43,  105 => 34,  103 => 33,  99 => 31,  89 => 27,  85 => 26,  81 => 25,  74 => 24,  70 => 23,  67 => 22,  63 => 21,  58 => 18,  56 => 17,  53 => 16,  50 => 15,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 }
 /* {% extends "Admin/admin_template_view.html.twig" %}*/
@@ -386,10 +382,10 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
 /*                 {% for article in news %}*/
 /*                     <li>*/
 /*                         {% if article.status == 'moderation' %} <b class="text-danger"><i class="fa fa-info-circle"></i> Ожидает модерации -</b>{% endif %}*/
-/*                         <a href="{{ url.generate('article',{id: article.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>*/
+/*                         <a href="{{ url.generate('article', {slug:article.article_slug}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>*/
 /*                         <a href="{{ url.generate('articleAdd') }}" class="btn-xs btn-success">Добавить</a>*/
-/*                         <a href="{{ url.generate('articleEdit', {id: article.id}) }}" class="btn-xs btn-warning">Редактировать</a>*/
-/*                         <a href="{{ url.generate('articleDelete', {id: article.id}) }}" class="btn-xs btn-danger">Удалить</a>*/
+/*                         <a href="{{ url.generate('articleEdit', {slug:article.article_slug}) }}" class="btn-xs btn-warning">Редактировать</a>*/
+/*                         <a href="{{ url.generate('articleDelete', {slug:article.article_slug}) }}" class="btn-xs btn-danger">Удалить</a>*/
 /*                     </li>*/
 /*                     <hr>*/
 /*                 {% endfor %}*/
@@ -422,14 +418,13 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
 /*     {% elseif article_edit %}*/
 /*         <div class="col-sm-offset-2 col-sm-8">*/
 /*             <form action="" method="post">*/
-/*                 <input type="hidden" name="id" value="{{ article_edit.id }}">*/
 /*                 <p>*/
 /*                     <b>Заголовок: </b><br>*/
 /*                     <input style="width: 100%" type="text" name="title" value="{{ article_edit.title }}">*/
 /*                 </p>*/
 /*                 <p>*/
 /*                     <b>Категория:</b><br>*/
-/*                     <select style="width: 100%" name="category" id="category">*/
+/*                     <select style="width: 100%" name="category_id" id="category">*/
 /*                         {% for row in category %}*/
 /*                             {% if article_edit.category_id == row.id %}*/
 /*                                 <option selected class="bg-success" value="{{ row.id }}">{{ row.category_name }}</option>*/
@@ -497,10 +492,10 @@ class __TwigTemplate_ba947c4a862a957029f6faf0cc0c12d7e9f6f267d3f94fdd3aa4db4714e
 /*                 <hr>*/
 /*                 {% for row in category %}*/
 /*                     <li>*/
-/*                         <a href="{{ url.generate('newsCategory', {id:row.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ row.category_name }}</b></a>*/
+/*                         <a href="{{ url.generate('newsCategory', {slug:row.category_slug}) }}" target="_blank"><b style="margin-right: 10px;">{{ row.category_name }}</b></a>*/
 /*                         <a href="{{ url.generate('categoryAdd') }}" class="btn-xs btn-success">Добавить</a>*/
-/*                         <a href="{{ url.generate('categoryEdit', {id: row.id}) }}" class="btn-xs btn-warning">Редактировать</a>*/
-/*                         <a href="{{ url.generate('categoryDelete', {id: row.id}) }}" class="btn-xs btn-danger">Удалить</a>*/
+/*                         <a href="{{ url.generate('categoryEdit', {slug:row.category_slug}) }}" class="btn-xs btn-warning">Редактировать</a>*/
+/*                         <a href="{{ url.generate('categoryDelete', {slug:row.category_slug}) }}" class="btn-xs btn-danger">Удалить</a>*/
 /*                     </li>*/
 /*                     <hr>*/
 /*                 {% endfor %}*/

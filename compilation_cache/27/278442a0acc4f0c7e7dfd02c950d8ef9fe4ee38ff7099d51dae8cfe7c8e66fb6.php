@@ -28,7 +28,7 @@ class __TwigTemplate_ddcf2a581cc65f267e70ee88348384f717735d76933be988045d7e47e95
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo " Страница не найдена - 404 ";
+        echo " 404 - Страница не найдена ";
     }
 
     // line 5
@@ -36,9 +36,9 @@ class __TwigTemplate_ddcf2a581cc65f267e70ee88348384f717735d76933be988045d7e47e95
     {
         // line 6
         echo "<div id=\"content\" class=\" col-sm-12\">
-    <h1 class=\"text-center\"><i class=\"fa fa-exclamation-triangle\"></i> Ошибка 404</h1>
+    <h1 class=\"text-center\"><i class=\"fa fa-exclamation-triangle\"></i> 404 Ошибка</h1>
     <h2 class=\"text-center\">Страница не найдена.</h2>
-    <h4 class=\"text-center\"><i class=\"fa fa-envelope-o\"></i> Помогите исправить ошибку, <a href=\"milto:info@yurasik.ml\">сообщите пожалуйста нам!</a></h4>
+    <h4 class=\"text-center\"><i class=\"fa fa-envelope-o\"></i> Помогите исправить ошибку, <a href=\"mailto:info@yurasik.ml\">сообщите пожалуйста нам!</a></h4>
 </div>
 ";
     }
@@ -60,12 +60,12 @@ class __TwigTemplate_ddcf2a581cc65f267e70ee88348384f717735d76933be988045d7e47e95
 }
 /* {% extends "template_view.html.twig" %}*/
 /* */
-/* {% block title %} Страница не найдена - 404 {% endblock %}*/
+/* {% block title %} 404 - Страница не найдена {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* <div id="content" class=" col-sm-12">*/
-/*     <h1 class="text-center"><i class="fa fa-exclamation-triangle"></i> Ошибка 404</h1>*/
+/*     <h1 class="text-center"><i class="fa fa-exclamation-triangle"></i> 404 Ошибка</h1>*/
 /*     <h2 class="text-center">Страница не найдена.</h2>*/
-/*     <h4 class="text-center"><i class="fa fa-envelope-o"></i> Помогите исправить ошибку, <a href="milto:info@yurasik.ml">сообщите пожалуйста нам!</a></h4>*/
+/*     <h4 class="text-center"><i class="fa fa-envelope-o"></i> Помогите исправить ошибку, <a href="mailto:info@yurasik.ml">сообщите пожалуйста нам!</a></h4>*/
 /* </div>*/
 /* {% endblock %}*/

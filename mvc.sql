@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Окт 31 2015 г., 05:33
+-- Время создания: Ноя 04 2015 г., 00:37
 -- Версия сервера: 5.5.46-0ubuntu0.14.04.2
 -- Версия PHP: 5.5.9-1ubuntu4.14
 
@@ -31,16 +31,16 @@ CREATE TABLE IF NOT EXISTS `category` (
   `parent_id` int(11) unsigned DEFAULT '0',
   `category_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Дамп данных таблицы `category`
 --
 
 INSERT INTO `category` (`id`, `parent_id`, `category_name`) VALUES
-(1, 0, 'HTML'),
-(2, 0, 'PHP'),
-(3, 0, 'Web-Design');
+(1, 0, 'Бессплатные матчи'),
+(2, 0, 'VIP матчи'),
+(3, 0, 'История VIP матчей');
 
 -- --------------------------------------------------------
 

@@ -21,10 +21,10 @@
                 {% for article in news %}
                     <li>
                         {% if article.status == 'moderation' %} <b class="text-danger"><i class="fa fa-info-circle"></i> Ожидает модерации -</b>{% endif %}
-                        <a href="{{ url.generate('article',{id: article.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>
+                        <a href="{{ url.generate('article', {slug:article.article_slug}) }}" target="_blank"><b style="margin-right: 10px;">{{ article.title }}</b></a>
                         <a href="{{ url.generate('articleAdd') }}" class="btn-xs btn-success">Добавить</a>
-                        <a href="{{ url.generate('articleEdit', {id: article.id}) }}" class="btn-xs btn-warning">Редактировать</a>
-                        <a href="{{ url.generate('articleDelete', {id: article.id}) }}" class="btn-xs btn-danger">Удалить</a>
+                        <a href="{{ url.generate('articleEdit', {slug:article.article_slug}) }}" class="btn-xs btn-warning">Редактировать</a>
+                        <a href="{{ url.generate('articleDelete', {slug:article.article_slug}) }}" class="btn-xs btn-danger">Удалить</a>
                     </li>
                     <hr>
                 {% endfor %}
@@ -57,14 +57,13 @@
     {% elseif article_edit %}
         <div class="col-sm-offset-2 col-sm-8">
             <form action="" method="post">
-                <input type="hidden" name="id" value="{{ article_edit.id }}">
                 <p>
                     <b>Заголовок: </b><br>
                     <input style="width: 100%" type="text" name="title" value="{{ article_edit.title }}">
                 </p>
                 <p>
                     <b>Категория:</b><br>
-                    <select style="width: 100%" name="category" id="category">
+                    <select style="width: 100%" name="category_id" id="category">
                         {% for row in category %}
                             {% if article_edit.category_id == row.id %}
                                 <option selected class="bg-success" value="{{ row.id }}">{{ row.category_name }}</option>
@@ -132,10 +131,10 @@
                 <hr>
                 {% for row in category %}
                     <li>
-                        <a href="{{ url.generate('newsCategory', {id:row.id}) }}" target="_blank"><b style="margin-right: 10px;">{{ row.category_name }}</b></a>
+                        <a href="{{ url.generate('newsCategory', {slug:row.category_slug}) }}" target="_blank"><b style="margin-right: 10px;">{{ row.category_name }}</b></a>
                         <a href="{{ url.generate('categoryAdd') }}" class="btn-xs btn-success">Добавить</a>
-                        <a href="{{ url.generate('categoryEdit', {id: row.id}) }}" class="btn-xs btn-warning">Редактировать</a>
-                        <a href="{{ url.generate('categoryDelete', {id: row.id}) }}" class="btn-xs btn-danger">Удалить</a>
+                        <a href="{{ url.generate('categoryEdit', {slug:row.category_slug}) }}" class="btn-xs btn-warning">Редактировать</a>
+                        <a href="{{ url.generate('categoryDelete', {slug:row.category_slug}) }}" class="btn-xs btn-danger">Удалить</a>
                     </li>
                     <hr>
                 {% endfor %}

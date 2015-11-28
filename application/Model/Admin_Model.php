@@ -14,9 +14,15 @@ class admin_model extends Model
         return $data;
     }
 
-    public function deleteArticleById($id)
+    public function updateArticle($slug, $newValues)
     {
-        $data = $this->deleteById('news', $id);
+        $data = $this->updateArticleBySlug('news', $newValues, $slug);
+        return $data;
+    }
+
+    public function deleteArticle($slug)
+    {
+        $data = $this->deleteArticleBySlug('news', $slug);
         return $data;
     }
 
@@ -26,9 +32,16 @@ class admin_model extends Model
         return $data;
     }
 
+    public function getArticleBySlug($slug)
+    {
+        $data = $this->selectArticleBySlug('news', '*', $slug);
+        return $data;
+    }
+
+
     public function getNews()
     {
-        $data = $this->select('news', 'id, title, status', '', 'date', 'DESC');
+        $data = $this->select('news', 'id, title, status, article_slug', '', 'created_at', 'DESC');
         return $data;
     }
 
@@ -44,9 +57,9 @@ class admin_model extends Model
         return $data;
     }
 
-    public function deleteCategoryById($id)
+    public function deleteCategory($slug)
     {
-        $data = $this->deleteById('category', $id);
+        $data = $this->deleteCategoryBySlug('category', $slug);
         return $data;
     }
 
@@ -56,15 +69,15 @@ class admin_model extends Model
         return $data;
     }
 
-    public function getCategoryExceptId($id)
+    public function getCategoryExceptSlug($slug)
     {
-        $data = $this->selectExceptId('category', '*', $id);
+        $data = $this->selectExceptSlug('category', '*', $slug);
         return $data;
     }
 
-    public function getCategoryById($id)
+    public function getCategoryBySlug($slug)
     {
-        $data = $this->selectById('category', '*', $id);
+        $data = $this->select('category', '*', array('category_slug' => $slug));
         return $data;
     }
 }

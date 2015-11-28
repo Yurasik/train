@@ -111,14 +111,14 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
                         <a href=\"";
             // line 45
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "logout"), "method"), "html", null, true);
-            echo "\"><i class=\"fa fa-sign-out\"></i> <b>Выйти</b> </a>
+            echo "\" class=\"btn btn-danger btn-xs\"><i class=\"fa fa-sign-out\"></i> <b>Выйти</b> </a>
                     </p>
                     ";
         } else {
             // line 48
             echo "                    <a href=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["url"]) ? $context["url"] : null), "generate", array(0 => "login"), "method"), "html", null, true);
-            echo "\" class=\"btn btn-primary\"><i class=\"fa fa-sign-in\"></i> Вход</a>
+            echo "\" class=\"btn btn-success btn-xs\"><i class=\"fa fa-sign-in\"></i> Вход</a>
                     ";
         }
         // line 50
@@ -241,10 +241,10 @@ class __TwigTemplate_54a46aa01dc29c40f6b7ecdffbd0767aad6dbab9729f81233b446bb0267
 /*                     {% if user_login %}*/
 /*                     <p id="wellcome-text">*/
 /*                         Приветствуем, <b>{{ user_email }}</b>*/
-/*                         <a href="{{ url.generate('logout') }}"><i class="fa fa-sign-out"></i> <b>Выйти</b> </a>*/
+/*                         <a href="{{ url.generate('logout') }}" class="btn btn-danger btn-xs"><i class="fa fa-sign-out"></i> <b>Выйти</b> </a>*/
 /*                     </p>*/
 /*                     {% else %}*/
-/*                     <a href="{{ url.generate('login') }}" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход</a>*/
+/*                     <a href="{{ url.generate('login') }}" class="btn btn-success btn-xs"><i class="fa fa-sign-in"></i> Вход</a>*/
 /*                     {% endif %}*/
 /*                 </div>*/
 /*             </div>*/

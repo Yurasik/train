@@ -42,10 +42,10 @@
                     {% if user_login %}
                     <p id="wellcome-text">
                         Приветствуем, <b>{{ user_email }}</b>
-                        <a href="{{ url.generate('logout') }}"><i class="fa fa-sign-out"></i> <b>Выйти</b> </a>
+                        <a href="{{ url.generate('logout') }}" class="btn btn-danger btn-xs"><i class="fa fa-sign-out"></i> <b>Выйти</b> </a>
                     </p>
                     {% else %}
-                    <a href="{{ url.generate('login') }}" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход</a>
+                    <a href="{{ url.generate('login') }}" class="btn btn-success btn-xs"><i class="fa fa-sign-in"></i> Вход</a>
                     {% endif %}
                 </div>
             </div>
