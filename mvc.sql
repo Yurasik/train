@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 04 2015 г., 00:37
+-- Время создания: Ноя 28 2015 г., 22:27
 -- Версия сервера: 5.5.46-0ubuntu0.14.04.2
 -- Версия PHP: 5.5.9-1ubuntu4.14
 
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) unsigned DEFAULT '0',
   `category_name` varchar(100) NOT NULL,
+  `category_slug` varchar(125) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -37,10 +38,10 @@ CREATE TABLE IF NOT EXISTS `category` (
 -- Дамп данных таблицы `category`
 --
 
-INSERT INTO `category` (`id`, `parent_id`, `category_name`) VALUES
-(1, 0, 'Бессплатные матчи'),
-(2, 0, 'VIP матчи'),
-(3, 0, 'История VIP матчей');
+INSERT INTO `category` (`id`, `parent_id`, `category_name`, `category_slug`) VALUES
+(1, 0, 'Первая категория', 'pervaya-kategoriya'),
+(2, 0, 'Вторая категория', 'vtoraya-kategoriya'),
+(3, 0, 'Третья категория', 'tretya-kategoriya');
 
 -- --------------------------------------------------------
 
@@ -55,8 +56,10 @@ CREATE TABLE IF NOT EXISTS `news` (
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `full_text` text NOT NULL,
-  `date` varchar(255) NOT NULL,
+  `created_at` varchar(50) NOT NULL,
+  `updated_at` varchar(50) DEFAULT NULL,
   `status` varchar(100) NOT NULL,
+  `article_slug` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
@@ -64,14 +67,14 @@ CREATE TABLE IF NOT EXISTS `news` (
 -- Дамп данных таблицы `news`
 --
 
-INSERT INTO `news` (`id`, `category_id`, `author_id`, `title`, `description`, `full_text`, `date`, `status`) VALUES
-(9, 2, 1, 'Проба поломать Tiny', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '1446251858', 'published'),
-(12, 1, 1, 'Добавление с выбором категории', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '1446251860', 'published'),
-(18, 1, 1, 'Добавление новости с данными автора', '<p style="text-align: center;">Добавление новости с данными автора</p>', '<p style="text-align: center;">Добавление новости с данными автора</p>', '1446251862', 'published'),
-(19, 1, 1, 'Проверка на авторство', '<p style="text-align: center;">Проверка на авторство</p>', '<p style="text-align: center;">Проверка на авторство</p>', '1446251864', 'published'),
-(21, 3, 1, 'Добавление новости в новую категорию', '<p style="text-align: center;">Добавление новости в новую категорию</p>', '<p style="text-align: center;">Добавление новости в новую категорию</p>', '1446251866', 'published'),
-(28, 1, 1, 'Добавление предложеной новости', '<p style="text-align: center;">Добавление предложеной новости</p>', '<p style="text-align: center;">Добавление предложеной новости</p>', '1446251868', 'moderation'),
-(31, 1, 3, 'Добавление предложеной новости от нового автора', '<p style="text-align: center;">Добавление предложеной новости от нового автора</p>', '<p style="text-align: center;">Добавление предложеной новости от нового автора</p>', '31-10-2015', 'moderation');
+INSERT INTO `news` (`id`, `category_id`, `author_id`, `title`, `description`, `full_text`, `created_at`, `updated_at`, `status`, `article_slug`) VALUES
+(9, 2, 1, 'Проба поломать Tiny', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '<p style="text-align: center;">Ломаем</p>\r\n<p style="text-align: center;">&lt;form acrion="" method="get"&gt;</p>\r\n<p style="text-align: center;">&lt;input type="text" name="hack"&gt;</p>\r\n<p style="text-align: center;">&lt;/form&gt;</p>', '1447045294', NULL, 'published', 'proba-polomat-tiny'),
+(12, 1, 1, 'Добавление с выбором категории', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '<p style="text-align: center;">&nbsp;public function article_add_action()</p>', '1447045292', NULL, 'published', 'dobavlenie-s-viborom-kategorii'),
+(18, 1, 1, 'Добавление новости с данными автора', '<p style="text-align: center;">Добавление новости с данными автора</p>', '<p style="text-align: center;">Добавление новости с данными автора</p>', '1447045289', NULL, 'published', 'dobavlenie-novosti-s-dannimi-avtora'),
+(19, 1, 1, 'Проверка на авторство', '<p style="text-align: center;">Проверка на авторство</p>', '<p style="text-align: center;">Проверка на авторство</p>', '1447045279', NULL, 'published', 'proverka-na-avtorstvo'),
+(21, 3, 1, 'Добавление новости в новую категорию', '<p style="text-align: center;">Добавление новости в новую категорию</p>', '<p style="text-align: center;">Добавление новости в новую категорию</p>', '1447045275', NULL, 'published', 'dobavlenie-novosti-v-novuyu-kategoriyu'),
+(28, 1, 1, 'Добавление предложеной новости', '<p style="text-align: center;">Добавление предложеной новости</p>', '<p style="text-align: center;">Добавление предложеной новости</p>', '1447045273', NULL, 'moderation', 'dobavlenie-predlojenoy-novosti'),
+(31, 1, 3, 'Добавление предложеной новости от нового автора', '<p style="text-align: center;">Добавление предложеной новости от нового автора</p>', '<p style="text-align: center;">Добавление предложеной новости от нового автора</p>', '1447045263', NULL, 'moderation', 'dobavlenie-predlojenoy-novosti-ot-novogo-avtora');
 
 -- --------------------------------------------------------
 
